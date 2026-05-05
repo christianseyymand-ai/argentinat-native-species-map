@@ -32,9 +32,9 @@
       top: 16px;
       left: 16px;
       z-index: 1000;
-      width: 320px;
+      width: 340px;
       max-width: calc(100vw - 32px);
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-radius: 12px;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
       padding: 14px;
@@ -66,6 +66,7 @@
       margin-top: 8px;
       font-size: 12px;
       color: #374151;
+      line-height: 1.35;
     }
 
     .progress-wrap {
@@ -82,6 +83,12 @@
       width: 0%;
       background: #16a34a;
       transition: width 0.25s ease;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #6b7280;
     }
 
     .error {
@@ -142,7 +149,8 @@
 
       .panel p,
       .stats,
-      .status {
+      .status,
+      .hint {
         font-size: 12px;
       }
     }
@@ -157,9 +165,10 @@
     <p>Observaciones georreferenciadas de plantas nativas/endémicas en Argentina.</p>
 
     <div class="stats">
-      <div><strong>Estado:</strong> <span id="statusText">Cargando datos...</span></div>
-      <div><strong>Observaciones:</strong> <span id="observationsCount">0</span></div>
-      <div><strong>Chunks cargados:</strong> <span id="chunksCount">0</span></div>
+      <div><strong>Estado:</strong> <span id="statusText">Cargando vista rápida...</span></div>
+      <div><strong>Vista rápida:</strong> <span id="overviewCount">0</span></div>
+      <div><strong>Zona cargada:</strong> <span id="tileObservationCount">0</span></div>
+      <div><strong>Tiles cargados:</strong> <span id="tilesCount">0</span></div>
     </div>
 
     <div class="progress-wrap">
@@ -167,7 +176,11 @@
     </div>
 
     <div id="detailStatus" class="status">
-      Leyendo manifest...
+      Leyendo datos...
+    </div>
+
+    <div class="hint">
+      Tip: acercá el zoom para cargar todas las observaciones de la zona visible.
     </div>
   </div>
 
@@ -188,10 +201,21 @@
     }).addTo(map);
 
     const statusText = document.getElementById("statusText");
-    const observationsCount = document.getElementById("observationsCount");
-    const chunksCount = document.getElementById("chunksCount");
+    const overviewCount = document.getElementById("overviewCount");
+    const tileObservationCount = document.getElementById("tileObservationCount");
+    const tilesCount = document.getElementById("tilesCount");
     const detailStatus = document.getElementById("detailStatus");
     const progressBar = document.getElementById("progressBar");
+
+    const overviewLayerGroup = L.layerGroup().addTo(map);
+    const tileLayerGroup = L.layerGroup().addTo(map);
+
+    let tileManifest = null;
+    let loadedTileKeys = new Set();
+    let loadingTileKeys = new Set();
+    let totalLoadedTileObservations = 0;
+
+    const MIN_ZOOM_FOR_FULL_TILES = 7;
 
     function formatNumber(value) {
       return new Intl.NumberFormat("es-AR").format(value);
@@ -248,112 +272,219 @@
       return html;
     }
 
-    function pointToLayer(feature, latlng) {
+    function overviewPointToLayer(feature, latlng) {
+      return L.circleMarker(latlng, {
+        radius: 3,
+        weight: 0,
+        opacity: 0.45,
+        fillOpacity: 0.35
+      });
+    }
+
+    function detailedPointToLayer(feature, latlng) {
       return L.circleMarker(latlng, {
         radius: 4,
         weight: 1,
         opacity: 0.75,
-        fillOpacity: 0.45
+        fillOpacity: 0.5
       });
     }
 
-    async function loadManifest() {
-      const response = await fetch("./data/geojson_manifest.json", {
+    async function fetchJson(path) {
+      const response = await fetch(path, {
         cache: "no-store"
       });
 
       if (!response.ok) {
-        throw new Error("No se pudo cargar data/geojson_manifest.json");
+        throw new Error(`No se pudo cargar ${path}`);
       }
 
       return response.json();
     }
 
-    async function loadChunk(chunkPath) {
-      const response = await fetch(`./data/${chunkPath}`, {
-        cache: "no-store"
+    async function loadOverview() {
+      statusText.textContent = "Cargando vista rápida...";
+      detailStatus.textContent = "Leyendo data/geojson_overview.geojson";
+
+      const overviewGeojson = await fetchJson("./data/geojson_overview.geojson");
+      const features = Array.isArray(overviewGeojson.features) ? overviewGeojson.features : [];
+
+      const layer = L.geoJSON(overviewGeojson, {
+        pointToLayer: overviewPointToLayer
       });
 
-      if (!response.ok) {
-        throw new Error(`No se pudo cargar ./data/${chunkPath}`);
+      overviewLayerGroup.clearLayers();
+      overviewLayerGroup.addLayer(layer);
+
+      overviewCount.textContent = formatNumber(features.length);
+
+      try {
+        const bounds = layer.getBounds();
+        if (bounds.isValid()) {
+          map.fitBounds(bounds, {
+            padding: [20, 20]
+          });
+        }
+      } catch (error) {
+        console.warn("No se pudieron ajustar bounds de overview:", error);
       }
 
-      return response.json();
+      statusText.textContent = "Vista rápida lista";
+      detailStatus.textContent = "Acercá el zoom para cargar todos los puntos de la zona.";
     }
 
-    async function loadObservationChunks() {
-      statusText.textContent = "Cargando manifest...";
-      detailStatus.textContent = "Leyendo data/geojson_manifest.json";
+    async function loadTileManifest() {
+      tileManifest = await fetchJson("./data/geojson_tile_manifest.json");
 
-      const manifest = await loadManifest();
+      if (!tileManifest.tiles) {
+        throw new Error("El manifest no tiene tiles válidos.");
+      }
+    }
 
-      if (!manifest.chunks || !Array.isArray(manifest.chunks)) {
-        throw new Error("El manifest no tiene una lista válida de chunks.");
+    function tileKeysForCurrentBounds() {
+      if (!tileManifest) return [];
+
+      const bounds = map.getBounds();
+
+      const south = Math.floor(bounds.getSouth());
+      const north = Math.floor(bounds.getNorth());
+      const west = Math.floor(bounds.getWest());
+      const east = Math.floor(bounds.getEast());
+
+      const keys = [];
+
+      for (let lat = south; lat <= north; lat += 1) {
+        for (let lon = west; lon <= east; lon += 1) {
+          const key = `${lat},${lon}`;
+
+          if (tileManifest.tiles[key]) {
+            keys.push(key);
+          }
+        }
       }
 
-      const totalChunks = manifest.chunks.length;
-      let loadedChunks = 0;
-      let loadedObservations = 0;
-      const bounds = L.latLngBounds([]);
+      return keys;
+    }
 
-      statusText.textContent = "Cargando observaciones...";
-      detailStatus.textContent = `0 de ${totalChunks} chunks cargados`;
+    async function loadTile(key) {
+      if (!tileManifest || !tileManifest.tiles[key]) return;
+      if (loadedTileKeys.has(key) || loadingTileKeys.has(key)) return;
 
-      for (const chunkPath of manifest.chunks) {
-        const chunkGeoJSON = await loadChunk(chunkPath);
-        const features = Array.isArray(chunkGeoJSON.features) ? chunkGeoJSON.features : [];
+      loadingTileKeys.add(key);
 
-        const layer = L.geoJSON(chunkGeoJSON, {
-          pointToLayer,
+      const tileInfo = tileManifest.tiles[key];
+      const path = `./data/${tileInfo.path}`;
+
+      try {
+        detailStatus.textContent = `Cargando tile ${key}...`;
+
+        const tileGeojson = await fetchJson(path);
+        const features = Array.isArray(tileGeojson.features) ? tileGeojson.features : [];
+
+        const layer = L.geoJSON(tileGeojson, {
+          pointToLayer: detailedPointToLayer,
           onEachFeature: function (feature, layer) {
             layer.bindPopup(popupContent(feature));
           }
-        }).addTo(map);
-
-        try {
-          const layerBounds = layer.getBounds();
-          if (layerBounds.isValid()) {
-            bounds.extend(layerBounds);
-          }
-        } catch (error) {
-          console.warn("No se pudieron calcular bounds para:", chunkPath, error);
-        }
-
-        loadedChunks += 1;
-        loadedObservations += features.length;
-
-        chunksCount.textContent = `${loadedChunks} / ${totalChunks}`;
-        observationsCount.textContent = formatNumber(loadedObservations);
-
-        const percent = Math.round((loadedChunks / totalChunks) * 100);
-        progressBar.style.width = `${percent}%`;
-
-        detailStatus.textContent = `${loadedChunks} de ${totalChunks} chunks cargados`;
-        console.log(`Loaded ${chunkPath}: ${features.length} features`);
-      }
-
-      statusText.textContent = "Listo";
-      observationsCount.textContent = formatNumber(loadedObservations);
-      chunksCount.textContent = `${loadedChunks} / ${totalChunks}`;
-      detailStatus.textContent = `Dataset cargado: ${formatNumber(loadedObservations)} observaciones.`;
-
-      if (bounds.isValid()) {
-        map.fitBounds(bounds, {
-          padding: [20, 20]
         });
+
+        tileLayerGroup.addLayer(layer);
+
+        loadedTileKeys.add(key);
+        totalLoadedTileObservations += features.length;
+
+        tilesCount.textContent = formatNumber(loadedTileKeys.size);
+        tileObservationCount.textContent = formatNumber(totalLoadedTileObservations);
+
+        console.log(`Loaded tile ${key}: ${features.length} features`);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        loadingTileKeys.delete(key);
       }
     }
 
-    loadObservationChunks().catch((error) => {
-      console.error(error);
+    async function updateVisibleTiles() {
+      if (!tileManifest) return;
 
-      statusText.innerHTML = '<span class="error">Error</span>';
-      detailStatus.innerHTML = `
-        <span class="error">
-          ${escapeHtml(error.message)}
-        </span>
-      `;
-    });
+      const zoom = map.getZoom();
+
+      if (zoom < MIN_ZOOM_FOR_FULL_TILES) {
+        statusText.textContent = "Vista rápida";
+        detailStatus.textContent = `Zoom ${zoom}. Acercá hasta zoom ${MIN_ZOOM_FOR_FULL_TILES} para cargar observaciones completas por zona.`;
+        progressBar.style.width = "0%";
+        return;
+      }
+
+      const keys = tileKeysForCurrentBounds();
+      const keysToLoad = keys.filter(
+        key => !loadedTileKeys.has(key) && !loadingTileKeys.has(key)
+      );
+
+      if (keysToLoad.length === 0) {
+        statusText.textContent = "Zona cargada";
+        detailStatus.textContent = `Tiles visibles ya cargados. Observaciones cargadas en zona: ${formatNumber(totalLoadedTileObservations)}.`;
+        progressBar.style.width = "100%";
+        return;
+      }
+
+      statusText.textContent = "Cargando zona...";
+      detailStatus.textContent = `Cargando ${keysToLoad.length} tiles visibles...`;
+
+      let completed = 0;
+
+      for (const key of keysToLoad) {
+        await loadTile(key);
+        completed += 1;
+
+        const percent = Math.round((completed / keysToLoad.length) * 100);
+        progressBar.style.width = `${percent}%`;
+      }
+
+      statusText.textContent = "Zona cargada";
+      detailStatus.textContent = `Listo. Tiles cargados: ${formatNumber(loadedTileKeys.size)}.`;
+    }
+
+    function debounce(fn, delay) {
+      let timeout = null;
+
+      return function () {
+        clearTimeout(timeout);
+        timeout = setTimeout(fn, delay);
+      };
+    }
+
+    async function init() {
+      try {
+        await loadOverview();
+
+        statusText.textContent = "Cargando manifest...";
+        detailStatus.textContent = "Leyendo data/geojson_tile_manifest.json";
+
+        await loadTileManifest();
+
+        statusText.textContent = "Listo";
+        detailStatus.textContent = `Dataset completo disponible por tiles. Total estimado: ${formatNumber(tileManifest.total_observations || 0)} observaciones.`;
+
+        const debouncedUpdate = debounce(updateVisibleTiles, 350);
+
+        map.on("moveend", debouncedUpdate);
+        map.on("zoomend", debouncedUpdate);
+
+        await updateVisibleTiles();
+      } catch (error) {
+        console.error(error);
+
+        statusText.innerHTML = '<span class="error">Error</span>';
+        detailStatus.innerHTML = `
+          <span class="error">
+            ${escapeHtml(error.message)}
+          </span>
+        `;
+      }
+    }
+
+    init();
   </script>
 </body>
 </html>
