@@ -33,6 +33,14 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/species_master_all_native_plants.csv data/observations_argentina_live.csv data/observations_argentina_live.geojson data/update_summary.json data/update_progress.json || true
-          git commit -m "Update native plant observation data" || echo "No changes to commit"
-          git push
+
+          git add data/
+
+          git status
+
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "Update native plant observation data"
+            git push
+          fi
