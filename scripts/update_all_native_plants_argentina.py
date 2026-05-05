@@ -1,406 +1,462 @@
-#!/usr/bin/env python3
-"""
-Rate-limit-safe updater for the ArgentiNat Native Species Map.
-
-Purpose:
-- Discover native/endemic plant taxa observed in Argentina via iNaturalist / ArgentiNat.
-- Keep a cumulative master species list.
-- Download a small number of representative observations per taxon.
-- Avoid API 429 errors by processing taxa in small batches and preserving progress across runs.
-
-Outputs:
-- data/species_master_all_native_plants.csv
-- data/observations_argentina_live.csv
-- data/observations_argentina_live.geojson
-- data/update_summary.json
-
-Methodology note:
-"All native species" here means native/endemic plant taxa that currently have iNaturalist
-observations in Argentina and are returned by the iNaturalist native=true filter. This is an
-observation-based public-data map, not a formal botanical checklist.
-"""
-
-from __future__ import annotations
-
 import csv
 import json
-import os
-import sys
 import time
-from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Tuple
 
 import requests
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data"
-DATA.mkdir(exist_ok=True)
 
-ARGENTINA_PLACE_ID = os.getenv("ARGENTINA_PLACE_ID", "7190")
-API_BASE = "https://api.inaturalist.org/v1"
-USER_AGENT = os.getenv(
-    "USER_AGENT",
-    "argentinat-native-species-map/1.1 rate-limit-safe (open biodiversity data project; contact via GitHub)",
-)
+# ============================================================
+# CONFIG
+# ============================================================
 
-# Scope configuration
-ICONIC_TAXA = os.getenv("ICONIC_TAXA", "Plantae")
-NATIVE_FILTER = os.getenv("NATIVE_FILTER", "true")
-QUALITY_GRADE = os.getenv("QUALITY_GRADE", "research")
-HAS_GEO = os.getenv("HAS_GEO", "true")
+PLACE_ID = "7190"  # Argentina
+PLACE_NAME = "Argentina"
 
-# API-friendly defaults.
-# The script is cumulative: it processes a batch each run and keeps previous observations.
-PER_PAGE = int(os.getenv("PER_PAGE", "100"))
-MAX_SPECIES = int(os.getenv("MAX_SPECIES", "0"))  # 0 = no cap on species discovery
-MAX_OBS_PER_TAXON = int(os.getenv("MAX_OBS_PER_TAXON", "1"))
-MAX_TAXA_PER_RUN = int(os.getenv("MAX_TAXA_PER_RUN", "250"))
-SLEEP_SECONDS = float(os.getenv("SLEEP_SECONDS", "2.5"))
-REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "45"))
-MAX_RETRIES = int(os.getenv("MAX_RETRIES", "6"))
+DATA_DIR = Path("data")
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-ORIGINAL_SPECIES_MASTER = DATA / "species_master.csv"
-SPECIES_OUT = DATA / "species_master_all_native_plants.csv"
-OBS_OUT = DATA / "observations_argentina_live.csv"
-GEOJSON_OUT = DATA / "observations_argentina_live.geojson"
-SUMMARY_OUT = DATA / "update_summary.json"
+SPECIES_MASTER_CSV = DATA_DIR / "species_master_all_native_plants.csv"
+OBSERVATIONS_CSV = DATA_DIR / "observations_argentina_live.csv"
+OBSERVATIONS_GEOJSON = DATA_DIR / "observations_argentina_live.geojson"
+UPDATE_SUMMARY_JSON = DATA_DIR / "update_summary.json"
+UPDATE_PROGRESS_JSON = DATA_DIR / "update_progress.json"
 
+INAT_BASE_URL = "https://api.inaturalist.org/v1"
 
-@dataclass
-class ApiResult:
-    data: Dict[str, Any]
-    url: str
+# 0 = no limit
+MAX_SPECIES = 0
+
+# 0 = process every species/taxon found
+MAX_TAXA_PER_RUN = 0
+
+# 0 = get as many observations as the API returns for each taxon
+# If the workflow becomes too slow, change this to 50, 100, or 200.
+MAX_OBSERVATIONS_PER_TAXON = 0
+
+SPECIES_PER_PAGE = 100
+OBSERVATIONS_PER_PAGE = 200
+
+# Keep this polite. Lower = faster, higher = safer.
+SLEEP_SECONDS = 1.0
+
+QUALITY_GRADE = "research"
 
 
-def request_json(endpoint: str, params: Dict[str, Any], retries: int = MAX_RETRIES) -> ApiResult:
-    """GET JSON from iNaturalist with respectful retry/backoff, especially for 429 rate limits."""
-    url = f"{API_BASE}/{endpoint.lstrip('/')}"
-    headers = {"User-Agent": USER_AGENT}
+# ============================================================
+# HELPERS
+# ============================================================
+
+def now_utc_iso():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def get_json(url, params=None, retries=5):
+    params = params or {}
 
     for attempt in range(1, retries + 1):
         try:
-            response = requests.get(url, params=params, headers=headers, timeout=REQUEST_TIMEOUT)
+            response = requests.get(url, params=params, timeout=60)
 
             if response.status_code == 429:
-                retry_after = response.headers.get("Retry-After")
-                if retry_after and retry_after.isdigit():
-                    wait = int(retry_after)
-                else:
-                    wait = min(60 * attempt, 300)
-                print(f"Rate limit response 429. Waiting {wait}s before retry {attempt}/{retries}...", file=sys.stderr)
-                time.sleep(wait)
-                continue
-
-            if response.status_code in {500, 502, 503, 504}:
-                wait = min(30 * attempt, 180)
-                print(f"Temporary API response {response.status_code}. Waiting {wait}s before retry {attempt}/{retries}...", file=sys.stderr)
+                wait = 20 * attempt
+                print(f"Rate limited. Waiting {wait}s...")
                 time.sleep(wait)
                 continue
 
             response.raise_for_status()
-            return ApiResult(response.json(), response.url)
+            return response.json()
 
         except Exception as exc:
-            if attempt >= retries:
+            wait = 10 * attempt
+            print(f"Request failed attempt {attempt}/{retries}: {exc}")
+            if attempt == retries:
                 raise
-            wait = min(30 * attempt, 180)
-            print(f"Request failed ({exc}). Waiting {wait}s before retry {attempt}/{retries}...", file=sys.stderr)
             time.sleep(wait)
 
-    raise RuntimeError("Unexpected request retry state")
+    raise RuntimeError("Failed request after retries")
 
 
-def read_csv_rows(path: Path) -> List[Dict[str, Any]]:
-    if not path.exists():
-        return []
-    with path.open("r", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+def safe_get(dct, path, default=""):
+    cur = dct
+    for key in path:
+        if not isinstance(cur, dict):
+            return default
+        cur = cur.get(key)
+        if cur is None:
+            return default
+    return cur
 
 
-def read_original_taxon_ids() -> set[str]:
-    rows = read_csv_rows(ORIGINAL_SPECIES_MASTER)
-    return {str(row.get("taxon_id", "")).strip() for row in rows if row.get("taxon_id")}
+def load_existing_observation_ids():
+    ids = set()
+
+    if not OBSERVATIONS_CSV.exists():
+        return ids
+
+    try:
+        with OBSERVATIONS_CSV.open("r", encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                obs_id = row.get("observation_id")
+                if obs_id:
+                    ids.add(str(obs_id))
+    except Exception as exc:
+        print(f"Could not read existing observations CSV: {exc}")
+
+    return ids
 
 
-def read_existing_observations() -> List[Dict[str, Any]]:
-    rows = read_csv_rows(OBS_OUT)
-    # Deduplicate by observation_id if present.
-    seen = set()
-    unique = []
-    for row in rows:
-        oid = str(row.get("observation_id", "")).strip()
-        key = oid or json.dumps(row, sort_keys=True)
-        if key in seen:
-            continue
-        seen.add(key)
-        unique.append(row)
-    return unique
+# ============================================================
+# SPECIES DISCOVERY
+# ============================================================
 
+def fetch_native_plant_taxa():
+    print("Discovering native/endemic plant taxa observed in Argentina from iNaturalist / ArgentiNat...")
 
-def fetch_native_plant_species_counts() -> Tuple[List[Dict[str, Any]], int, str]:
-    """Discover native/endemic plant taxa observed in Argentina."""
-    all_results: List[Dict[str, Any]] = []
+    taxa = []
     page = 1
-    total_results = 0
-    first_url = ""
+    total_results = None
 
     while True:
-        params: Dict[str, Any] = {
-            "place_id": ARGENTINA_PLACE_ID,
-            "native": NATIVE_FILTER,
-            "iconic_taxa": ICONIC_TAXA,
+        params = {
+            "place_id": PLACE_ID,
+            "native": "true",
+            "iconic_taxa": "Plantae",
             "quality_grade": QUALITY_GRADE,
-            "per_page": PER_PAGE,
+            "per_page": SPECIES_PER_PAGE,
             "page": page,
+            "has[]": "geo",
         }
-        if HAS_GEO == "true":
-            params["has[]"] = "geo"
 
-        result = request_json("observations/species_counts", params)
-        if not first_url:
-            first_url = result.url
-        data = result.data
-        total_results = int(data.get("total_results") or 0)
-        batch = data.get("results") or []
+        data = get_json(f"{INAT_BASE_URL}/observations/species_counts", params=params)
 
-        if not batch:
+        results = data.get("results", [])
+        total_results = data.get("total_results", total_results)
+
+        if not results:
             break
 
-        all_results.extend(batch)
-        print(f"Fetched species page {page}: {len(batch)} records; cumulative={len(all_results)} / total={total_results}")
+        for item in results:
+            taxon = item.get("taxon", {}) or {}
 
-        if MAX_SPECIES and len(all_results) >= MAX_SPECIES:
-            all_results = all_results[:MAX_SPECIES]
+            taxon_id = taxon.get("id")
+            if not taxon_id:
+                continue
+
+            taxa.append({
+                "taxon_id": taxon_id,
+                "name": taxon.get("name", ""),
+                "preferred_common_name": taxon.get("preferred_common_name", ""),
+                "rank": taxon.get("rank", ""),
+                "iconic_taxon_name": taxon.get("iconic_taxon_name", ""),
+                "observations_count": item.get("count", 0),
+            })
+
+            if MAX_SPECIES and len(taxa) >= MAX_SPECIES:
+                break
+
+        print(
+            f"Fetched species page {page}: {len(results)} records; "
+            f"cumulative={len(taxa)} / total={total_results}"
+        )
+
+        if MAX_SPECIES and len(taxa) >= MAX_SPECIES:
             break
 
-        if len(batch) < PER_PAGE or len(all_results) >= total_results:
+        if total_results is not None and len(taxa) >= total_results:
             break
 
         page += 1
         time.sleep(SLEEP_SECONDS)
 
-    return all_results, total_results, first_url
+    return taxa
 
 
-def flatten_species_count(item: Dict[str, Any], original_taxon_ids: set[str], updated_at: str) -> Dict[str, Any]:
-    taxon = item.get("taxon") or {}
-    conservation_status = taxon.get("conservation_status") or {}
-    ancestry = taxon.get("ancestry") or ""
-    taxon_id = str(taxon.get("id") or item.get("taxon_id") or "")
-    return {
-        "taxon_id": taxon_id,
-        "scientific_name": taxon.get("name") or "",
-        "preferred_common_name": taxon.get("preferred_common_name") or "",
-        "rank": taxon.get("rank") or "",
-        "iconic_taxon_name": taxon.get("iconic_taxon_name") or "",
-        "observations_argentina_count": item.get("count") or item.get("observation_count") or "",
-        "representative_observations_downloaded": "0",
-        "inat_taxon_url": f"https://www.inaturalist.org/taxa/{taxon_id}" if taxon_id else "",
-        "inat_observations_argentina_url": f"https://www.inaturalist.org/observations?place_id={ARGENTINA_PLACE_ID}&taxon_id={taxon_id}&native=true" if taxon_id else "",
-        "conservation_status": conservation_status.get("status") or "",
-        "conservation_authority": conservation_status.get("authority") or "",
-        "ancestor_taxon_ids": ancestry,
-        "in_original_kml_map": "yes" if taxon_id in original_taxon_ids else "no",
-        "source": "iNaturalist / ArgentiNat API: observations/species_counts native=true",
-        "argentina_place_id": ARGENTINA_PLACE_ID,
-        "native_filter": NATIVE_FILTER,
-        "quality_grade_filter": QUALITY_GRADE,
-        "last_api_update_utc": updated_at,
-        "notes": "Observation-based native/endemic status from iNaturalist establishment means. Validate formal taxonomy against Flora Argentina/Darwinion when needed.",
-    }
+# ============================================================
+# OBSERVATIONS
+# ============================================================
 
+def fetch_observations_for_taxon(taxon):
+    taxon_id = taxon["taxon_id"]
+    taxon_name = taxon.get("name", "")
 
-def flatten_observation(obs: Dict[str, Any]) -> Dict[str, Any]:
-    taxon = obs.get("taxon") or {}
-    photos = obs.get("photos") or []
-    photo_url = ""
-    if photos:
-        photo_url = (photos[0].get("url") or "").replace("square", "medium")
+    observations = []
+    page = 1
 
-    geo = obs.get("geojson") or {}
-    coords = geo.get("coordinates") or [None, None]
-    if isinstance(coords, list) and len(coords) >= 2:
-        lon, lat = coords[0], coords[1]
-    else:
-        lon, lat = None, None
+    while True:
+        params = {
+            "place_id": PLACE_ID,
+            "taxon_id": taxon_id,
+            "native": "true",
+            "quality_grade": QUALITY_GRADE,
+            "per_page": OBSERVATIONS_PER_PAGE,
+            "page": page,
+            "order_by": "observed_on",
+            "order": "desc",
+            "has[]": "geo",
+        }
 
-    return {
-        "observation_id": obs.get("id"),
-        "observed_on": obs.get("observed_on"),
-        "created_at": obs.get("created_at"),
-        "quality_grade": obs.get("quality_grade"),
-        "place_guess": obs.get("place_guess"),
-        "latitude": lat,
-        "longitude": lon,
-        "taxon_id": taxon.get("id"),
-        "scientific_name": taxon.get("name"),
-        "preferred_common_name": taxon.get("preferred_common_name"),
-        "rank": taxon.get("rank"),
-        "iconic_taxon_name": taxon.get("iconic_taxon_name"),
-        "observer_login": (obs.get("user") or {}).get("login"),
-        "uri": obs.get("uri"),
-        "photo_url": photo_url,
-        "source": "iNaturalist / ArgentiNat API: observations",
-    }
+        data = get_json(f"{INAT_BASE_URL}/observations", params=params)
+        results = data.get("results", [])
 
+        if not results:
+            break
 
-def fetch_representative_observations(taxon_id: str) -> Tuple[List[Dict[str, Any]], str]:
-    """Fetch a very small number of recent georeferenced observations per taxon for map display."""
-    if not taxon_id:
-        return [], ""
-    params: Dict[str, Any] = {
-        "place_id": ARGENTINA_PLACE_ID,
-        "taxon_id": taxon_id,
-        "native": NATIVE_FILTER,
-        "quality_grade": QUALITY_GRADE,
-        "per_page": min(PER_PAGE, MAX_OBS_PER_TAXON),
-        "page": 1,
-        "order_by": "observed_on",
-        "order": "desc",
-    }
-    if HAS_GEO == "true":
-        params["has[]"] = "geo"
+        for obs in results:
+            geojson = obs.get("geojson") or {}
+            coordinates = geojson.get("coordinates") or []
 
-    result = request_json("observations", params)
-    observations = [flatten_observation(o) for o in (result.data.get("results") or [])]
-    return observations[:MAX_OBS_PER_TAXON], result.url
+            if not coordinates or len(coordinates) < 2:
+                continue
 
+            longitude, latitude = coordinates[0], coordinates[1]
 
-def write_csv(path: Path, rows: List[Dict[str, Any]], fieldnames: List[str]) -> None:
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    with tmp.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(rows)
-    tmp.replace(path)
+            if latitude is None or longitude is None:
+                continue
 
+            observation_id = obs.get("id")
+            if not observation_id:
+                continue
 
-def write_geojson(path: Path, rows: Iterable[Dict[str, Any]], summary: Dict[str, Any]) -> None:
-    features = []
-    for row in rows:
-        lat = row.get("latitude")
-        lon = row.get("longitude")
-        if lat in (None, "") or lon in (None, ""):
-            continue
-        try:
-            lat_f = float(lat)
-            lon_f = float(lon)
-        except (TypeError, ValueError):
-            continue
-        props = {k: v for k, v in row.items() if k not in {"latitude", "longitude"}}
-        features.append({
-            "type": "Feature",
-            "geometry": {"type": "Point", "coordinates": [lon_f, lat_f]},
-            "properties": props,
-        })
-    geojson = {
-        "type": "FeatureCollection",
-        "metadata": summary,
-        "features": features,
-    }
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(geojson, ensure_ascii=False, indent=2), encoding="utf-8")
-    tmp.replace(path)
+            observed_taxon = obs.get("taxon", {}) or {}
+            user = obs.get("user", {}) or {}
 
+            photos = obs.get("photos") or []
+            photo_url = ""
+            if photos:
+                photo_url = safe_get(photos[0], ["url"], "")
+                if photo_url:
+                    photo_url = photo_url.replace("square", "medium")
 
-def main() -> None:
-    updated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    original_taxon_ids = read_original_taxon_ids()
+            observation = {
+                "observation_id": str(observation_id),
+                "taxon_id": str(taxon_id),
+                "scientific_name": observed_taxon.get("name", taxon_name),
+                "common_name": observed_taxon.get("preferred_common_name", taxon.get("preferred_common_name", "")),
+                "rank": observed_taxon.get("rank", taxon.get("rank", "")),
+                "observed_on": obs.get("observed_on", ""),
+                "created_at": obs.get("created_at", ""),
+                "quality_grade": obs.get("quality_grade", ""),
+                "latitude": latitude,
+                "longitude": longitude,
+                "place_guess": obs.get("place_guess", ""),
+                "uri": obs.get("uri", ""),
+                "user_login": user.get("login", ""),
+                "photo_url": photo_url,
+            }
 
-    print("Discovering native/endemic plant taxa observed in Argentina from iNaturalist / ArgentiNat...")
-    species_counts, total_available, species_counts_url = fetch_native_plant_species_counts()
-    species_rows = [flatten_species_count(item, original_taxon_ids, updated_at) for item in species_counts]
+            observations.append(observation)
 
-    existing_observations = read_existing_observations()
-    existing_taxon_ids = {str(row.get("taxon_id", "")).strip() for row in existing_observations if row.get("taxon_id")}
+            if MAX_OBSERVATIONS_PER_TAXON and len(observations) >= MAX_OBSERVATIONS_PER_TAXON:
+                return observations
 
-    for species in species_rows:
-        taxon_id = str(species.get("taxon_id", "")).strip()
-        if taxon_id in existing_taxon_ids:
-            species["representative_observations_downloaded"] = "already_downloaded"
+        print(
+            f"  taxon_id={taxon_id} {taxon_name}: "
+            f"page={page}, fetched={len(results)}, kept_total={len(observations)}"
+        )
 
-    taxa_to_process = [s for s in species_rows if str(s.get("taxon_id", "")).strip() and str(s.get("taxon_id", "")).strip() not in existing_taxon_ids]
-    taxa_this_run = taxa_to_process[:MAX_TAXA_PER_RUN]
+        if len(results) < OBSERVATIONS_PER_PAGE:
+            break
 
-    all_observations: List[Dict[str, Any]] = list(existing_observations)
-    observation_example_url = ""
-
-    print(f"Existing taxa with observations: {len(existing_taxon_ids)}")
-    print(f"Taxa remaining without representative observations: {len(taxa_to_process)}")
-    print(f"Taxa selected for this run: {len(taxa_this_run)}")
-
-    for idx, species in enumerate(taxa_this_run, 1):
-        taxon_id = str(species.get("taxon_id", "")).strip()
-        sci = species.get("scientific_name")
-        print(f"[{idx}/{len(taxa_this_run)}] Fetching representative observations for {sci} / taxon_id={taxon_id}")
-        try:
-            obs, obs_url = fetch_representative_observations(taxon_id)
-            if obs_url and not observation_example_url:
-                observation_example_url = obs_url
-            all_observations.extend(obs)
-            species["representative_observations_downloaded"] = str(len(obs))
-        except Exception as exc:
-            print(f"Observation fetch failed for {sci} ({taxon_id}): {exc}", file=sys.stderr)
-            species["representative_observations_downloaded"] = "0"
-            species["notes"] = f"{species.get('notes','')} Observation fetch failed: {exc}".strip()
+        page += 1
         time.sleep(SLEEP_SECONDS)
 
-    # Deduplicate observations after this run.
-    deduped_observations = []
-    seen_obs = set()
-    for row in all_observations:
-        oid = str(row.get("observation_id", "")).strip()
-        key = oid or json.dumps(row, sort_keys=True)
-        if key in seen_obs:
-            continue
-        seen_obs.add(key)
-        deduped_observations.append(row)
+    return observations
 
-    species_fields = [
-        "taxon_id", "scientific_name", "preferred_common_name", "rank", "iconic_taxon_name",
-        "observations_argentina_count", "representative_observations_downloaded", "inat_taxon_url",
-        "inat_observations_argentina_url", "conservation_status", "conservation_authority",
-        "ancestor_taxon_ids", "in_original_kml_map", "source", "argentina_place_id", "native_filter",
-        "quality_grade_filter", "last_api_update_utc", "notes",
-    ]
-    obs_fields = [
-        "observation_id", "observed_on", "created_at", "quality_grade", "place_guess",
-        "latitude", "longitude", "taxon_id", "scientific_name", "preferred_common_name",
-        "rank", "iconic_taxon_name", "observer_login", "uri", "photo_url", "source",
+
+# ============================================================
+# WRITERS
+# ============================================================
+
+def write_species_master(taxa):
+    fieldnames = [
+        "taxon_id",
+        "name",
+        "preferred_common_name",
+        "rank",
+        "iconic_taxon_name",
+        "observations_count",
     ]
 
-    processed_taxa_after_run = {str(row.get("taxon_id", "")).strip() for row in deduped_observations if row.get("taxon_id")}
-    remaining_after_run = max(0, len(species_rows) - len(processed_taxa_after_run))
+    with SPECIES_MASTER_CSV.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in taxa:
+            writer.writerow(row)
 
-    summary = {
-        "updated_at_utc": updated_at,
-        "place_id": ARGENTINA_PLACE_ID,
-        "place_name": "Argentina",
-        "scope": "Native/endemic Plantae taxa observed in Argentina on iNaturalist / ArgentiNat",
-        "method": "observations/species_counts native=true + cumulative representative observations per taxon",
-        "quality_grade": QUALITY_GRADE,
-        "species_available_from_api": total_available,
-        "species_written": len(species_rows),
-        "observations_written": len(deduped_observations),
-        "taxa_with_representative_observations": len(processed_taxa_after_run),
-        "taxa_remaining_without_representative_observations": remaining_after_run,
-        "max_species": MAX_SPECIES,
-        "max_taxa_per_run": MAX_TAXA_PER_RUN,
-        "max_observations_per_taxon": MAX_OBS_PER_TAXON,
-        "sleep_seconds": SLEEP_SECONDS,
-        "species_counts_api_url_example": species_counts_url,
-        "observations_api_url_example": observation_example_url,
-        "methodology_note": "This is observation-based, not a complete formal botanical checklist. Native/endemic status depends on iNaturalist establishment means. For formal vascular plant taxonomy, validate against Flora Argentina / Darwinion.",
+
+def write_observations_csv(observations):
+    fieldnames = [
+        "observation_id",
+        "taxon_id",
+        "scientific_name",
+        "common_name",
+        "rank",
+        "observed_on",
+        "created_at",
+        "quality_grade",
+        "latitude",
+        "longitude",
+        "place_guess",
+        "uri",
+        "user_login",
+        "photo_url",
+    ]
+
+    with OBSERVATIONS_CSV.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in observations:
+            writer.writerow(row)
+
+
+def write_geojson(observations):
+    features = []
+
+    for obs in observations:
+        feature = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    float(obs["longitude"]),
+                    float(obs["latitude"]),
+                ],
+            },
+            "properties": {
+                "observation_id": obs["observation_id"],
+                "taxon_id": obs["taxon_id"],
+                "scientific_name": obs["scientific_name"],
+                "common_name": obs["common_name"],
+                "rank": obs["rank"],
+                "observed_on": obs["observed_on"],
+                "created_at": obs["created_at"],
+                "quality_grade": obs["quality_grade"],
+                "place_guess": obs["place_guess"],
+                "uri": obs["uri"],
+                "user_login": obs["user_login"],
+                "photo_url": obs["photo_url"],
+            },
+        }
+        features.append(feature)
+
+    geojson = {
+        "type": "FeatureCollection",
+        "features": features,
     }
 
-    write_csv(SPECIES_OUT, species_rows, species_fields)
-    write_csv(OBS_OUT, deduped_observations, obs_fields)
-    write_geojson(GEOJSON_OUT, deduped_observations, summary)
-    SUMMARY_OUT.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    with OBSERVATIONS_GEOJSON.open("w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False)
 
-    print(json.dumps(summary, indent=2, ensure_ascii=False))
+
+def write_summary(taxa, observations, processed_taxa_count):
+    taxa_with_observations = len({obs["taxon_id"] for obs in observations})
+    taxa_remaining = max(len(taxa) - taxa_with_observations, 0)
+
+    summary = {
+        "updated_at_utc": now_utc_iso(),
+        "place_id": PLACE_ID,
+        "place_name": PLACE_NAME,
+        "scope": "Native/endemic Plantae taxa observed in Argentina on iNaturalist / ArgentiNat",
+        "method": "observations/species_counts native=true + all available georeferenced research-grade observations per taxon",
+        "quality_grade": QUALITY_GRADE,
+        "species_available_from_api": len(taxa),
+        "species_written": len(taxa),
+        "observations_written": len(observations),
+        "taxa_processed_this_run": processed_taxa_count,
+        "taxa_with_observations": taxa_with_observations,
+        "taxa_remaining_without_observations": taxa_remaining,
+        "max_species": MAX_SPECIES,
+        "max_taxa_per_run": MAX_TAXA_PER_RUN,
+        "max_observations_per_taxon": MAX_OBSERVATIONS_PER_TAXON,
+        "observations_per_page": OBSERVATIONS_PER_PAGE,
+        "sleep_seconds": SLEEP_SECONDS,
+        "species_counts_api_url_example": (
+            "https://api.inaturalist.org/v1/observations/species_counts"
+            "?place_id=7190&native=true&iconic_taxa=Plantae"
+            "&quality_grade=research&per_page=100&page=1&has%5B%5D=geo"
+        ),
+        "observations_api_url_example": (
+            "https://api.inaturalist.org/v1/observations"
+            "?place_id=7190&taxon_id=51454&native=true"
+            "&quality_grade=research&per_page=200&page=1"
+            "&order_by=observed_on&order=desc&has%5B%5D=geo"
+        ),
+        "methodology_note": (
+            "This is observation-based, not a complete formal botanical checklist. "
+            "Native/endemic status depends on iNaturalist establishment means. "
+            "For formal vascular plant taxonomy, validate against Flora Argentina / Darwinion."
+        ),
+    }
+
+    with UPDATE_SUMMARY_JSON.open("w", encoding="utf-8") as f:
+        json.dump(summary, f, ensure_ascii=False, indent=2)
+
+    with UPDATE_PROGRESS_JSON.open("w", encoding="utf-8") as f:
+        json.dump({
+            "updated_at_utc": now_utc_iso(),
+            "processed_taxa_count": processed_taxa_count,
+            "total_taxa": len(taxa),
+            "observations_written": len(observations),
+            "taxa_with_observations": taxa_with_observations,
+        }, f, ensure_ascii=False, indent=2)
+
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+
+
+# ============================================================
+# MAIN
+# ============================================================
+
+def main():
+    taxa = fetch_native_plant_taxa()
+
+    if not taxa:
+        raise RuntimeError("No native plant taxa found from API.")
+
+    write_species_master(taxa)
+
+    taxa_to_process = taxa
+    if MAX_TAXA_PER_RUN and MAX_TAXA_PER_RUN > 0:
+        taxa_to_process = taxa[:MAX_TAXA_PER_RUN]
+
+    print(f"Species/taxa available: {len(taxa)}")
+    print(f"Taxa selected for this run: {len(taxa_to_process)}")
+    print(f"Max observations per taxon: {MAX_OBSERVATIONS_PER_TAXON if MAX_OBSERVATIONS_PER_TAXON else 'unlimited'}")
+
+    existing_ids = set()
+    all_observations = []
+    processed_taxa_count = 0
+
+    for idx, taxon in enumerate(taxa_to_process, start=1):
+        print(
+            f"[{idx}/{len(taxa_to_process)}] Fetching observations for "
+            f"{taxon.get('name')} / taxon_id={taxon.get('taxon_id')}"
+        )
+
+        try:
+            observations = fetch_observations_for_taxon(taxon)
+        except Exception as exc:
+            print(f"Failed taxon_id={taxon.get('taxon_id')}: {exc}")
+            continue
+
+        for obs in observations:
+            obs_id = obs["observation_id"]
+            if obs_id in existing_ids:
+                continue
+            existing_ids.add(obs_id)
+            all_observations.append(obs)
+
+        processed_taxa_count += 1
+
+        print(f"Current total observations: {len(all_observations)}")
+        time.sleep(SLEEP_SECONDS)
+
+    write_observations_csv(all_observations)
+    write_geojson(all_observations)
+    write_summary(taxa, all_observations, processed_taxa_count)
 
 
 if __name__ == "__main__":
