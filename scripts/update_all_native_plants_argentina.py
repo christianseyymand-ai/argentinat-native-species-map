@@ -1,5 +1,7 @@
 import csv
 import json
+import math
+import shutil
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,12 +22,20 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 SPECIES_MASTER_CSV = DATA_DIR / "species_master_all_native_plants.csv"
 OBSERVATIONS_CSV = DATA_DIR / "observations_argentina_live.csv"
 
-# Este archivo queda chico, solo como compatibilidad.
+# Archivo chico de compatibilidad.
 OBSERVATIONS_GEOJSON = DATA_DIR / "observations_argentina_live.geojson"
 
-# Dataset grande dividido en partes para no superar el límite de GitHub.
-GEOJSON_CHUNKS_DIR = DATA_DIR / "geojson_chunks"
-GEOJSON_MANIFEST = DATA_DIR / "geojson_manifest.json"
+# Vista inicial rápida.
+OVERVIEW_GEOJSON = DATA_DIR / "geojson_overview.geojson"
+OVERVIEW_MAX_FEATURES = 20000
+
+# Tiles espaciales para cargar por zona/zoom.
+GEOJSON_TILES_DIR = DATA_DIR / "geojson_tiles"
+GEOJSON_TILE_MANIFEST = DATA_DIR / "geojson_tile_manifest.json"
+
+# Viejo sistema de chunks, se limpia para no dejar archivos obsoletos.
+OLD_GEOJSON_CHUNKS_DIR = DATA_DIR / "geojson_chunks"
+OLD_GEOJSON_MANIFEST = DATA_DIR / "geojson_manifest.json"
 
 UPDATE_SUMMARY_JSON = DATA_DIR / "update_summary.json"
 UPDATE_PROGRESS_JSON = DATA_DIR / "update_progress.json"
@@ -44,13 +54,12 @@ MAX_OBSERVATIONS_PER_TAXON = 0
 SPECIES_PER_PAGE = 100
 OBSERVATIONS_PER_PAGE = 200
 
-# Cantidad de observaciones por archivo .geojson.
-# 25000 mantiene cada archivo por debajo del límite de 100 MB de GitHub.
-GEOJSON_CHUNK_SIZE = 25000
+# Tamaño de grilla en grados.
+# 1.0 = tiles por cuadrado de 1 grado lat/lon.
+# Es suficientemente simple y mantiene archivos chicos.
+TILE_DEGREES = 1.0
 
-# Pausa entre requests. 1.0 es razonable.
 SLEEP_SECONDS = 1.0
-
 QUALITY_GRADE = "research"
 
 
@@ -103,6 +112,69 @@ def safe_get(dct, path, default=""):
             return default
 
     return cur
+
+
+def tile_index(value):
+    return math.floor(float(value) / TILE_DEGREES) * TILE_DEGREES
+
+
+def tile_part(value):
+    value = int(value)
+
+    if value < 0:
+        return f"m{abs(value)}"
+
+    return f"p{value}"
+
+
+def tile_key_for_observation(obs):
+    lat_tile = int(tile_index(obs["latitude"]))
+    lon_tile = int(tile_index(obs["longitude"]))
+    return lat_tile, lon_tile
+
+
+def tile_filename(lat_tile, lon_tile):
+    return f"tile_lat_{tile_part(lat_tile)}_lon_{tile_part(lon_tile)}.geojson"
+
+
+def observation_to_feature(obs, compact=False):
+    if compact:
+        properties = {
+            "id": obs["observation_id"],
+            "taxon_id": obs["taxon_id"],
+            "scientific_name": obs["scientific_name"],
+            "common_name": obs["common_name"],
+            "observed_on": obs["observed_on"],
+            "uri": obs["uri"],
+            "photo_url": obs["photo_url"],
+        }
+    else:
+        properties = {
+            "observation_id": obs["observation_id"],
+            "taxon_id": obs["taxon_id"],
+            "scientific_name": obs["scientific_name"],
+            "common_name": obs["common_name"],
+            "rank": obs["rank"],
+            "observed_on": obs["observed_on"],
+            "created_at": obs["created_at"],
+            "quality_grade": obs["quality_grade"],
+            "place_guess": obs["place_guess"],
+            "uri": obs["uri"],
+            "user_login": obs["user_login"],
+            "photo_url": obs["photo_url"],
+        }
+
+    return {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                float(obs["longitude"]),
+                float(obs["latitude"]),
+            ],
+        },
+        "properties": properties,
+    }
 
 
 # ============================================================
@@ -242,8 +314,8 @@ def fetch_observations_for_taxon(taxon):
                 "observed_on": obs.get("observed_on", ""),
                 "created_at": obs.get("created_at", ""),
                 "quality_grade": obs.get("quality_grade", ""),
-                "latitude": latitude,
-                "longitude": longitude,
+                "latitude": float(latitude),
+                "longitude": float(longitude),
                 "place_guess": obs.get("place_guess", ""),
                 "uri": obs.get("uri", ""),
                 "user_login": user.get("login", ""),
@@ -317,115 +389,132 @@ def write_observations_csv(observations):
             writer.writerow(row)
 
 
-def observation_to_feature(obs):
-    return {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [
-                float(obs["longitude"]),
-                float(obs["latitude"]),
-            ],
-        },
-        "properties": {
-            "observation_id": obs["observation_id"],
-            "taxon_id": obs["taxon_id"],
-            "scientific_name": obs["scientific_name"],
-            "common_name": obs["common_name"],
-            "rank": obs["rank"],
-            "observed_on": obs["observed_on"],
-            "created_at": obs["created_at"],
-            "quality_grade": obs["quality_grade"],
-            "place_guess": obs["place_guess"],
-            "uri": obs["uri"],
-            "user_login": obs["user_login"],
-            "photo_url": obs["photo_url"],
-        },
+def write_overview_geojson(observations):
+    if len(observations) <= OVERVIEW_MAX_FEATURES:
+        overview = observations
+    else:
+        step = max(len(observations) // OVERVIEW_MAX_FEATURES, 1)
+        overview = observations[::step][:OVERVIEW_MAX_FEATURES]
+
+    geojson = {
+        "type": "FeatureCollection",
+        "features": [observation_to_feature(obs, compact=True) for obs in overview],
     }
 
+    with OVERVIEW_GEOJSON.open("w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False, separators=(",", ":"))
 
-def write_geojson_chunks(observations):
-    GEOJSON_CHUNKS_DIR.mkdir(parents=True, exist_ok=True)
+    print(f"Wrote overview: {len(overview)} observations")
 
-    # Borrar chunks viejos
-    for old_file in GEOJSON_CHUNKS_DIR.glob("*.geojson"):
-        old_file.unlink()
 
-    chunk_files = []
+def write_geojson_tiles(observations):
+    if OLD_GEOJSON_CHUNKS_DIR.exists():
+        shutil.rmtree(OLD_GEOJSON_CHUNKS_DIR)
 
-    for chunk_index, start in enumerate(range(0, len(observations), GEOJSON_CHUNK_SIZE), start=1):
-        chunk = observations[start:start + GEOJSON_CHUNK_SIZE]
+    if OLD_GEOJSON_MANIFEST.exists():
+        OLD_GEOJSON_MANIFEST.unlink()
 
-        features = [observation_to_feature(obs) for obs in chunk]
+    if GEOJSON_TILES_DIR.exists():
+        shutil.rmtree(GEOJSON_TILES_DIR)
+
+    GEOJSON_TILES_DIR.mkdir(parents=True, exist_ok=True)
+
+    tiles = {}
+
+    for obs in observations:
+        lat_tile, lon_tile = tile_key_for_observation(obs)
+        key = f"{lat_tile},{lon_tile}"
+        tiles.setdefault(key, {
+            "lat": lat_tile,
+            "lon": lon_tile,
+            "observations": [],
+        })
+        tiles[key]["observations"].append(obs)
+
+    manifest_tiles = {}
+
+    for key, tile in sorted(tiles.items()):
+        lat_tile = tile["lat"]
+        lon_tile = tile["lon"]
+        tile_observations = tile["observations"]
+
+        filename = tile_filename(lat_tile, lon_tile)
+        path = GEOJSON_TILES_DIR / filename
 
         geojson = {
             "type": "FeatureCollection",
-            "features": features,
+            "features": [
+                observation_to_feature(obs, compact=False)
+                for obs in tile_observations
+            ],
         }
 
-        chunk_name = f"observations_{chunk_index:03d}.geojson"
-        chunk_path = GEOJSON_CHUNKS_DIR / chunk_name
+        with path.open("w", encoding="utf-8") as f:
+            json.dump(geojson, f, ensure_ascii=False, separators=(",", ":"))
 
-        with chunk_path.open("w", encoding="utf-8") as f:
-            json.dump(
-                geojson,
-                f,
-                ensure_ascii=False,
-                separators=(",", ":")
-            )
+        manifest_tiles[key] = {
+            "path": f"geojson_tiles/{filename}",
+            "lat": lat_tile,
+            "lon": lon_tile,
+            "count": len(tile_observations),
+            "bounds": {
+                "south": lat_tile,
+                "west": lon_tile,
+                "north": lat_tile + TILE_DEGREES,
+                "east": lon_tile + TILE_DEGREES,
+            },
+        }
 
-        chunk_files.append(f"geojson_chunks/{chunk_name}")
-
-        print(
-            f"Wrote {chunk_path} with {len(features)} observations "
-            f"({start + len(features)} / {len(observations)})"
-        )
+        print(f"Wrote tile {filename}: {len(tile_observations)} observations")
 
     manifest = {
         "updated_at_utc": now_utc_iso(),
+        "tile_degrees": TILE_DEGREES,
         "total_observations": len(observations),
-        "chunk_size": GEOJSON_CHUNK_SIZE,
-        "chunks_count": len(chunk_files),
-        "chunks": chunk_files,
+        "tiles_count": len(manifest_tiles),
+        "tiles": manifest_tiles,
+        "overview": "geojson_overview.geojson",
     }
 
-    with GEOJSON_MANIFEST.open("w", encoding="utf-8") as f:
+    with GEOJSON_TILE_MANIFEST.open("w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
 
-    # Archivo chico para evitar el límite de 100 MB de GitHub.
-    # El mapa debería cargar geojson_manifest.json y luego los chunks.
-    small_placeholder = {
+    placeholder = {
         "type": "FeatureCollection",
         "features": [],
-        "note": "Full dataset is split into data/geojson_chunks/*.geojson. Load data/geojson_manifest.json.",
+        "note": "Full dataset is split into spatial tiles. Load data/geojson_tile_manifest.json and data/geojson_tiles/*.geojson.",
         "total_observations": len(observations),
-        "chunks_count": len(chunk_files),
-        "manifest": "data/geojson_manifest.json",
+        "tiles_count": len(manifest_tiles),
+        "overview": "data/geojson_overview.geojson",
+        "manifest": "data/geojson_tile_manifest.json",
     }
 
     with OBSERVATIONS_GEOJSON.open("w", encoding="utf-8") as f:
-        json.dump(small_placeholder, f, ensure_ascii=False, indent=2)
+        json.dump(placeholder, f, ensure_ascii=False, indent=2)
+
+    print(f"Wrote tile manifest with {len(manifest_tiles)} tiles")
 
 
 def write_summary(taxa, observations, processed_taxa_count):
     taxa_with_observations = len({obs["taxon_id"] for obs in observations})
     taxa_remaining = max(len(taxa) - taxa_with_observations, 0)
 
-    chunks_count = 0
-    if GEOJSON_MANIFEST.exists():
+    tiles_count = 0
+
+    if GEOJSON_TILE_MANIFEST.exists():
         try:
-            with GEOJSON_MANIFEST.open("r", encoding="utf-8") as f:
+            with GEOJSON_TILE_MANIFEST.open("r", encoding="utf-8") as f:
                 manifest = json.load(f)
-                chunks_count = manifest.get("chunks_count", 0)
+                tiles_count = manifest.get("tiles_count", 0)
         except Exception:
-            chunks_count = 0
+            tiles_count = 0
 
     summary = {
         "updated_at_utc": now_utc_iso(),
         "place_id": PLACE_ID,
         "place_name": PLACE_NAME,
         "scope": "Native/endemic Plantae taxa observed in Argentina on iNaturalist / ArgentiNat",
-        "method": "observations/species_counts native=true + all available georeferenced research-grade observations per taxon",
+        "method": "observations/species_counts native=true + all available georeferenced research-grade observations per taxon + spatial GeoJSON tiles",
         "quality_grade": QUALITY_GRADE,
         "species_available_from_api": len(taxa),
         "species_written": len(taxa),
@@ -437,9 +526,11 @@ def write_summary(taxa, observations, processed_taxa_count):
         "max_taxa_per_run": MAX_TAXA_PER_RUN,
         "max_observations_per_taxon": MAX_OBSERVATIONS_PER_TAXON,
         "observations_per_page": OBSERVATIONS_PER_PAGE,
-        "geojson_chunk_size": GEOJSON_CHUNK_SIZE,
-        "geojson_chunks_count": chunks_count,
-        "geojson_manifest": "data/geojson_manifest.json",
+        "overview_max_features": OVERVIEW_MAX_FEATURES,
+        "tile_degrees": TILE_DEGREES,
+        "geojson_tiles_count": tiles_count,
+        "geojson_tile_manifest": "data/geojson_tile_manifest.json",
+        "geojson_overview": "data/geojson_overview.geojson",
         "sleep_seconds": SLEEP_SECONDS,
         "species_counts_api_url_example": (
             "https://api.inaturalist.org/v1/observations/species_counts"
@@ -469,7 +560,7 @@ def write_summary(taxa, observations, processed_taxa_count):
             "total_taxa": len(taxa),
             "observations_written": len(observations),
             "taxa_with_observations": taxa_with_observations,
-            "geojson_chunks_count": chunks_count,
+            "geojson_tiles_count": tiles_count,
         }, f, ensure_ascii=False, indent=2)
 
     print(json.dumps(summary, ensure_ascii=False, indent=2))
@@ -530,7 +621,8 @@ def main():
         time.sleep(SLEEP_SECONDS)
 
     write_observations_csv(all_observations)
-    write_geojson_chunks(all_observations)
+    write_overview_geojson(all_observations)
+    write_geojson_tiles(all_observations)
     write_summary(taxa, all_observations, processed_taxa_count)
 
 
