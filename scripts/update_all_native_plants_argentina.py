@@ -19,26 +19,36 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 SPECIES_MASTER_CSV = DATA_DIR / "species_master_all_native_plants.csv"
 OBSERVATIONS_CSV = DATA_DIR / "observations_argentina_live.csv"
+
+# Este archivo queda chico, solo como compatibilidad.
 OBSERVATIONS_GEOJSON = DATA_DIR / "observations_argentina_live.geojson"
+
+# Dataset grande dividido en partes para no superar el límite de GitHub.
+GEOJSON_CHUNKS_DIR = DATA_DIR / "geojson_chunks"
+GEOJSON_MANIFEST = DATA_DIR / "geojson_manifest.json"
+
 UPDATE_SUMMARY_JSON = DATA_DIR / "update_summary.json"
 UPDATE_PROGRESS_JSON = DATA_DIR / "update_progress.json"
 
 INAT_BASE_URL = "https://api.inaturalist.org/v1"
 
-# 0 = no limit
+# 0 = sin límite
 MAX_SPECIES = 0
 
-# 0 = process every species/taxon found
+# 0 = procesar todas las especies/taxones encontrados
 MAX_TAXA_PER_RUN = 0
 
-# 0 = get as many observations as the API returns for each taxon
-# If the workflow becomes too slow, change this to 50, 100, or 200.
+# 0 = traer todas las observaciones disponibles por taxón
 MAX_OBSERVATIONS_PER_TAXON = 0
 
 SPECIES_PER_PAGE = 100
 OBSERVATIONS_PER_PAGE = 200
 
-# Keep this polite. Lower = faster, higher = safer.
+# Cantidad de observaciones por archivo .geojson.
+# 25000 mantiene cada archivo por debajo del límite de 100 MB de GitHub.
+GEOJSON_CHUNK_SIZE = 25000
+
+# Pausa entre requests. 1.0 es razonable.
 SLEEP_SECONDS = 1.0
 
 QUALITY_GRADE = "research"
@@ -71,8 +81,10 @@ def get_json(url, params=None, retries=5):
         except Exception as exc:
             wait = 10 * attempt
             print(f"Request failed attempt {attempt}/{retries}: {exc}")
+
             if attempt == retries:
                 raise
+
             time.sleep(wait)
 
     raise RuntimeError("Failed request after retries")
@@ -80,32 +92,17 @@ def get_json(url, params=None, retries=5):
 
 def safe_get(dct, path, default=""):
     cur = dct
+
     for key in path:
         if not isinstance(cur, dict):
             return default
+
         cur = cur.get(key)
+
         if cur is None:
             return default
+
     return cur
-
-
-def load_existing_observation_ids():
-    ids = set()
-
-    if not OBSERVATIONS_CSV.exists():
-        return ids
-
-    try:
-        with OBSERVATIONS_CSV.open("r", encoding="utf-8", newline="") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                obs_id = row.get("observation_id")
-                if obs_id:
-                    ids.add(str(obs_id))
-    except Exception as exc:
-        print(f"Could not read existing observations CSV: {exc}")
-
-    return ids
 
 
 # ============================================================
@@ -140,8 +137,8 @@ def fetch_native_plant_taxa():
 
         for item in results:
             taxon = item.get("taxon", {}) or {}
-
             taxon_id = taxon.get("id")
+
             if not taxon_id:
                 continue
 
@@ -217,6 +214,7 @@ def fetch_observations_for_taxon(taxon):
                 continue
 
             observation_id = obs.get("id")
+
             if not observation_id:
                 continue
 
@@ -225,8 +223,10 @@ def fetch_observations_for_taxon(taxon):
 
             photos = obs.get("photos") or []
             photo_url = ""
+
             if photos:
                 photo_url = safe_get(photos[0], ["url"], "")
+
                 if photo_url:
                     photo_url = photo_url.replace("square", "medium")
 
@@ -234,7 +234,10 @@ def fetch_observations_for_taxon(taxon):
                 "observation_id": str(observation_id),
                 "taxon_id": str(taxon_id),
                 "scientific_name": observed_taxon.get("name", taxon_name),
-                "common_name": observed_taxon.get("preferred_common_name", taxon.get("preferred_common_name", "")),
+                "common_name": observed_taxon.get(
+                    "preferred_common_name",
+                    taxon.get("preferred_common_name", "")
+                ),
                 "rank": observed_taxon.get("rank", taxon.get("rank", "")),
                 "observed_on": obs.get("observed_on", ""),
                 "created_at": obs.get("created_at", ""),
@@ -283,6 +286,7 @@ def write_species_master(taxa):
     with SPECIES_MASTER_CSV.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
+
         for row in taxa:
             writer.writerow(row)
 
@@ -308,52 +312,113 @@ def write_observations_csv(observations):
     with OBSERVATIONS_CSV.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
+
         for row in observations:
             writer.writerow(row)
 
 
-def write_geojson(observations):
-    features = []
+def observation_to_feature(obs):
+    return {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                float(obs["longitude"]),
+                float(obs["latitude"]),
+            ],
+        },
+        "properties": {
+            "observation_id": obs["observation_id"],
+            "taxon_id": obs["taxon_id"],
+            "scientific_name": obs["scientific_name"],
+            "common_name": obs["common_name"],
+            "rank": obs["rank"],
+            "observed_on": obs["observed_on"],
+            "created_at": obs["created_at"],
+            "quality_grade": obs["quality_grade"],
+            "place_guess": obs["place_guess"],
+            "uri": obs["uri"],
+            "user_login": obs["user_login"],
+            "photo_url": obs["photo_url"],
+        },
+    }
 
-    for obs in observations:
-        feature = {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    float(obs["longitude"]),
-                    float(obs["latitude"]),
-                ],
-            },
-            "properties": {
-                "observation_id": obs["observation_id"],
-                "taxon_id": obs["taxon_id"],
-                "scientific_name": obs["scientific_name"],
-                "common_name": obs["common_name"],
-                "rank": obs["rank"],
-                "observed_on": obs["observed_on"],
-                "created_at": obs["created_at"],
-                "quality_grade": obs["quality_grade"],
-                "place_guess": obs["place_guess"],
-                "uri": obs["uri"],
-                "user_login": obs["user_login"],
-                "photo_url": obs["photo_url"],
-            },
+
+def write_geojson_chunks(observations):
+    GEOJSON_CHUNKS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Borrar chunks viejos
+    for old_file in GEOJSON_CHUNKS_DIR.glob("*.geojson"):
+        old_file.unlink()
+
+    chunk_files = []
+
+    for chunk_index, start in enumerate(range(0, len(observations), GEOJSON_CHUNK_SIZE), start=1):
+        chunk = observations[start:start + GEOJSON_CHUNK_SIZE]
+
+        features = [observation_to_feature(obs) for obs in chunk]
+
+        geojson = {
+            "type": "FeatureCollection",
+            "features": features,
         }
-        features.append(feature)
 
-    geojson = {
+        chunk_name = f"observations_{chunk_index:03d}.geojson"
+        chunk_path = GEOJSON_CHUNKS_DIR / chunk_name
+
+        with chunk_path.open("w", encoding="utf-8") as f:
+            json.dump(
+                geojson,
+                f,
+                ensure_ascii=False,
+                separators=(",", ":")
+            )
+
+        chunk_files.append(f"geojson_chunks/{chunk_name}")
+
+        print(
+            f"Wrote {chunk_path} with {len(features)} observations "
+            f"({start + len(features)} / {len(observations)})"
+        )
+
+    manifest = {
+        "updated_at_utc": now_utc_iso(),
+        "total_observations": len(observations),
+        "chunk_size": GEOJSON_CHUNK_SIZE,
+        "chunks_count": len(chunk_files),
+        "chunks": chunk_files,
+    }
+
+    with GEOJSON_MANIFEST.open("w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+    # Archivo chico para evitar el límite de 100 MB de GitHub.
+    # El mapa debería cargar geojson_manifest.json y luego los chunks.
+    small_placeholder = {
         "type": "FeatureCollection",
-        "features": features,
+        "features": [],
+        "note": "Full dataset is split into data/geojson_chunks/*.geojson. Load data/geojson_manifest.json.",
+        "total_observations": len(observations),
+        "chunks_count": len(chunk_files),
+        "manifest": "data/geojson_manifest.json",
     }
 
     with OBSERVATIONS_GEOJSON.open("w", encoding="utf-8") as f:
-        json.dump(geojson, f, ensure_ascii=False)
+        json.dump(small_placeholder, f, ensure_ascii=False, indent=2)
 
 
 def write_summary(taxa, observations, processed_taxa_count):
     taxa_with_observations = len({obs["taxon_id"] for obs in observations})
     taxa_remaining = max(len(taxa) - taxa_with_observations, 0)
+
+    chunks_count = 0
+    if GEOJSON_MANIFEST.exists():
+        try:
+            with GEOJSON_MANIFEST.open("r", encoding="utf-8") as f:
+                manifest = json.load(f)
+                chunks_count = manifest.get("chunks_count", 0)
+        except Exception:
+            chunks_count = 0
 
     summary = {
         "updated_at_utc": now_utc_iso(),
@@ -372,6 +437,9 @@ def write_summary(taxa, observations, processed_taxa_count):
         "max_taxa_per_run": MAX_TAXA_PER_RUN,
         "max_observations_per_taxon": MAX_OBSERVATIONS_PER_TAXON,
         "observations_per_page": OBSERVATIONS_PER_PAGE,
+        "geojson_chunk_size": GEOJSON_CHUNK_SIZE,
+        "geojson_chunks_count": chunks_count,
+        "geojson_manifest": "data/geojson_manifest.json",
         "sleep_seconds": SLEEP_SECONDS,
         "species_counts_api_url_example": (
             "https://api.inaturalist.org/v1/observations/species_counts"
@@ -401,6 +469,7 @@ def write_summary(taxa, observations, processed_taxa_count):
             "total_taxa": len(taxa),
             "observations_written": len(observations),
             "taxa_with_observations": taxa_with_observations,
+            "geojson_chunks_count": chunks_count,
         }, f, ensure_ascii=False, indent=2)
 
     print(json.dumps(summary, ensure_ascii=False, indent=2))
@@ -419,12 +488,16 @@ def main():
     write_species_master(taxa)
 
     taxa_to_process = taxa
+
     if MAX_TAXA_PER_RUN and MAX_TAXA_PER_RUN > 0:
         taxa_to_process = taxa[:MAX_TAXA_PER_RUN]
 
     print(f"Species/taxa available: {len(taxa)}")
     print(f"Taxa selected for this run: {len(taxa_to_process)}")
-    print(f"Max observations per taxon: {MAX_OBSERVATIONS_PER_TAXON if MAX_OBSERVATIONS_PER_TAXON else 'unlimited'}")
+    print(
+        "Max observations per taxon: "
+        f"{MAX_OBSERVATIONS_PER_TAXON if MAX_OBSERVATIONS_PER_TAXON else 'unlimited'}"
+    )
 
     existing_ids = set()
     all_observations = []
@@ -444,8 +517,10 @@ def main():
 
         for obs in observations:
             obs_id = obs["observation_id"]
+
             if obs_id in existing_ids:
                 continue
+
             existing_ids.add(obs_id)
             all_observations.append(obs)
 
@@ -455,7 +530,7 @@ def main():
         time.sleep(SLEEP_SECONDS)
 
     write_observations_csv(all_observations)
-    write_geojson(all_observations)
+    write_geojson_chunks(all_observations)
     write_summary(taxa, all_observations, processed_taxa_count)
 
 
