@@ -1,8 +1,9 @@
 {
   "type": "FeatureCollection",
   "features": [],
-  "note": "Full dataset is split into data/geojson_chunks/*.geojson. Load data/geojson_manifest.json.",
-  "total_observations": 233441,
-  "chunks_count": 10,
-  "manifest": "data/geojson_manifest.json"
+  "note": "Full dataset is split into spatial tiles. Load data/geojson_tile_manifest.json and data/geojson_tiles/*.geojson.",
+  "total_observations": 233447,
+  "tiles_count": 332,
+  "overview": "data/geojson_overview.geojson",
+  "manifest": "data/geojson_tile_manifest.json"
 }

@@ -1,8 +1,8 @@
 {
-  "updated_at_utc": "2026-05-05T18:17:40Z",
+  "updated_at_utc": "2026-05-05T20:08:41Z",
   "processed_taxa_count": 1770,
   "total_taxa": 1770,
-  "observations_written": 233441,
+  "observations_written": 233447,
   "taxa_with_observations": 1770,
-  "geojson_chunks_count": 10
+  "geojson_tiles_count": 332
 }

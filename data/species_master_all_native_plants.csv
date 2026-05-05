@@ -43,12 +43,12 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 84002,Tillandsia recurvata,ballmoss,species,Plantae,828
 372267,Chloraea membranacea,Membranous Greenhood,species,Plantae,806
 797147,Azorella prolifera,Mother-in-law Cushion,species,Plantae,799
-904475,Schinus longifolia,,species,Plantae,795
+904475,Schinus longifolia,,species,Plantae,796
 869986,Trichocereus candicans,Argentine Giant,species,Plantae,794
 153439,Zinnia peruviana,Peruvian zinnia,species,Plantae,792
 79487,Verbena bonariensis,purpletop vervain,species,Plantae,786
 79137,Solanum elaeagnifolium,silverleaf nightshade,species,Plantae,777
-924824,Pascalia glauca,Sunchillo,species,Plantae,755
+924824,Pascalia glauca,Sunchillo,species,Plantae,756
 962637,Pontederia crassipes,common water hyacinth,species,Plantae,752
 428312,Condalia microphylla,,species,Plantae,751
 424095,Aspidosperma quebracho-blanco,Common White Quebracho,species,Plantae,742
@@ -152,7 +152,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 428960,Mutisia decurrens,carnation of the field,species,Plantae,379
 465228,Gunnera magellanica,Pigvine,species,Plantae,378
 131169,Mikania cordifolia,Florida Keys Hempvine,species,Plantae,372
-52355,Pavonia hastata,Spearleaf Swampmallow,species,Plantae,370
+52355,Pavonia hastata,Spearleaf Swampmallow,species,Plantae,371
 57805,Oxalis articulata,pink-sorrel,species,Plantae,369
 1493104,Neltuma alba,White Carob Tree,species,Plantae,368
 967278,Baccharis punctulata,,species,Plantae,364
@@ -224,8 +224,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 557618,Colletia spinosissima,,species,Plantae,294
 602580,Discaria americana,,species,Plantae,294
 430222,Sphaeralcea miniata,,species,Plantae,292
+1433596,Tripogandra diuretica,,species,Plantae,292
 715301,Phacelia secunda,,species,Plantae,291
-1433596,Tripogandra diuretica,,species,Plantae,291
 76904,Erigeron bonariensis,Flax-leaved Horseweed,species,Plantae,290
 165785,Oenothera affinis,,species,Plantae,289
 489760,Grindelia chiloensis,Shrubby Gumweed,species,Plantae,288
@@ -359,9 +359,9 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 624845,Saxifraga magellanica,fuegian saxifrage,species,Plantae,199
 902968,Schinopsis lorentzii,,species,Plantae,199
 1023123,Pfaffia gnaphalioides,,species,Plantae,199
+49569,Tillandsia usneoides,Spanish moss,species,Plantae,198
 77493,Ipheion uniflorum,Spring starflower,species,Plantae,198
 122576,Evolvulus sericeus,silky evolvulus,species,Plantae,198
-49569,Tillandsia usneoides,Spanish moss,species,Plantae,197
 158223,Alstroemeria psittacina,Peruvian Lily,species,Plantae,197
 325607,Anarthrophyllum desideratum,mataguanaco,species,Plantae,197
 870042,Trichocereus strigosus,,species,Plantae,197
@@ -406,8 +406,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 876538,Libidibia paraguariensis,,species,Plantae,178
 1493150,Neltuma nigra,,species,Plantae,178
 83168,Araucaria angustifolia,Paraná Araucaria,species,Plantae,177
+790101,Eryngium eburneum,,species,Plantae,176
 364167,Acrocomia totai,totai palm,species,Plantae,175
-790101,Eryngium eburneum,,species,Plantae,175
 881522,Aspilia montevidensis,,species,Plantae,175
 62859,Psidium guajava,Common guava,species,Plantae,174
 705214,Baccharis ulicina,,species,Plantae,174
@@ -492,10 +492,10 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1610436,Iocenes virens,,species,Plantae,142
 127912,Thalia geniculata,alligator flag,species,Plantae,141
 163869,Hydrocleys nymphoides,Water Poppy,species,Plantae,141
+427405,Croton bonplandianus,Bonpland's croton,species,Plantae,141
 438707,Eriosyce strausiana,,species,Plantae,141
 451790,Ranunculus peduncularis,,species,Plantae,141
 281420,Zanthoxylum rhoifolium,Tambataru,species,Plantae,140
-427405,Croton bonplandianus,Bonpland's croton,species,Plantae,140
 791357,Adesmia corymbosa,,species,Plantae,140
 1117850,Schinus patagonica,,species,Plantae,140
 48497,Gleditsia amorphoides,,species,Plantae,139
@@ -1033,6 +1033,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 897971,Chevreulia sarmentosa,,species,Plantae,24
 934750,Parapiptadenia excelsa,,species,Plantae,24
 1031117,Chrysolaena flexuosa,,species,Plantae,24
+1061455,Senecio jarae,,species,Plantae,24
 1156139,Schnella microstachya,,species,Plantae,24
 77309,Guilleminea densa,small matweed,species,Plantae,23
 133307,Oldenlandia salzmannii,,species,Plantae,23
@@ -1041,7 +1042,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 549236,Drosera uniflora,Chilean sundew,species,Plantae,23
 806669,Calceolaria elatior,,species,Plantae,23
 984121,Glandularia scrobiculata,,species,Plantae,23
-1061455,Senecio jarae,,species,Plantae,23
 1198434,Lippia salsa,,species,Plantae,23
 1492411,Loasa mendocina,,species,Plantae,23
 75921,Cabomba caroliniana,Carolina Fanwort,species,Plantae,22
@@ -1102,6 +1102,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 202489,Inga laurina,sacky sac bean,species,Plantae,19
 346966,Viola magellanica,Fuegian violet,species,Plantae,19
 428978,Haplopappus glutinosus,,species,Plantae,19
+534316,Baccharis latifolia,Chilca,species,Plantae,19
 603356,Mutisia coccinea,,species,Plantae,19
 790122,Psidium kennedyanum,,species,Plantae,19
 913288,Rhabdadenia ragonesei,,species,Plantae,19
@@ -1119,7 +1120,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 287096,Trichilia pallida,,species,Plantae,18
 317963,Scoparia dulcis,Licorice Weed,species,Plantae,18
 465343,Azorella selago,Cushion azorella,species,Plantae,18
-534316,Baccharis latifolia,Chilca,species,Plantae,18
 790302,Senecio heterotrichius,,species,Plantae,18
 987170,Prosopidastrum globosum,,species,Plantae,18
 994350,Cuscuta grandiflora,,species,Plantae,18
@@ -1237,6 +1237,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 842423,Sisyrinchium minutiflorum,,species,Plantae,11
 852376,Picramnia sellowii,,species,Plantae,11
 855607,Brachystele dilatata,,species,Plantae,11
+913909,Monnina cuneata,,species,Plantae,11
 1131747,Nothoscordum montevidense,,species,Plantae,11
 1413563,Mimosa tandilensis,,species,Plantae,11
 1577856,Pseudalbizzia niopoides,,species,Plantae,11
@@ -1250,7 +1251,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 794092,Mutisia hamata,,species,Plantae,10
 808359,Billbergia zebrina,,species,Plantae,10
 824715,Sinningia tubiflora,,species,Plantae,10
-913909,Monnina cuneata,,species,Plantae,10
 969071,Condylocarpon isthmicum,,species,Plantae,10
 993586,Distimake cissoides,,species,Plantae,10
 1002056,Botrychium dusenii,Dusen's moonwort,species,Plantae,10
