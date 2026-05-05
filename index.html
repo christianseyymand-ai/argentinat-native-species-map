@@ -8,7 +8,7 @@
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIINfQuxp3DVCUUt5Kq1POnM4B0C3I6fL8s="
+    integrity="sha256-p4NxAoJBhIINfQuxp3DVCUUt5Kq1POnM4B0M2DJC0="
     crossorigin=""
   />
 
@@ -18,13 +18,16 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
+      background: #eef2f3;
+      overflow: hidden;
     }
 
     #map {
-      width: 100%;
+      width: 100vw;
       height: 100vh;
+      background: #eef2f3;
     }
 
     .panel {
@@ -35,16 +38,17 @@
       width: 340px;
       max-width: calc(100vw - 32px);
       background: rgba(255, 255, 255, 0.96);
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
       padding: 14px;
+      backdrop-filter: blur(6px);
     }
 
     .panel h1 {
       margin: 0 0 8px;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.2;
-      color: #1f2933;
+      color: #111827;
     }
 
     .panel p {
@@ -60,13 +64,14 @@
       border-top: 1px solid #e5e7eb;
       font-size: 13px;
       color: #111827;
+      line-height: 1.35;
     }
 
     .status {
       margin-top: 8px;
       font-size: 12px;
       color: #374151;
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
     .progress-wrap {
@@ -89,6 +94,7 @@
       margin-top: 10px;
       font-size: 12px;
       color: #6b7280;
+      line-height: 1.35;
     }
 
     .error {
@@ -144,7 +150,7 @@
       }
 
       .panel h1 {
-        font-size: 16px;
+        font-size: 17px;
       }
 
       .panel p,
@@ -191,12 +197,27 @@
   ></script>
 
   <script>
+    const ARGENTINA_CENTER = [-38.4161, -63.6167];
+
+    const ARGENTINA_BOUNDS = L.latLngBounds(
+      [-56.0, -74.0],
+      [-21.0, -53.0]
+    );
+
     const map = L.map("map", {
-      preferCanvas: true
-    }).setView([-38.4161, -63.6167], 4);
+      preferCanvas: true,
+      minZoom: 4,
+      maxZoom: 18,
+      maxBounds: ARGENTINA_BOUNDS.pad(0.25),
+      maxBoundsViscosity: 0.8,
+      worldCopyJump: false
+    }).setView(ARGENTINA_CENTER, 4);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      minZoom: 4,
       maxZoom: 18,
+      noWrap: true,
+      bounds: ARGENTINA_BOUNDS.pad(0.5),
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
@@ -218,7 +239,7 @@
     const MIN_ZOOM_FOR_FULL_TILES = 7;
 
     function formatNumber(value) {
-      return new Intl.NumberFormat("es-AR").format(value);
+      return new Intl.NumberFormat("es-AR").format(value || 0);
     }
 
     function escapeHtml(value) {
@@ -276,6 +297,8 @@
       return L.circleMarker(latlng, {
         radius: 3,
         weight: 0,
+        color: "#15803d",
+        fillColor: "#16a34a",
         opacity: 0.45,
         fillOpacity: 0.35
       });
@@ -285,8 +308,10 @@
       return L.circleMarker(latlng, {
         radius: 4,
         weight: 1,
+        color: "#14532d",
+        fillColor: "#22c55e",
         opacity: 0.75,
-        fillOpacity: 0.5
+        fillOpacity: 0.55
       });
     }
 
@@ -318,16 +343,7 @@
 
       overviewCount.textContent = formatNumber(features.length);
 
-      try {
-        const bounds = layer.getBounds();
-        if (bounds.isValid()) {
-          map.fitBounds(bounds, {
-            padding: [20, 20]
-          });
-        }
-      } catch (error) {
-        console.warn("No se pudieron ajustar bounds de overview:", error);
-      }
+      map.setView(ARGENTINA_CENTER, 4);
 
       statusText.textContent = "Vista rápida lista";
       detailStatus.textContent = "Acercá el zoom para cargar todos los puntos de la zona.";
@@ -423,7 +439,7 @@
 
       if (keysToLoad.length === 0) {
         statusText.textContent = "Zona cargada";
-        detailStatus.textContent = `Tiles visibles ya cargados. Observaciones cargadas en zona: ${formatNumber(totalLoadedTileObservations)}.`;
+        detailStatus.textContent = `Tiles visibles ya cargados. Observaciones cargadas: ${formatNumber(totalLoadedTileObservations)}.`;
         progressBar.style.width = "100%";
         return;
       }
@@ -456,6 +472,8 @@
 
     async function init() {
       try {
+        map.setView(ARGENTINA_CENTER, 4);
+
         await loadOverview();
 
         statusText.textContent = "Cargando manifest...";
