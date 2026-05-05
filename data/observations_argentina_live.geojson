@@ -1,0 +1,8 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "status": "initial_empty_dataset",
+    "note": "Run the GitHub Actions workflow to populate this file with ArgentiNat/iNaturalist observations."
+  },
+  "features": []
+}

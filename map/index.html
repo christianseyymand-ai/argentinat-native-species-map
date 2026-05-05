@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArgentiNat Native Species Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, sans-serif; color: #1f2933; }
+    header { padding: 12px 16px; border-bottom: 1px solid #ddd; background: #fff; }
+    h1 { margin: 0; font-size: 20px; }
+    p { margin: 4px 0 0; color: #52606d; font-size: 14px; }
+    #controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+    #search { padding: 8px 10px; min-width: 280px; border: 1px solid #cbd2d9; border-radius: 6px; }
+    button { padding: 8px 10px; border: 1px solid #cbd2d9; border-radius: 6px; background: #fff; cursor: pointer; }
+    button:hover { background: #f5f7fa; }
+    #stats { font-size: 13px; color: #52606d; }
+    #map { height: calc(100vh - 116px); }
+    .legend { background: white; padding: 10px 12px; border-radius: 8px; box-shadow: 0 2px 10px #0002; line-height: 1.45; font-size: 13px; max-width: 270px; }
+    .popup img { max-width: 180px; border-radius: 6px; margin-top: 6px; }
+    code { background: #f0f4f8; padding: 1px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ArgentiNat Native Species Map</h1>
+    <p>Interactive map of native/endemic plant observations in Argentina using ArgentiNat / iNaturalist data.</p>
+    <div id="controls">
+      <input id="search" type="search" placeholder="Search species, common name, place..." />
+      <button id="reset">Reset</button>
+      <span id="stats">Loading data...</span>
+    </div>
+  </header>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script>
+    const map = L.map('map').setView([-38.4, -63.6], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const statsEl = document.getElementById('stats');
+    const searchEl = document.getElementById('search');
+    const resetBtn = document.getElementById('reset');
+    const cluster = L.markerClusterGroup({ disableClusteringAtZoom: 12, chunkedLoading: true });
+    let allFeatures = [];
+    let metadata = {};
+
+    function popupHtml(p) {
+      const title = p.scientific_name || 'Unknown species';
+      const common = p.preferred_common_name || '';
+      const place = p.place_guess || '';
+      const observed = p.observed_on || '';
+      const url = p.uri || '';
+      const photo = p.photo_url || '';
+      return `<div class="popup"><strong><em>${title}</em></strong><br>` +
+        `${common ? `${common}<br>` : ''}` +
+        `${place ? `${place}<br>` : ''}` +
+        `${observed ? `Observed: ${observed}<br>` : ''}` +
+        `${url ? `<a href="${url}" target="_blank" rel="noopener">Open source record</a><br>` : ''}` +
+        `${photo ? `<img src="${photo}" alt="${title}">` : ''}</div>`;
+    }
+
+    function addFeatures(features) {
+      cluster.clearLayers();
+      const species = new Set();
+      for (const feature of features) {
+        const coords = feature.geometry && feature.geometry.coordinates;
+        if (!coords || coords.length < 2) continue;
+        const p = feature.properties || {};
+        species.add(p.scientific_name || 'Unknown');
+        const marker = L.circleMarker([coords[1], coords[0]], {
+          radius: 5,
+          color: '#2f855a',
+          fillColor: '#38a169',
+          fillOpacity: 0.75,
+          weight: 1
+        }).bindPopup(popupHtml(p));
+        cluster.addLayer(marker);
+      }
+      map.addLayer(cluster);
+      statsEl.textContent = `${features.length.toLocaleString()} records · ${species.size.toLocaleString()} species` +
+        (metadata.updated_at_utc ? ` · Updated ${metadata.updated_at_utc}` : '');
+      if (cluster.getBounds().isValid()) map.fitBounds(cluster.getBounds(), { padding: [20, 20] });
+    }
+
+    function normalize(s) { return (s || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+
+    function applyFilter() {
+      const q = normalize(searchEl.value.trim());
+      if (!q) return addFeatures(allFeatures);
+      const filtered = allFeatures.filter(f => {
+        const p = f.properties || {};
+        return [p.scientific_name, p.preferred_common_name, p.place_guess, p.observer_login]
+          .some(v => normalize(v).includes(q));
+      });
+      addFeatures(filtered);
+    }
+
+    fetch('../data/observations_argentina_live.geojson')
+      .then(r => r.json())
+      .then(data => {
+        metadata = data.metadata || {};
+        allFeatures = data.features || [];
+        addFeatures(allFeatures);
+
+        const legend = L.control({ position: 'bottomright' });
+        legend.onAdd = () => {
+          const div = L.DomUtil.create('div', 'legend');
+          div.innerHTML = `<strong>Source</strong><br>ArgentiNat / iNaturalist API<br><br>` +
+            `<strong>Scope</strong><br>Native/endemic plant observations in Argentina<br><br>` +
+            `<strong>Method note</strong><br>Observation-based map. Formal taxonomy should be validated with Flora Argentina / Darwinion.`;
+          return div;
+        };
+        legend.addTo(map);
+      })
+      .catch(err => {
+        statsEl.textContent = 'Could not load GeoJSON.';
+        alert('Could not load GeoJSON. If opening locally, use a small local server: python -m http.server');
+        console.error(err);
+      });
+
+    searchEl.addEventListener('input', () => { window.clearTimeout(window._searchTimer); window._searchTimer = window.setTimeout(applyFilter, 200); });
+    resetBtn.addEventListener('click', () => { searchEl.value = ''; addFeatures(allFeatures); });
+  </script>
+</body>
+</html>
