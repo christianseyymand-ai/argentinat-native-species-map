@@ -1,0 +1,38 @@
+name: Update All Native Plants Argentina
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Update all native plant observations
+        run: |
+          python scripts/update_all_native_plants_argentina.py
+
+      - name: Commit updated biodiversity data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/species_master_all_native_plants.csv data/observations_argentina_live.csv data/observations_argentina_live.geojson data/update_summary.json data/update_progress.json || true
+          git commit -m "Update native plant observation data" || echo "No changes to commit"
+          git push
