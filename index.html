@@ -1,11 +1,359 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=map/">
-  <title>ArgentiNat Native Species Map</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Native Plants Argentina Map</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQuxp3DVCUUt5Kq1POnM4B0C3I6fL8s="
+    crossorigin=""
+  />
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+    }
+
+    #map {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .panel {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 1000;
+      width: 320px;
+      max-width: calc(100vw - 32px);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+      padding: 14px;
+    }
+
+    .panel h1 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.2;
+      color: #1f2933;
+    }
+
+    .panel p {
+      margin: 6px 0;
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.4;
+    }
+
+    .stats {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: #111827;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #374151;
+    }
+
+    .progress-wrap {
+      margin-top: 10px;
+      height: 8px;
+      width: 100%;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #16a34a;
+      transition: width 0.25s ease;
+    }
+
+    .error {
+      color: #b91c1c;
+      font-weight: bold;
+    }
+
+    .popup-title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .popup-common {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 6px;
+    }
+
+    .popup-meta {
+      font-size: 12px;
+      color: #374151;
+      margin: 2px 0;
+    }
+
+    .popup-photo {
+      width: 180px;
+      max-width: 100%;
+      margin-top: 8px;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .popup-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .popup-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .panel {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        padding: 12px;
+      }
+
+      .panel h1 {
+        font-size: 16px;
+      }
+
+      .panel p,
+      .stats,
+      .status {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <p>Redirecting to <a href="map/">ArgentiNat Native Species Map</a>...</p>
+  <div id="map"></div>
+
+  <div class="panel">
+    <h1>Native Plants Argentina</h1>
+    <p>Observaciones georreferenciadas de plantas nativas/endémicas en Argentina.</p>
+
+    <div class="stats">
+      <div><strong>Estado:</strong> <span id="statusText">Cargando datos...</span></div>
+      <div><strong>Observaciones:</strong> <span id="observationsCount">0</span></div>
+      <div><strong>Chunks cargados:</strong> <span id="chunksCount">0</span></div>
+    </div>
+
+    <div class="progress-wrap">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <div id="detailStatus" class="status">
+      Leyendo manifest...
+    </div>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script>
+    const map = L.map("map", {
+      preferCanvas: true
+    }).setView([-38.4161, -63.6167], 4);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const statusText = document.getElementById("statusText");
+    const observationsCount = document.getElementById("observationsCount");
+    const chunksCount = document.getElementById("chunksCount");
+    const detailStatus = document.getElementById("detailStatus");
+    const progressBar = document.getElementById("progressBar");
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat("es-AR").format(value);
+    }
+
+    function escapeHtml(value) {
+      if (value === null || value === undefined) return "";
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function popupContent(feature) {
+      const p = feature.properties || {};
+
+      const scientificName = escapeHtml(p.scientific_name || "Sin nombre científico");
+      const commonName = escapeHtml(p.common_name || "");
+      const observedOn = escapeHtml(p.observed_on || "Sin fecha");
+      const placeGuess = escapeHtml(p.place_guess || "");
+      const userLogin = escapeHtml(p.user_login || "");
+      const uri = p.uri || "";
+      const photoUrl = p.photo_url || "";
+
+      let html = `
+        <div class="popup-title"><em>${scientificName}</em></div>
+      `;
+
+      if (commonName) {
+        html += `<div class="popup-common">${commonName}</div>`;
+      }
+
+      html += `<div class="popup-meta"><strong>Fecha:</strong> ${observedOn}</div>`;
+
+      if (placeGuess) {
+        html += `<div class="popup-meta"><strong>Lugar:</strong> ${placeGuess}</div>`;
+      }
+
+      if (userLogin) {
+        html += `<div class="popup-meta"><strong>Usuario:</strong> ${userLogin}</div>`;
+      }
+
+      if (photoUrl) {
+        html += `<img class="popup-photo" src="${escapeHtml(photoUrl)}" alt="${scientificName}" loading="lazy" />`;
+      }
+
+      if (uri) {
+        html += `<a class="popup-link" href="${escapeHtml(uri)}" target="_blank" rel="noopener noreferrer">Ver observación</a>`;
+      }
+
+      return html;
+    }
+
+    function pointToLayer(feature, latlng) {
+      return L.circleMarker(latlng, {
+        radius: 4,
+        weight: 1,
+        opacity: 0.75,
+        fillOpacity: 0.45
+      });
+    }
+
+    async function loadManifest() {
+      const response = await fetch("./data/geojson_manifest.json", {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("No se pudo cargar data/geojson_manifest.json");
+      }
+
+      return response.json();
+    }
+
+    async function loadChunk(chunkPath) {
+      const response = await fetch(`./data/${chunkPath}`, {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error(`No se pudo cargar ./data/${chunkPath}`);
+      }
+
+      return response.json();
+    }
+
+    async function loadObservationChunks() {
+      statusText.textContent = "Cargando manifest...";
+      detailStatus.textContent = "Leyendo data/geojson_manifest.json";
+
+      const manifest = await loadManifest();
+
+      if (!manifest.chunks || !Array.isArray(manifest.chunks)) {
+        throw new Error("El manifest no tiene una lista válida de chunks.");
+      }
+
+      const totalChunks = manifest.chunks.length;
+      let loadedChunks = 0;
+      let loadedObservations = 0;
+      const bounds = L.latLngBounds([]);
+
+      statusText.textContent = "Cargando observaciones...";
+      detailStatus.textContent = `0 de ${totalChunks} chunks cargados`;
+
+      for (const chunkPath of manifest.chunks) {
+        const chunkGeoJSON = await loadChunk(chunkPath);
+        const features = Array.isArray(chunkGeoJSON.features) ? chunkGeoJSON.features : [];
+
+        const layer = L.geoJSON(chunkGeoJSON, {
+          pointToLayer,
+          onEachFeature: function (feature, layer) {
+            layer.bindPopup(popupContent(feature));
+          }
+        }).addTo(map);
+
+        try {
+          const layerBounds = layer.getBounds();
+          if (layerBounds.isValid()) {
+            bounds.extend(layerBounds);
+          }
+        } catch (error) {
+          console.warn("No se pudieron calcular bounds para:", chunkPath, error);
+        }
+
+        loadedChunks += 1;
+        loadedObservations += features.length;
+
+        chunksCount.textContent = `${loadedChunks} / ${totalChunks}`;
+        observationsCount.textContent = formatNumber(loadedObservations);
+
+        const percent = Math.round((loadedChunks / totalChunks) * 100);
+        progressBar.style.width = `${percent}%`;
+
+        detailStatus.textContent = `${loadedChunks} de ${totalChunks} chunks cargados`;
+        console.log(`Loaded ${chunkPath}: ${features.length} features`);
+      }
+
+      statusText.textContent = "Listo";
+      observationsCount.textContent = formatNumber(loadedObservations);
+      chunksCount.textContent = `${loadedChunks} / ${totalChunks}`;
+      detailStatus.textContent = `Dataset cargado: ${formatNumber(loadedObservations)} observaciones.`;
+
+      if (bounds.isValid()) {
+        map.fitBounds(bounds, {
+          padding: [20, 20]
+        });
+      }
+    }
+
+    loadObservationChunks().catch((error) => {
+      console.error(error);
+
+      statusText.innerHTML = '<span class="error">Error</span>';
+      detailStatus.innerHTML = `
+        <span class="error">
+          ${escapeHtml(error.message)}
+        </span>
+      `;
+    });
+  </script>
 </body>
 </html>
