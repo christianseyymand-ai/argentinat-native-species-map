@@ -6,7 +6,7 @@ The project automatically downloads biodiversity observation data, processes it 
 
 ## Live Map
 
-Open the published GitHub Pages site for this repository to view the map.
+(https://christianseyymand-ai.github.io/argentinat-native-species-map/)
 
 ## What the Map Shows
 
