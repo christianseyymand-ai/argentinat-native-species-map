@@ -2,7 +2,7 @@
   "type": "FeatureCollection",
   "features": [],
   "note": "Full dataset is split into spatial tiles. Load data/geojson_tile_manifest.json and data/geojson_tiles/*.geojson.",
-  "total_observations": 233447,
+  "total_observations": 234171,
   "tiles_count": 332,
   "overview": "data/geojson_overview.geojson",
   "manifest": "data/geojson_tile_manifest.json"
