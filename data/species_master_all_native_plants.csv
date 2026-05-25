@@ -1,614 +1,616 @@
 taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
-51454,Passiflora caerulea,Bluecrown passionflower,species,Plantae,3264
-810560,Vachellia caven,Caven Thorn,species,Plantae,2345
-79143,Solanum sisymbriifolium,Red Buffalo-bur,species,Plantae,2099
-53478,Commelina erecta,whitemouth dayflower,species,Plantae,1943
-162718,Erythrina crista-galli,Cockspur coral tree,species,Plantae,1902
-139069,Geoffroea decorticans,Chañar,species,Plantae,1691
-64240,Cortaderia selloana,Pampas Grass,species,Plantae,1640
-279210,Celtis tala,Desert Hackberry,species,Plantae,1624
-50333,Lantana camara,common lantana,species,Plantae,1506
-424162,Solidago chilensis,Anise Goldenrod,species,Plantae,1348
-541592,Sphaeralcea bonariensis,Latin globemallow,species,Plantae,1342
-78954,Salpichroa origanifolia,Cock's-eggs,species,Plantae,1316
-993381,Clematis campestris,,species,Plantae,1291
-58334,Nicotiana glauca,tree tobacco,species,Plantae,1282
-441434,Opuntia sulphurea,sulphur cactus,species,Plantae,1277
-84707,Berberis microphylla,Calafate,species,Plantae,1252
-792005,Dicliptera squarrosa,Uruguayan Firecracker Plant,species,Plantae,1145
-631076,Oxypetalum solanoides,,species,Plantae,1138
-370737,Tillandsia aeranthos,,species,Plantae,1128
-484057,Sapium haematospermum,,species,Plantae,1090
-116713,Larrea divaricata,,species,Plantae,1068
+51454,Passiflora caerulea,Bluecrown passionflower,species,Plantae,3270
+810560,Vachellia caven,Caven Thorn,species,Plantae,2348
+79143,Solanum sisymbriifolium,Red Buffalo-bur,species,Plantae,2113
+53478,Commelina erecta,whitemouth dayflower,species,Plantae,1951
+162718,Erythrina crista-galli,Cockspur coral tree,species,Plantae,1907
+139069,Geoffroea decorticans,Chañar,species,Plantae,1692
+64240,Cortaderia selloana,Pampas Grass,species,Plantae,1647
+279210,Celtis tala,Desert Hackberry,species,Plantae,1629
+50333,Lantana camara,common lantana,species,Plantae,1511
+424162,Solidago chilensis,Anise Goldenrod,species,Plantae,1353
+541592,Sphaeralcea bonariensis,Latin globemallow,species,Plantae,1344
+78954,Salpichroa origanifolia,Cock's-eggs,species,Plantae,1318
+993381,Clematis campestris,,species,Plantae,1292
+441434,Opuntia sulphurea,sulphur cactus,species,Plantae,1284
+58334,Nicotiana glauca,tree tobacco,species,Plantae,1283
+84707,Berberis microphylla,Calafate,species,Plantae,1254
+792005,Dicliptera squarrosa,Uruguayan Firecracker Plant,species,Plantae,1152
+631076,Oxypetalum solanoides,,species,Plantae,1142
+370737,Tillandsia aeranthos,,species,Plantae,1132
+484057,Sapium haematospermum,,species,Plantae,1096
+116713,Larrea divaricata,,species,Plantae,1078
 76226,Cestrum parqui,green cestrum,species,Plantae,1056
-157839,Abutilon grandifolium,hairy abutilon,species,Plantae,1041
-1506725,Sagittaria montevidensis,Aztec arrowhead,species,Plantae,1019
+157839,Abutilon grandifolium,hairy abutilon,species,Plantae,1043
+1506725,Sagittaria montevidensis,Aztec arrowhead,species,Plantae,1020
 371182,Jodina rhombifolia,,species,Plantae,1010
-62829,Parkinsonia aculeata,Mexican palo verde,species,Plantae,1008
-165704,Nicotiana longiflora,long-flower tobacco,species,Plantae,1004
+62829,Parkinsonia aculeata,Mexican palo verde,species,Plantae,1009
+165704,Nicotiana longiflora,long-flower tobacco,species,Plantae,1006
 59040,Phyla nodiflora,turkey tangle frogfruit,species,Plantae,998
-465366,Nothofagus pumilio,Lenga Beech,species,Plantae,976
+465366,Nothofagus pumilio,Lenga Beech,species,Plantae,975
+163317,Glandularia peruviana,Peruvian Mock Vervain,species,Plantae,972
 465345,Chiliotrichum diffusum,Fachine,species,Plantae,972
-163317,Glandularia peruviana,Peruvian Mock Vervain,species,Plantae,970
-129582,Phytolacca dioica,Ombu,species,Plantae,945
+129582,Phytolacca dioica,Ombu,species,Plantae,947
 1065391,Erythrostemon gilliesii,yellow bird-of-paradise shrub,species,Plantae,936
-77496,Ipomoea indica,oceanblue morning glory,species,Plantae,914
-56891,Aloysia gratissima,Whitebrush,species,Plantae,894
+77496,Ipomoea indica,oceanblue morning glory,species,Plantae,916
+56891,Aloysia gratissima,Whitebrush,species,Plantae,900
 859233,Austroeupatorium inulifolium,Whiteweed,species,Plantae,876
-846973,Solanum granulosoleprosum,,species,Plantae,869
-163683,Herbertia lahue,Prairie Nymph,species,Plantae,859
-209956,Parkinsonia praecox,palo brea,species,Plantae,858
-84002,Tillandsia recurvata,ballmoss,species,Plantae,856
-57913,Baccharis salicifolia,mule fat,species,Plantae,848
+846973,Solanum granulosoleprosum,,species,Plantae,873
+209956,Parkinsonia praecox,palo brea,species,Plantae,863
+163683,Herbertia lahue,Prairie Nymph,species,Plantae,861
+84002,Tillandsia recurvata,ballmoss,species,Plantae,858
+57913,Baccharis salicifolia,mule fat,species,Plantae,849
 319327,Embothrium coccineum,Chilean fire bush,species,Plantae,838
-372267,Chloraea membranacea,Membranous Greenhood,species,Plantae,810
+372267,Chloraea membranacea,Membranous Greenhood,species,Plantae,823
 153439,Zinnia peruviana,Peruvian zinnia,species,Plantae,802
+869986,Trichocereus candicans,Argentine Giant,species,Plantae,801
 797147,Azorella prolifera,Mother-in-law Cushion,species,Plantae,799
-904475,Schinus longifolia,,species,Plantae,798
-869986,Trichocereus candicans,Argentine Giant,species,Plantae,796
-79487,Verbena bonariensis,purpletop vervain,species,Plantae,786
-79137,Solanum elaeagnifolium,silverleaf nightshade,species,Plantae,783
-962637,Pontederia crassipes,common water hyacinth,species,Plantae,762
-924824,Pascalia glauca,Sunchillo,species,Plantae,758
-428312,Condalia microphylla,,species,Plantae,755
-424095,Aspidosperma quebracho-blanco,Common White Quebracho,species,Plantae,746
-75499,Araujia sericifera,Moth Vine,species,Plantae,744
+904475,Schinus longifolia,,species,Plantae,799
+79487,Verbena bonariensis,purpletop vervain,species,Plantae,788
+79137,Solanum elaeagnifolium,silverleaf nightshade,species,Plantae,787
+962637,Pontederia crassipes,common water hyacinth,species,Plantae,766
+924824,Pascalia glauca,Sunchillo,species,Plantae,759
+428312,Condalia microphylla,,species,Plantae,758
+424095,Aspidosperma quebracho-blanco,Common White Quebracho,species,Plantae,749
+75499,Araujia sericifera,Moth Vine,species,Plantae,746
 525635,Modiolastrum malvifolium,,species,Plantae,730
-169064,Solanum glaucophyllum,waxy-leaved nightshade,species,Plantae,719
-164075,Ipomoea alba,Moonflower,species,Plantae,692
-167072,Pluchea sagittalis,Wingstem Camphorweed,species,Plantae,686
-447708,Ligaria cuneifolia,,species,Plantae,684
-50203,Bidens pilosa,Hairy Beggarticks,species,Plantae,672
-430340,Echinopsis leucantha,,species,Plantae,671
-464557,Dolichandra cynanchoides,,species,Plantae,659
-431346,Muehlenbeckia sagittifolia,Maidenhair Vine,species,Plantae,656
-438208,Cereus aethiops,,species,Plantae,646
+169064,Solanum glaucophyllum,waxy-leaved nightshade,species,Plantae,720
+164075,Ipomoea alba,Moonflower,species,Plantae,696
+167072,Pluchea sagittalis,Wingstem Camphorweed,species,Plantae,688
+447708,Ligaria cuneifolia,,species,Plantae,686
+50203,Bidens pilosa,Hairy Beggarticks,species,Plantae,675
+430340,Echinopsis leucantha,,species,Plantae,674
+431346,Muehlenbeckia sagittifolia,Maidenhair Vine,species,Plantae,663
+464557,Dolichandra cynanchoides,,species,Plantae,661
+438208,Cereus aethiops,,species,Plantae,647
 52344,Ipomoea purpurea,common morning-glory,species,Plantae,643
-346959,Codonorchis lessonii,Dog orchid,species,Plantae,629
+346959,Codonorchis lessonii,Dog orchid,species,Plantae,630
 366916,Gaultheria mucronata,Prickly Heath,species,Plantae,622
+75442,Anemone multifida,Cutleaf Anemone,species,Plantae,613
 428962,Quinchamalium chilense,Quinchamali,species,Plantae,612
-75442,Anemone multifida,Cutleaf Anemone,species,Plantae,611
+871366,Vachellia aroma,,species,Plantae,611
+157498,Heimia salicifolia,sun opener,species,Plantae,608
+164208,Jaborosa integrifolia,springblossom,species,Plantae,607
 58058,Heliotropium curassavicum,alkali heliotrope,species,Plantae,606
-157498,Heimia salicifolia,sun opener,species,Plantae,605
-164208,Jaborosa integrifolia,springblossom,species,Plantae,604
-871366,Vachellia aroma,,species,Plantae,604
-467158,Pavonia sepium,shell flower,species,Plantae,603
-77363,Heliotropium amplexicaule,fragrant heliotrope,species,Plantae,597
+467158,Pavonia sepium,shell flower,species,Plantae,605
+77363,Heliotropium amplexicaule,fragrant heliotrope,species,Plantae,598
 371186,Scutia buxifolia,,species,Plantae,592
-163774,Hibiscus striatus,,species,Plantae,589
-740103,Schinus fasciculata,,species,Plantae,584
-447543,Larrea cuneifolia,,species,Plantae,573
-209781,Asclepias mellodora,,species,Plantae,568
-163871,Hydrocotyle bonariensis,largeleaf pennywort,species,Plantae,565
-869971,Trichocereus atacamensis,,species,Plantae,565
-346357,Copernicia alba,Caranday Palm,species,Plantae,563
-407502,Nothofagus antarctica,Antarctic Beech,species,Plantae,562
-79077,Sida rhombifolia,Cuban jute,species,Plantae,561
+163774,Hibiscus striatus,,species,Plantae,591
+740103,Schinus fasciculata,,species,Plantae,585
+447543,Larrea cuneifolia,,species,Plantae,574
+209781,Asclepias mellodora,,species,Plantae,569
+346357,Copernicia alba,Caranday Palm,species,Plantae,569
+407502,Nothofagus antarctica,Antarctic Beech,species,Plantae,568
+163871,Hydrocotyle bonariensis,largeleaf pennywort,species,Plantae,566
+869971,Trichocereus atacamensis,,species,Plantae,566
+79077,Sida rhombifolia,Cuban jute,species,Plantae,563
 465349,Empetrum rubrum,Diddle-dee,species,Plantae,559
 410471,Alstroemeria aurea,Peruvian Lily,species,Plantae,550
 479047,Cypella herbertii,Herbert's goblet flower,species,Plantae,529
-431626,Solanum bonariense,,species,Plantae,526
-52446,Enterolobium contortisiliquum,Pacara Earpod Tree,species,Plantae,521
-165140,Manihot grahamii,hardy tapioca,species,Plantae,521
-410902,Aechmea distichantha,Brazilian vaseplant,species,Plantae,521
+431626,Solanum bonariense,,species,Plantae,527
+52446,Enterolobium contortisiliquum,Pacara Earpod Tree,species,Plantae,525
+410902,Aechmea distichantha,Brazilian vaseplant,species,Plantae,523
+165140,Manihot grahamii,hardy tapioca,species,Plantae,522
 892085,Amphilophium carolinae,,species,Plantae,519
-447706,Hyalis argentea,,species,Plantae,512
-169078,Solanum pseudocapsicum,Jerusalem cherry,species,Plantae,501
+447706,Hyalis argentea,,species,Plantae,514
+169078,Solanum pseudocapsicum,Jerusalem cherry,species,Plantae,503
 146643,Canna indica,Indian shot,species,Plantae,499
 1493114,Neltuma caldenia,calden,species,Plantae,499
-498893,Larrea nitida,,species,Plantae,494
-223926,Lippia alba,Bushy Lippia,species,Plantae,492
+223926,Lippia alba,Bushy Lippia,species,Plantae,495
+498893,Larrea nitida,,species,Plantae,495
 403954,Misodendrum punctulatum,false mistletoe,species,Plantae,489
 603333,Tessaria integrifolia,,species,Plantae,487
 424094,Senecio bonariensis,,species,Plantae,480
+139568,Bauhinia forficata,Brazilian orchid tree,species,Plantae,479
 78571,Physalis viscosa,grape groundcherry,species,Plantae,478
-450291,Baccharis trimera,,species,Plantae,477
-139568,Bauhinia forficata,Brazilian orchid tree,species,Plantae,476
+450291,Baccharis trimera,,species,Plantae,478
+859285,Solanum amygdalifolium,,species,Plantae,478
 163112,Fuchsia magellanica,Hardy Fuchsia,species,Plantae,476
-859285,Solanum amygdalifolium,,species,Plantae,475
+133291,Rivina humilis,pigeonberry,species,Plantae,475
 545573,Araujia odorata,Latexplant,species,Plantae,473
-133291,Rivina humilis,pigeonberry,species,Plantae,472
-872365,Aspilia silphioides,,species,Plantae,471
-880795,Urolepis hecatantha,,species,Plantae,462
-78589,Pistia stratiotes,Water Lettuce,species,Plantae,460
-77844,Luma apiculata,arrayan,species,Plantae,452
+872365,Aspilia silphioides,,species,Plantae,473
+880795,Urolepis hecatantha,,species,Plantae,464
+78589,Pistia stratiotes,Water Lettuce,species,Plantae,461
+77844,Luma apiculata,arrayan,species,Plantae,454
 129847,Denmoza rhodacantha,,species,Plantae,452
 79382,Tradescantia fluminensis,small-leaf spiderwort,species,Plantae,451
-130175,Hyptis mutabilis,Tropical Bushmint,species,Plantae,443
-168837,Senna corymbosa,Argentine Senna,species,Plantae,442
+130175,Hyptis mutabilis,Tropical Bushmint,species,Plantae,444
+866204,Grindelia pulchella,,species,Plantae,444
+168837,Senna corymbosa,Argentine Senna,species,Plantae,443
 218501,Blechnum penna-marina,little hard fern,species,Plantae,442
-563934,Baccharis dracunculifolia,,species,Plantae,439
-866204,Grindelia pulchella,,species,Plantae,439
+563934,Baccharis dracunculifolia,,species,Plantae,440
+482060,Cyclolepis genistoides,,species,Plantae,438
 447545,Nothofagus betuloides,Magellanic beech,species,Plantae,437
-482060,Cyclolepis genistoides,,species,Plantae,437
-584095,Dolichandra unguis-cati,Catclaw vine,species,Plantae,434
+584095,Dolichandra unguis-cati,Catclaw vine,species,Plantae,436
+280109,Campuloclinium macrocephalum,Pompom Weed,species,Plantae,432
 543076,Nierembergia linariifolia,dwarf cupflower,species,Plantae,430
-280109,Campuloclinium macrocephalum,Pompom Weed,species,Plantae,428
+460752,Allophylus edulis,cocum,species,Plantae,427
 525588,Modiolastrum gilliesii,,species,Plantae,427
-460752,Allophylus edulis,cocum,species,Plantae,426
-1138435,Armeria curvifolia,Curved-leaved thrift,species,Plantae,426
+1138435,Armeria curvifolia,Curved-leaved thrift,species,Plantae,427
 424164,Jaborosa runcinata,,species,Plantae,425
+867130,Lycium boerhaviifolium,desert plum,species,Plantae,425
 528837,Baccharis articulata,,species,Plantae,424
 346173,Salvia guaranitica,Anise-scented sage,species,Plantae,423
-867130,Lycium boerhaviifolium,desert plum,species,Plantae,421
 55405,Petunia axillaris,large white petunia,species,Plantae,420
 429196,Mutisia spinosa,black queen,species,Plantae,419
+870252,Trichocereus terscheckii,Argentine Saguaro,species,Plantae,419
 75727,Baccharis glutinosa,marsh baccharis,species,Plantae,418
-870252,Trichocereus terscheckii,Argentine Saguaro,species,Plantae,418
+823355,Adesmia boronioides,,species,Plantae,415
 126404,Araucaria araucana,monkey-puzzle,species,Plantae,414
-823355,Adesmia boronioides,,species,Plantae,414
 539113,Lycium cestroides,Herzog cestrum,species,Plantae,411
 544478,Sambucus australis,,species,Plantae,408
-79359,Thymophylla pentachaeta,Parralena,species,Plantae,406
+79359,Thymophylla pentachaeta,Parralena,species,Plantae,407
 557627,Eryngium horridum,,species,Plantae,401
-484056,Baccharis notosergila,,species,Plantae,397
+484056,Baccharis notosergila,,species,Plantae,400
 427727,Glandularia tenera,Latin American Mock Vervain,species,Plantae,396
 71230,Tessaria absinthioides,,species,Plantae,394
+168866,Sesbania virgata,wand riverhemp,species,Plantae,394
 465229,Ribes magellanicum,Patagonian wild currant,species,Plantae,394
-168866,Sesbania virgata,wand riverhemp,species,Plantae,393
 209991,Salix humboldtiana,Humboldt's Willow,species,Plantae,392
-790108,Araujia angustifolia,,species,Plantae,391
+790108,Araujia angustifolia,,species,Plantae,392
 78233,Nothoscordum gracile,Onion Weed,species,Plantae,389
-428960,Mutisia decurrens,carnation of the field,species,Plantae,380
+428960,Mutisia decurrens,carnation of the field,species,Plantae,381
+52355,Pavonia hastata,Spearleaf Swampmallow,species,Plantae,378
+131169,Mikania cordifolia,Florida Keys Hempvine,species,Plantae,378
 465228,Gunnera magellanica,Pigvine,species,Plantae,378
-52355,Pavonia hastata,Spearleaf Swampmallow,species,Plantae,374
-131169,Mikania cordifolia,Florida Keys Hempvine,species,Plantae,373
-57805,Oxalis articulata,pink-sorrel,species,Plantae,369
+79291,Syagrus romanzoffiana,Queen palm,species,Plantae,377
+57805,Oxalis articulata,pink-sorrel,species,Plantae,370
+967278,Baccharis punctulata,,species,Plantae,370
 1493104,Neltuma alba,White Carob Tree,species,Plantae,369
-967278,Baccharis punctulata,,species,Plantae,368
-443965,Stetsonia coryne,Toothpick Cactus,species,Plantae,365
+443965,Stetsonia coryne,Toothpick Cactus,species,Plantae,367
 48363,Tecoma stans,yellow trumpet flower,species,Plantae,363
-79291,Syagrus romanzoffiana,Queen palm,species,Plantae,363
-84043,Solanum palinacanthum,,species,Plantae,359
-898657,Senegalia bonariensis,,species,Plantae,359
+84043,Solanum palinacanthum,,species,Plantae,361
+898657,Senegalia bonariensis,,species,Plantae,360
 57354,Schinus molle,Peruvian Pepper Tree,species,Plantae,358
+364987,Butia yatay,yatay palm,species,Plantae,358
 862010,Stigmaphyllon bonariense,,species,Plantae,358
-165115,Malvastrum coromandelianum,three-lobe false mallow,species,Plantae,352
-364987,Butia yatay,yatay palm,species,Plantae,350
+165115,Malvastrum coromandelianum,three-lobe false mallow,species,Plantae,354
+965730,Glandularia tweedieana,,species,Plantae,349
 56822,Bowlesia incana,hoary bowlesia,species,Plantae,348
-164032,Ibicella lutea,Yellow Unicorn-plant,species,Plantae,346
+164032,Ibicella lutea,Yellow Unicorn-plant,species,Plantae,348
 430728,Blepharocalyx salicifolius,,species,Plantae,346
-965730,Glandularia tweedieana,,species,Plantae,346
+156145,Atamisquea emarginata,Desert Caper,species,Plantae,345
+439590,Lepismium lumbricoides,,species,Plantae,345
+712404,Gavilea lutea,Yellow Ground Orchid,species,Plantae,343
 1493099,Strombocarpa strombulifera,argentine screwbean,species,Plantae,343
-156145,Atamisquea emarginata,Desert Caper,species,Plantae,342
-439590,Lepismium lumbricoides,,species,Plantae,342
-712404,Gavilea lutea,Yellow Ground Orchid,species,Plantae,342
 284004,Sisyrinchium micranthum,Blue Pigroot,species,Plantae,339
 868921,Ludwigia elegans,,species,Plantae,339
-841141,Lantana megapotamica,,species,Plantae,336
+841141,Lantana megapotamica,,species,Plantae,337
 461583,Berberis empetrifolia,,species,Plantae,334
+479950,Tabernaemontana catharinensis,,species,Plantae,333
 64179,Verbena litoralis,Seashore vervain,species,Plantae,330
 202635,Hypochaeris albiflora,white flatweed,species,Plantae,330
-479950,Tabernaemontana catharinensis,,species,Plantae,330
-538621,Solanum argentinum,,species,Plantae,328
-136243,Austrocedrus chilensis,Cordilleran cypress,species,Plantae,326
-447537,Lycium chilense,Chilean Boxthorn,species,Plantae,326
-76609,Datura ferox,long-spined thorn-apple,species,Plantae,325
+538621,Solanum argentinum,,species,Plantae,329
+447537,Lycium chilense,Chilean Boxthorn,species,Plantae,328
+76609,Datura ferox,long-spined thorn-apple,species,Plantae,327
+136243,Austrocedrus chilensis,Cordilleran cypress,species,Plantae,327
+480270,Senecio subulatus,,species,Plantae,326
 1555395,Troncosoa seriphioides,,species,Plantae,325
-480270,Senecio subulatus,,species,Plantae,324
 624183,Chuquiraga erinacea,,species,Plantae,324
 796450,Argemone subfusiformis,,species,Plantae,324
 429183,Lobivia formosa,,species,Plantae,323
+481156,Turnera sidoides,,species,Plantae,321
 83487,Acaena magellanica,Greater Burnet,species,Plantae,320
-481156,Turnera sidoides,,species,Plantae,320
 544767,Baccharis spicata,,species,Plantae,319
+424093,Myrcianthes cisplatensis,,species,Plantae,318
 487096,Senecio pterophorus,Shoddy Ragwort,species,Plantae,318
-424093,Myrcianthes cisplatensis,,species,Plantae,317
 79495,Verbesina encelioides,cowpen daisy,species,Plantae,316
+60276,Bromus catharticus,Rescue Brome,species,Plantae,315
 60951,Hydrocotyle ranunculoides,floating marsh pennywort,species,Plantae,315
-60276,Bromus catharticus,Rescue Brome,species,Plantae,314
+126742,Cecropia pachystachya,Pumpwood,species,Plantae,315
 157966,Acicarpha tribuloides,,species,Plantae,314
-742735,Buddleja stachyoides,Argentine butterfly bush,species,Plantae,312
-60220,Ludwigia peploides,floating primrose-willow,species,Plantae,310
+742735,Buddleja stachyoides,Argentine butterfly bush,species,Plantae,313
 336163,Tropaeolum pentaphyllum,Ladies' Legs,species,Plantae,310
 564997,Senecio pampeanus,,species,Plantae,310
-59035,Solanum americanum,American black nightshade,species,Plantae,307
-164091,Ipomoea nil,Japanese morning glory,species,Plantae,306
+962649,Pontederia azurea,anchored water hyacinth,species,Plantae,310
+60220,Ludwigia peploides,floating primrose-willow,species,Plantae,309
+59035,Solanum americanum,American black nightshade,species,Plantae,308
+164091,Ipomoea nil,Japanese morning glory,species,Plantae,308
+1433596,Tripogandra diuretica,,species,Plantae,308
 481153,Trixis praestans,,species,Plantae,306
-126742,Cecropia pachystachya,Pumpwood,species,Plantae,305
 128667,Solanum laxum,potato vine,species,Plantae,304
+160297,Centratherum punctatum,Brazilian bachelor's button,species,Plantae,304
 490592,Perezia recurvata,Falkland Lavender,species,Plantae,304
 790276,Araujia brachystephana,,species,Plantae,304
-962649,Pontederia azurea,anchored water hyacinth,species,Plantae,303
-865293,Smilax campestris,,species,Plantae,302
-1433596,Tripogandra diuretica,,species,Plantae,302
+865293,Smilax campestris,,species,Plantae,303
+277459,Funastrum clausum,white twinevine,species,Plantae,302
+430226,Lecanophora heterophylla,,species,Plantae,302
+337606,Prosopanche americana,,species,Plantae,301
+441425,Opuntia quimilo,,species,Plantae,301
 861992,Myrsine laetevirens,,species,Plantae,301
-430226,Lecanophora heterophylla,,species,Plantae,300
-441425,Opuntia quimilo,,species,Plantae,300
-337606,Prosopanche americana,,species,Plantae,299
+438272,Cleistocactus baumannii,Chaco Torch Cactus,species,Plantae,300
 167309,Portulaca grandiflora,moss rose,species,Plantae,298
-277459,Funastrum clausum,white twinevine,species,Plantae,298
-438272,Cleistocactus baumannii,Chaco Torch Cactus,species,Plantae,297
+447675,Schinus johnstonii,,species,Plantae,297
 543870,Gomphrena pulchella,,species,Plantae,297
 126424,Parthenium hysterophorus,Santa Maria feverfew,species,Plantae,296
-447675,Schinus johnstonii,,species,Plantae,296
 602580,Discaria americana,,species,Plantae,296
 557618,Colletia spinosissima,,species,Plantae,294
+715301,Phacelia secunda,,species,Plantae,294
 165785,Oenothera affinis,,species,Plantae,293
-715301,Phacelia secunda,,species,Plantae,293
-430222,Sphaeralcea miniata,,species,Plantae,292
-160297,Centratherum punctatum,Brazilian bachelor's button,species,Plantae,291
+430222,Sphaeralcea miniata,,species,Plantae,293
 76904,Erigeron bonariensis,Flax-leaved Horseweed,species,Plantae,290
 489760,Grindelia chiloensis,Shrubby Gumweed,species,Plantae,290
-319332,Fabiana imbricata,pichi,species,Plantae,286
+319332,Fabiana imbricata,pichi,species,Plantae,287
+528742,Tillandsia duratii,,species,Plantae,286
+461589,Hysterionica jasionoides,,species,Plantae,285
+1264667,Zephyranthes tubispatha,Rio Grande copper lily,species,Plantae,285
+186783,Tephrocactus articulatus,Paper-Spined Cholla,species,Plantae,284
 624361,Oreopolus glacialis,,species,Plantae,284
-1264667,Zephyranthes tubispatha,Rio Grande copper lily,species,Plantae,284
-186783,Tephrocactus articulatus,Paper-Spined Cholla,species,Plantae,282
-461589,Hysterionica jasionoides,,species,Plantae,282
-528742,Tillandsia duratii,,species,Plantae,282
 885872,Vernonanthura nudiflora,,species,Plantae,282
-430833,Citharexylum montevidense,,species,Plantae,280
-167940,Richardia brasiliensis,Tropical Mexican Clover,species,Plantae,278
-332476,Equisetum giganteum,Southern Giant Horsetail,species,Plantae,278
+430833,Citharexylum montevidense,,species,Plantae,281
+332476,Equisetum giganteum,Southern Giant Horsetail,species,Plantae,280
+167940,Richardia brasiliensis,Tropical Mexican Clover,species,Plantae,279
+75766,Bidens laevis,Smooth Beggarticks,species,Plantae,278
 489502,Berberis ilicifolia,holly barberry,species,Plantae,277
 803124,Acanthostyles buniifolius,,species,Plantae,277
 873955,Achyrocline saturejoides,,species,Plantae,277
-75766,Bidens laevis,Smooth Beggarticks,species,Plantae,276
 128757,Sacoila lanceolata,Leafless Beaked Lady Orchid,species,Plantae,276
+531614,Pavonia aurigloba,,species,Plantae,275
 569081,Azorella monantha,Tufted azorella,species,Plantae,275
-531614,Pavonia aurigloba,,species,Plantae,274
+543681,Ficus luschnathiana,,species,Plantae,274
+75843,Bothriochloa laguroides,Silver beard grass,species,Plantae,272
 83642,Eugenia uniflora,Surinam cherry,species,Plantae,272
-543681,Ficus luschnathiana,,species,Plantae,271
-75843,Bothriochloa laguroides,Silver beard grass,species,Plantae,270
-336677,Solanum chenopodioides,tall nightshade,species,Plantae,270
+336677,Solanum chenopodioides,tall nightshade,species,Plantae,271
+161256,Cuphea glutinosa,sticky waxweed,species,Plantae,270
 633488,Gaya parviflora,,species,Plantae,270
-161256,Cuphea glutinosa,sticky waxweed,species,Plantae,269
-429151,Bougainvillea spinosa,,species,Plantae,268
-429176,Bulnesia retama,,species,Plantae,268
-1446701,Parodia erinaceus,,species,Plantae,267
-447704,Zuccagnia punctata,,species,Plantae,266
-430276,Nothofagus dombeyi,Dombey's Beech,species,Plantae,265
-47445,Mimosa pigra,Giant Sensitive Plant,species,Plantae,262
-77624,Lantana montevidensis,creeping lantana,species,Plantae,262
-543079,Lithraea molleoides,,species,Plantae,262
-441419,Opuntia megapotamica,,species,Plantae,261
+429151,Bougainvillea spinosa,,species,Plantae,269
+429176,Bulnesia retama,,species,Plantae,269
+1446701,Parodia erinaceus,,species,Plantae,268
+447704,Zuccagnia punctata,,species,Plantae,267
+430276,Nothofagus dombeyi,Dombey's Beech,species,Plantae,266
+77624,Lantana montevidensis,creeping lantana,species,Plantae,264
+47445,Mimosa pigra,Giant Sensitive Plant,species,Plantae,263
+79313,Tagetes minuta,wild marigold,species,Plantae,263
+543079,Lithraea molleoides,,species,Plantae,263
+441419,Opuntia megapotamica,,species,Plantae,262
 75751,Berberis darwinii,Darwin's Barberry,species,Plantae,260
 540992,Gaillardia megapotamica,,species,Plantae,260
 925179,Baccharis aliena,,species,Plantae,260
-79313,Tagetes minuta,wild marigold,species,Plantae,259
+75457,Anredera cordifolia,Mignonette vine,species,Plantae,259
+135403,Luehea divaricata,,species,Plantae,259
+626809,Vassobia breviflora,,species,Plantae,258
 75386,Alternanthera philoxeroides,Alligatorweed,species,Plantae,257
-75457,Anredera cordifolia,Mignonette vine,species,Plantae,257
-135403,Luehea divaricata,,species,Plantae,256
-626809,Vassobia breviflora,,species,Plantae,256
-159818,Canna glauca,water canna,species,Plantae,252
-286252,Psychotria carthagenensis,amyruca,species,Plantae,252
+159818,Canna glauca,water canna,species,Plantae,254
+286252,Psychotria carthagenensis,amyruca,species,Plantae,253
+164850,Ludwigia bonariensis,,species,Plantae,252
 528701,Olsynium junceum,,species,Plantae,252
 126496,Oxalis adenophylla,Silver Shamrock,species,Plantae,251
 157974,Acmella decumbens,Creeping Spotflower,species,Plantae,251
+601675,Croton urucurana,,species,Plantae,251
 806760,Calceolaria polyrhiza,,species,Plantae,251
-407490,Gymnocoronis spilanthoides,Senegal tea,species,Plantae,248
-71222,Suaeda divaricata,Jume,species,Plantae,247
-164850,Ludwigia bonariensis,,species,Plantae,247
+71222,Suaeda divaricata,Jume,species,Plantae,249
+407490,Gymnocoronis spilanthoides,Senegal tea,species,Plantae,249
 804951,Callianthe pauciflora,,species,Plantae,247
-601675,Croton urucurana,,species,Plantae,246
 527637,Maytenus vitis-idaea,,species,Plantae,244
 854678,Cayaponia podantha,,species,Plantae,244
 1019421,Porlieria microphylla,,species,Plantae,244
-512754,Salvia cuspidata,Lucky Punasage,species,Plantae,241
+512754,Salvia cuspidata,Lucky Punasage,species,Plantae,242
 1477875,Pseudalbizzia inundata,,species,Plantae,241
 357300,Eugenia myrcianthes,,species,Plantae,240
 47159,Schoenoplectus californicus,California bulrush,species,Plantae,239
-79065,Sesbania punicea,Scarlet Sesbane,species,Plantae,238
+79065,Sesbania punicea,Scarlet Sesbane,species,Plantae,239
 489666,Calceolaria uniflora,Darwin's Slipper,species,Plantae,237
 79068,Setaria parviflora,knotroot bristlegrass,species,Plantae,236
+126633,Ruellia simplex,Mexican Ruellia,species,Plantae,236
 160646,Cissus verticillata,Possum grape,species,Plantae,236
 438962,Gymnocalycium monvillei,,species,Plantae,236
+543802,Janusia guaranitica,,species,Plantae,236
 870914,Inga uraguensis,,species,Plantae,236
 410703,Margyricarpus pinnatus,Pearl fruit,species,Plantae,235
-543802,Janusia guaranitica,,species,Plantae,235
+565053,Philibertia gilliesii,,species,Plantae,235
+790841,Tillandsia recurvifolia,,species,Plantae,235
 474124,Chloraea magellanica,Porcelain orchid,species,Plantae,234
-565053,Philibertia gilliesii,,species,Plantae,234
-126633,Ruellia simplex,Mexican Ruellia,species,Plantae,233
 366111,Trithrinax campestris,,species,Plantae,233
+791835,Berberis ruscifolia,,species,Plantae,232
+83832,Ximenia americana,Hog plum,species,Plantae,231
 570945,Ourisia ruellioides,,species,Plantae,231
-791835,Berberis ruscifolia,,species,Plantae,231
-83832,Ximenia americana,Hog plum,species,Plantae,230
-795524,Monttea aphylla,,species,Plantae,230
-898742,Senegalia praecox,,species,Plantae,229
-1127919,Sarcomphalus mistol,,species,Plantae,228
+795524,Monttea aphylla,,species,Plantae,231
+1127919,Sarcomphalus mistol,,species,Plantae,231
+898742,Senegalia praecox,,species,Plantae,230
+52599,Pontederia cordata,pickerelweed,species,Plantae,229
 126392,Caltha sagittata,Arrow-leaved Marigold,species,Plantae,227
+159075,Atriplex lampa,South American Saltbush,species,Plantae,227
+274158,Chaptalia nutans,Silver Puff,species,Plantae,227
 479949,Tristerix corymbosus,Quintral,species,Plantae,227
-52599,Pontederia cordata,pickerelweed,species,Plantae,226
-159075,Atriplex lampa,South American Saltbush,species,Plantae,226
-274158,Chaptalia nutans,Silver Puff,species,Plantae,226
+129588,Maihuenia patagonica,Chupasangre,species,Plantae,226
+543080,Salvia pallida,,species,Plantae,226
 830545,Agalinis communis,,species,Plantae,226
 78087,Modiola caroliniana,Bristly Mallow,species,Plantae,225
-129588,Maihuenia patagonica,Chupasangre,species,Plantae,225
 130870,Iresine diffusa,Juba's Bush,species,Plantae,225
-543080,Salvia pallida,,species,Plantae,225
+285357,Cuphea racemosa,,species,Plantae,224
+715323,Mandevilla petraea,,species,Plantae,224
 870911,Cuphea fruticosa,,species,Plantae,224
-715323,Mandevilla petraea,,species,Plantae,223
 441705,Parodia mammulosa,,species,Plantae,222
-790841,Tillandsia recurvifolia,,species,Plantae,222
 277922,Teucrium vesicarium,,species,Plantae,221
 447398,Colliguaja integerrima,,species,Plantae,221
-285357,Cuphea racemosa,,species,Plantae,220
 872007,Senegalia gilliesii,,species,Plantae,220
-77969,Maytenus boaria,Maiten tree,species,Plantae,217
+77969,Maytenus boaria,Maiten tree,species,Plantae,218
 465356,Gaultheria pumila,Mountain berry,species,Plantae,217
+1169181,Solanum pilcomayense,,species,Plantae,217
+76765,Eclipta prostrata,False Daisy,species,Plantae,216
+170415,Zephyranthes candida,White rain-lily,species,Plantae,216
+544063,Gomesa bifolia,,species,Plantae,216
 706009,Tillandsia tricholepis,,species,Plantae,216
-1169181,Solanum pilcomayense,,species,Plantae,216
-76765,Eclipta prostrata,False Daisy,species,Plantae,215
-170415,Zephyranthes candida,White rain-lily,species,Plantae,215
-544063,Gomesa bifolia,,species,Plantae,215
 181319,Ruprechtia apetala,,species,Plantae,214
 794171,Convolvulus hermanniae,,species,Plantae,214
 1264600,Zephyranthes bifida,Oxblood Lily,species,Plantae,214
 169349,Stenandrium dulce,Sweet Shaggytuft,species,Plantae,213
+289607,Cyrtocymura scorpioides,,species,Plantae,213
+474126,Chloraea alpina,Patagonian Alpine Orchid,species,Plantae,213
 1199706,Tillandsia pedicellata,,species,Plantae,213
-289607,Cyrtocymura scorpioides,,species,Plantae,212
+490878,Lomatia hirsuta,Radal,species,Plantae,212
 1304538,Croton gracilipes,,species,Plantae,212
-474126,Chloraea alpina,Patagonian Alpine Orchid,species,Plantae,211
-490878,Lomatia hirsuta,Radal,species,Plantae,211
 428955,Eryngium paniculatum,Chupalla,species,Plantae,210
 278781,Drimys winteri,Winter's Bark,species,Plantae,209
 79345,Thelesperma megapotamicum,Rayless Greenthread,species,Plantae,207
+160266,Celtis pallida,spiny hackberry,species,Plantae,206
+230664,Scoparia montevidensis,broomwort,species,Plantae,206
 438976,Gymnocalycium saglionis,,species,Plantae,206
-230664,Scoparia montevidensis,broomwort,species,Plantae,205
 336376,Senecio smithii,Magellan Ragwort,species,Plantae,205
+143701,Scutellaria racemosa,South American Skullcap,species,Plantae,204
+484839,Proustia cuneifolia,,species,Plantae,204
+870042,Trichocereus strigosus,,species,Plantae,204
+49569,Tillandsia usneoides,Spanish moss,species,Plantae,203
 58203,Malvella leprosa,alkali mallow,species,Plantae,203
-143701,Scutellaria racemosa,South American Skullcap,species,Plantae,203
 431232,Lippia turbinata,,species,Plantae,203
-484839,Proustia cuneifolia,,species,Plantae,203
-870042,Trichocereus strigosus,,species,Plantae,203
-49569,Tillandsia usneoides,Spanish moss,species,Plantae,202
-160266,Celtis pallida,spiny hackberry,species,Plantae,202
+60202,Myriophyllum aquaticum,Parrot's feather,species,Plantae,202
 465433,Rubus geoides,Falkland Strawberry,species,Plantae,202
 559683,Cleome houtteana,Spider flower,species,Plantae,202
 204417,Sphaeralcea mendocina,Mendoza Globemallow,species,Plantae,201
-60202,Myriophyllum aquaticum,Parrot's feather,species,Plantae,200
+902968,Schinopsis lorentzii,,species,Plantae,201
 489105,Anemone decapetala,Southern Anemone,species,Plantae,200
 565000,Aristolochia argentina,,species,Plantae,200
-902968,Schinopsis lorentzii,,species,Plantae,200
 1023123,Pfaffia gnaphalioides,,species,Plantae,200
+57920,Xanthium strumarium,rough cocklebur,species,Plantae,199
+77493,Ipheion uniflorum,Spring starflower,species,Plantae,199
 624845,Saxifraga magellanica,fuegian saxifrage,species,Plantae,199
-57920,Xanthium strumarium,rough cocklebur,species,Plantae,198
-77493,Ipheion uniflorum,Spring starflower,species,Plantae,198
 122576,Evolvulus sericeus,silky evolvulus,species,Plantae,198
 158223,Alstroemeria psittacina,Peruvian Lily,species,Plantae,198
 873827,Ipomoea grandifolia,,species,Plantae,198
 325607,Anarthrophyllum desideratum,mataguanaco,species,Plantae,197
-878629,Chromolaena hirsuta,,species,Plantae,196
+878629,Chromolaena hirsuta,,species,Plantae,197
+159204,Begonia cucullata,Wax begonia,species,Plantae,195
+163028,Flaveria bidentis,speedyweed,species,Plantae,195
 424124,Sisyrinchium platense,,species,Plantae,195
+542070,Passiflora misera,,species,Plantae,195
 924681,Tristagma patagonicum,,species,Plantae,195
-163028,Flaveria bidentis,speedyweed,species,Plantae,194
-542070,Passiflora misera,,species,Plantae,194
-1493129,Neltuma flexuosa,,species,Plantae,194
-159204,Begonia cucullata,Wax begonia,species,Plantae,193
+1493129,Neltuma flexuosa,,species,Plantae,195
 887202,Zanthoxylum coco,,species,Plantae,192
-327664,Cereus hildmannianus,Andes organ pipe cactus,species,Plantae,189
+327664,Cereus hildmannianus,Andes organ pipe cactus,species,Plantae,191
 447991,Senecio filaginoides,,species,Plantae,189
 564993,Acalypha communis,,species,Plantae,189
 825338,Krapovickasia flavescens,,species,Plantae,189
 77550,Juncus acutus,spiny rush,species,Plantae,188
 78618,Plantago patagonica,Woolly Plantain,species,Plantae,188
+364167,Acrocomia totai,totai palm,species,Plantae,188
+439003,Harrisia pomanensis,Midnight-Lady,species,Plantae,188
 448484,Polylepis australis,,species,Plantae,188
 473032,Azorella trifurcata,Cushion Bolax,species,Plantae,188
 855528,Pinnasa bergii,,species,Plantae,188
 1493103,Neltuma affinis,,species,Plantae,188
-439003,Harrisia pomanensis,Midnight-Lady,species,Plantae,186
+62859,Psidium guajava,Common guava,species,Plantae,186
 480386,Junellia seriphioides,,species,Plantae,186
 508771,Puya spathacea,,species,Plantae,186
 704947,Nassauvia magellanica,Hairy chocolate flower,species,Plantae,186
+807297,Nymphoides humboldtiana,Floatingheart,species,Plantae,186
+1071049,Lycium tenuispinosum,,species,Plantae,186
 158270,Ambrosia tenuifolia,Lacy Ragweed,species,Plantae,185
 319972,Cumulopuntia boliviana,,species,Plantae,185
 781518,Eryngium ebracteatum,,species,Plantae,185
-1071049,Lycium tenuispinosum,,species,Plantae,185
 200054,Euphorbia serpens,Matted Sandmat,species,Plantae,184
 971812,Buddleja cordobensis,,species,Plantae,183
-62859,Psidium guajava,Common guava,species,Plantae,182
-364167,Acrocomia totai,totai palm,species,Plantae,182
 564994,Lepechinia floribunda,,species,Plantae,182
 552880,Glandularia platensis,,species,Plantae,181
 75732,Bacopa monnieri,Herb-of-Grace,species,Plantae,180
 166212,Passiflora morifolia,woodland passionflower,species,Plantae,180
+876538,Libidibia paraguariensis,,species,Plantae,180
+881522,Aspilia montevidensis,,species,Plantae,180
+83168,Araucaria angustifolia,Paraná Araucaria,species,Plantae,179
 159852,Cardiospermum grandiflorum,Showy Balloon Vine,species,Plantae,179
 961374,Nierembergia aristata,,species,Plantae,179
-806631,Calceolaria biflora,Yellow Lady's Slipper,species,Plantae,178
-876538,Libidibia paraguariensis,,species,Plantae,178
+790101,Eryngium eburneum,,species,Plantae,178
 1493150,Neltuma nigra,,species,Plantae,178
-83168,Araucaria angustifolia,Paraná Araucaria,species,Plantae,177
-790101,Eryngium eburneum,,species,Plantae,177
-881522,Aspilia montevidensis,,species,Plantae,177
-807297,Nymphoides humboldtiana,Floatingheart,species,Plantae,175
+806631,Calceolaria biflora,Yellow Lady's Slipper,species,Plantae,176
+542500,Heteropterys glabra,red wing,species,Plantae,175
 544212,Eryngium elegans,,species,Plantae,174
 705214,Baccharis ulicina,,species,Plantae,174
-542500,Heteropterys glabra,red wing,species,Plantae,173
+290016,Peltophorum dubium,Yellow Poinciana,species,Plantae,173
+363583,Opuntia elata,Riverina pear,species,Plantae,173
 790303,Senecio selloi,,species,Plantae,173
-363583,Opuntia elata,Riverina pear,species,Plantae,172
+796601,Paullinia elegans,,species,Plantae,173
 506308,Bidens subalternans,Greater Beggarticks,species,Plantae,172
 634426,Cucurbitella asperata,,species,Plantae,172
 624415,Hypochaeris incana,,species,Plantae,171
 636174,Bolax gummifera,Balsam-bog,species,Plantae,171
 870396,Lobivia bruchii,,species,Plantae,171
 772982,Orthosia virgata,,species,Plantae,170
-290016,Peltophorum dubium,Yellow Poinciana,species,Plantae,169
+882389,Cissus palmata,,species,Plantae,170
 782326,Capparicordis tweedieana,,species,Plantae,169
-882389,Cissus palmata,,species,Plantae,169
 159650,Calibrachoa parviflora,seaside petunia,species,Plantae,168
 83488,Acaena ovalifolia,Two-spined Acaena,species,Plantae,167
+442811,Pterocactus tuberosus,,species,Plantae,167
 465569,Glandularia aristigera,South American mock vervain,species,Plantae,167
 947662,Lantana grisebachii,,species,Plantae,167
-1238369,Leptospron adenanthum,,species,Plantae,166
-442811,Pterocactus tuberosus,,species,Plantae,165
+1238369,Leptospron adenanthum,,species,Plantae,167
 484147,Senna aphylla,,species,Plantae,165
-796601,Paullinia elegans,,species,Plantae,165
+280039,Chromolaena ivifolia,Ivyleaf Thoroughwort,species,Plantae,164
+286502,Urera baccifera,Scratchbush,species,Plantae,164
 910345,Nectandra angustifolia,,species,Plantae,164
 1080289,Zephyranthes gilliesiana,,species,Plantae,164
+138577,Senna pendula,Christmas Senna,species,Plantae,163
 165658,Nassella neesiana,Chilean Needle Grass,species,Plantae,163
-280039,Chromolaena ivifolia,Ivyleaf Thoroughwort,species,Plantae,163
-286502,Urera baccifera,Scratchbush,species,Plantae,163
-208759,Convolvulus crenatifolius,,species,Plantae,162
-541860,Chuquiraga avellanedae,,species,Plantae,162
+208759,Convolvulus crenatifolius,,species,Plantae,163
+541860,Chuquiraga avellanedae,,species,Plantae,161
 796520,Oxypetalum coccineum,,species,Plantae,161
 48685,Typha latifolia,broadleaf cattail,species,Plantae,159
 55367,Fragaria chiloensis,beach strawberry,species,Plantae,159
-138577,Senna pendula,Christmas Senna,species,Plantae,159
 77423,Hoffmannseggia glauca,Indian rushpea,species,Plantae,158
 1038287,Solanum juvenale,,species,Plantae,158
+62944,Cardiospermum halicacabum,Lesser Balloon Vine,species,Plantae,156
 440126,Maihueniopsis darwinii,,species,Plantae,156
 790234,Discaria chacaye,,species,Plantae,156
 431288,Maytenus ilicifolia,,species,Plantae,155
 791130,Deuterocohnia longipetala,,species,Plantae,155
+840838,Ceiba chodatii,,species,Plantae,155
 1254002,Tessaria dodonaeifolia,,species,Plantae,155
-62944,Cardiospermum halicacabum,Lesser Balloon Vine,species,Plantae,154
+77541,Jacaranda mimosifolia,blue jacaranda,species,Plantae,154
 489261,Pitraea cuneato-ovata,,species,Plantae,154
 1017159,Opuntia rioplatensis,,species,Plantae,154
+169944,Tridax procumbens,Tridax Daisy,species,Plantae,153
 443389,Schinopsis balansae,,species,Plantae,153
-77541,Jacaranda mimosifolia,blue jacaranda,species,Plantae,152
 131583,Vigna luteola,Wild Cowpea,species,Plantae,152
 206261,Echinodorus grandiflorus,Large-flowered Amazon,species,Plantae,152
 345545,Victoria cruziana,Santa Cruz Waterlily,species,Plantae,152
 405814,Salvia uliginosa,Bog sage,species,Plantae,152
 527639,Mandevilla pentlandiana,,species,Plantae,152
-840838,Ceiba chodatii,,species,Plantae,152
 482895,Tillandsia lorentziana,,species,Plantae,151
 965470,Baccharis magellanica,Christmas Bush,species,Plantae,151
 968741,Eryngium coronatum,,species,Plantae,151
+1493144,Neltuma kuntzei,,species,Plantae,151
 181593,Aristotelia chilensis,Chilean Wineberry,species,Plantae,150
 77310,Gunnera tinctoria,Chilean rhubarb,species,Plantae,149
+169489,Symphyotrichum squamatum,saltmarsh aster,species,Plantae,149
 326106,Praxelis clematidea,pussyfoot,species,Plantae,149
 790506,Picrosia longifolia,,species,Plantae,149
-169944,Tridax procumbens,Tridax Daisy,species,Plantae,148
+474123,Chusquea culeou,,species,Plantae,148
 735369,Adenocaulon chilense,Straightflowered trailplant,species,Plantae,148
-1493144,Neltuma kuntzei,,species,Plantae,148
 181815,Petunia integrifolia,violetflower petunia,species,Plantae,147
 283656,Hypoxis decumbens,coquí,species,Plantae,147
 346964,Olsynium biflorum,streaked maiden,species,Plantae,147
-474123,Chusquea culeou,,species,Plantae,147
 480702,Calycera crassifolia,,species,Plantae,147
 564156,Microgramma mortoniana,,species,Plantae,147
 742012,Valeriana carnosa,,species,Plantae,147
 855357,Ranunculus apiifolius,,species,Plantae,147
 1081582,Maytenus spinosa,,species,Plantae,147
-169489,Symphyotrichum squamatum,saltmarsh aster,species,Plantae,146
+127912,Thalia geniculata,alligator flag,species,Plantae,146
+347994,Cereus forbesii,,species,Plantae,146
 886707,Zexmenia buphtalmiflora,,species,Plantae,146
-347994,Cereus forbesii,,species,Plantae,145
 60295,Paspalum dilatatum,Dallis grass,species,Plantae,144
+794310,Stevia satureiifolia,,species,Plantae,144
 127942,Verbena rigida,Slender Vervain,species,Plantae,143
 167843,Rhynchosida physocalyx,beaked sida,species,Plantae,143
-794310,Stevia satureiifolia,,species,Plantae,143
 801344,Nassauvia axillaris,,species,Plantae,143
-127912,Thalia geniculata,alligator flag,species,Plantae,142
+881503,Baccharis linearifolia,,species,Plantae,143
+48497,Gleditsia amorphoides,,species,Plantae,142
 163869,Hydrocleys nymphoides,Water Poppy,species,Plantae,142
+427405,Croton bonplandianus,Bonpland's croton,species,Plantae,142
 878162,Castela coccinea,,species,Plantae,142
-881503,Baccharis linearifolia,,species,Plantae,142
 1610436,Iocenes virens,,species,Plantae,142
-427405,Croton bonplandianus,Bonpland's croton,species,Plantae,141
+170401,Zanthoxylum fagara,Lime Prickly-ash,species,Plantae,141
+281420,Zanthoxylum rhoifolium,Tambataru,species,Plantae,141
 438707,Eriosyce strausiana,,species,Plantae,141
 451790,Ranunculus peduncularis,,species,Plantae,141
 559066,Gochnatia glutinosa,,species,Plantae,141
 783137,Mirabilis ovata,,species,Plantae,141
 856973,Lippia junelliana,,species,Plantae,141
+1117850,Schinus patagonica,,species,Plantae,141
+1593561,Salmonopuntia salmiana,,species,Plantae,141
 76746,Dysphania ambrosioides,Mexican tea,species,Plantae,140
-170401,Zanthoxylum fagara,Lime Prickly-ash,species,Plantae,140
-281420,Zanthoxylum rhoifolium,Tambataru,species,Plantae,140
+143429,Aristolochia fimbriata,White Veined Pipevine,species,Plantae,140
 791357,Adesmia corymbosa,,species,Plantae,140
-1117850,Schinus patagonica,,species,Plantae,140
-1593561,Salmonopuntia salmiana,,species,Plantae,140
-48497,Gleditsia amorphoides,,species,Plantae,139
-143429,Aristolochia fimbriata,White Veined Pipevine,species,Plantae,139
+854660,Justicia brasiliana,,species,Plantae,140
+48178,Galinsoga parviflora,Gallant Soldier,species,Plantae,139
 438596,Echinopsis rhodotricha,,species,Plantae,139
 635475,Primula magellanica,Dusty Miller,species,Plantae,139
-48178,Galinsoga parviflora,Gallant Soldier,species,Plantae,138
-854660,Justicia brasiliana,,species,Plantae,138
 876539,Tabebuia nodosa,,species,Plantae,138
 75455,Anoda cristata,violettas,species,Plantae,137
+162153,Duranta erecta,Skyflower,species,Plantae,137
 162726,Escallonia rubra,redclaws,species,Plantae,137
-162153,Duranta erecta,Skyflower,species,Plantae,136
 549179,Noticastrum diffusum,,species,Plantae,136
+316752,Arenaria serpens,,species,Plantae,135
 525583,Collaea argentina,,species,Plantae,135
 544608,Chromolaena arnottiana,,species,Plantae,135
 602587,Nierembergia rigida,,species,Plantae,135
 1644302,Austroflourensia thurifera,,species,Plantae,135
-316752,Arenaria serpens,,species,Plantae,134
+1072162,Xylosma venosa,,species,Plantae,134
 121263,Tipuana tipu,Pride of Bolivia,species,Plantae,133
 135485,Ephedra ochreata,,species,Plantae,132
 801351,Nassauvia glomerulosa,,species,Plantae,132
 986540,Baccharis juncea,,species,Plantae,132
+288987,Chromolaena laevigata,,species,Plantae,131
 709838,Blumenbachia insignis,,species,Plantae,131
+808333,Handroanthus heptaphyllus,,species,Plantae,131
+62894,Vallesia glabra,Pearlberry,species,Plantae,130
+430643,Anadenanthera colubrina,Red Angico,species,Plantae,130
 474125,Gavilea odoratissima,Fragrant Gavilea,species,Plantae,130
 571199,Escallonia virgata,,species,Plantae,130
 768985,Cestrum strigilatum,strigilate cestrum,species,Plantae,130
-62894,Vallesia glabra,Pearlberry,species,Plantae,129
 181910,Maytenus magellanica,Magellanic mayten,species,Plantae,129
 349274,Senecio vira-vira,,species,Plantae,129
-430643,Anadenanthera colubrina,Red Angico,species,Plantae,129
-808333,Handroanthus heptaphyllus,,species,Plantae,129
-1072162,Xylosma venosa,,species,Plantae,129
-288987,Chromolaena laevigata,,species,Plantae,128
+790464,Terminalia australis,,species,Plantae,129
+186782,Tephrocactus alexanderi,,species,Plantae,128
 527649,Misodendrum linearifolium,,species,Plantae,128
-790464,Terminalia australis,,species,Plantae,128
-186782,Tephrocactus alexanderi,,species,Plantae,127
 403721,Mandevilla laxa,Chilean jasmine,species,Plantae,127
+1493102,Strombocarpa torquata,,species,Plantae,127
 60987,Lepidium didymum,Lesser swine-cress,species,Plantae,126
 870009,Lobivia ferox,,species,Plantae,126
-1493102,Strombocarpa torquata,,species,Plantae,126
 287387,Hydrocotyle leucocephala,Brazilian Pennywort,species,Plantae,125
+440127,Maihueniopsis glomerata,,species,Plantae,125
+544611,Barnadesia odorata,,species,Plantae,125
 58372,Distichlis spicata,Saltgrass,species,Plantae,124
-440127,Maihueniopsis glomerata,,species,Plantae,124
 444259,Tephrocactus aoracanthus,,species,Plantae,124
-544611,Barnadesia odorata,,species,Plantae,124
 804788,Trichocline reptans,,species,Plantae,124
+169088,Solanum viarum,tropical soda-apple,species,Plantae,123
 169769,Tillandsia tenuifolia,,species,Plantae,123
+343812,Calceolaria crenatiflora,,species,Plantae,123
+439586,Lepismium cruciforme,,species,Plantae,123
 888320,Buddleja mendozensis,,species,Plantae,123
 965421,Senecio ceratophylloides,,species,Plantae,123
+1031277,Agalinis genistifolia,,species,Plantae,123
 273914,Sideroxylon obtusifolium,,species,Plantae,122
-1031277,Agalinis genistifolia,,species,Plantae,122
+482839,Bromelia balansae,Heart of Flame,species,Plantae,122
 166755,Phyllanthus niruri,stone breaker tea,species,Plantae,121
 207116,Pontederia rotundifolia,Tropical pickerelweed,species,Plantae,121
-343812,Calceolaria crenatiflora,,species,Plantae,121
-482839,Bromelia balansae,Heart of Flame,species,Plantae,121
 704556,Hypseocharis pimpinellifolia,,species,Plantae,121
-169088,Solanum viarum,tropical soda-apple,species,Plantae,120
+1114853,Chaetogastra gracilis,,species,Plantae,121
 170151,Verbena montevidensis,Uruguayan Vervain,species,Plantae,119
-439586,Lepismium cruciforme,,species,Plantae,119
 441706,Parodia microsperma,,species,Plantae,119
+483529,Pfaffia glomerata,,species,Plantae,119
 881511,Melica macra,,species,Plantae,119
 1518361,Labatia salicifolia,,species,Plantae,119
+1549072,Cinnagrostis viridiflavescens,,species,Plantae,119
 324277,Senna crassiramea,,species,Plantae,118
-483529,Pfaffia glomerata,,species,Plantae,118
 871765,Ipomoea hieronymi,,species,Plantae,118
 886959,Phlegmariurus saururus,Lizard Firmoss,species,Plantae,118
-1114853,Chaetogastra gracilis,,species,Plantae,118
-1549072,Cinnagrostis viridiflavescens,,species,Plantae,118
 154290,Ceiba speciosa,Silk floss tree,species,Plantae,117
 785927,Oenothera centaureifolia,,species,Plantae,117
+116694,Desmodium incanum,creeping beggarweed,species,Plantae,116
 782268,Salvia procurrens,,species,Plantae,116
 884001,Ocotea acutifolia,,species,Plantae,116
-116694,Desmodium incanum,creeping beggarweed,species,Plantae,115
-1228750,Lycium ciliatum,,species,Plantae,115
+1228750,Lycium ciliatum,,species,Plantae,116
+464400,Baccharis crispa,,species,Plantae,115
+983596,Senna pachyrrhiza,,species,Plantae,115
 59055,Cyperus eragrostis,tall flatsedge,species,Plantae,114
 126634,Pyrostegia venusta,Flame vine,species,Plantae,114
 135482,Ephedra triandra,,species,Plantae,114
-464400,Baccharis crispa,,species,Plantae,114
 557629,Siphocampylus foliosus,,species,Plantae,114
 900681,Cupania vernalis,,species,Plantae,114
 985710,Thaumatophyllum bipinnatifidum,Tree Philodendron,species,Plantae,114
 75835,Boerhavia diffusa,Wineflower,species,Plantae,113
 280909,Solanum betaceum,tamarillo,species,Plantae,113
 791168,Jatropha excisa,,species,Plantae,113
-983596,Senna pachyrrhiza,,species,Plantae,113
 623458,Calceolaria filicaulis,,species,Plantae,112
 926944,Glandularia venturii,,species,Plantae,112
 425207,Cephalanthus glabratus,,species,Plantae,111
 560005,Tillandsia capillaris,,species,Plantae,111
 1046248,Chromolaena hookeriana,,species,Plantae,111
+78701,Porophyllum ruderale,yerba porosa,species,Plantae,110
 439290,Kageneckia lanceolata,,species,Plantae,110
 786063,Senecio brasiliensis,,species,Plantae,110
 79078,Sida spinosa,prickly fanpetals,species,Plantae,109
 157462,Harrisia bonplandii,Giant Red Dragon Apple Cactus,species,Plantae,109
 447996,Adesmia pinifolia,,species,Plantae,109
-78701,Porophyllum ruderale,yerba porosa,species,Plantae,108
+793758,Ruellia angustiflora,,species,Plantae,109
 279660,Chascolytrum subaristatum,,species,Plantae,108
 336585,Hypochaeris chillensis,Brazilian Cat's-ear,species,Plantae,108
+634208,Baccharis spartioides,,species,Plantae,108
+856079,Pavonia cymbalaria,,species,Plantae,108
 1201164,Ananas macrodontes,False Pineapple,species,Plantae,108
 332596,Galianthe brasiliensis,,species,Plantae,107
 430869,Colletia hystrix,,species,Plantae,107
-634208,Baccharis spartioides,,species,Plantae,107
-793758,Ruellia angustiflora,,species,Plantae,107
+805192,Acaena splendens,,species,Plantae,107
 853701,Achatocarpus praecox,,species,Plantae,107
-856079,Pavonia cymbalaria,,species,Plantae,107
+61963,Oxalis debilis,Largeflower pink-sorrel,species,Plantae,106
 79440,Triodanis biflora,Venus's looking-glass,species,Plantae,106
 488468,Tillandsia didisticha,,species,Plantae,106
 1008575,Opuntia bonaerensis,,species,Plantae,106
@@ -617,123 +619,121 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 76791,Eleusine tristachya,three-spiked goose grass,species,Plantae,105
 164514,Lepidium bonariense,Argentine Cress,species,Plantae,105
 361076,Oxalis enneaphylla,Scurvygrass woodsorrel,species,Plantae,105
+569876,Gomphrena celosioides,prostrate globe-amaranth,species,Plantae,105
 717369,Gomphrena elegans,,species,Plantae,105
-805192,Acaena splendens,,species,Plantae,105
-61963,Oxalis debilis,Largeflower pink-sorrel,species,Plantae,104
+1077201,Gomphrena perennis,,species,Plantae,105
 78456,Persicaria punctata,Dotted Smartweed,species,Plantae,104
 160643,Cissampelos pareira,Velvetleaf,species,Plantae,104
-1077201,Gomphrena perennis,,species,Plantae,104
+162914,Evolvulus arizonicus,Arizona blue-eyes,species,Plantae,103
 788222,Aristolochia triangularis,Triangular Dutchmanspipe,species,Plantae,103
-162914,Evolvulus arizonicus,Arizona blue-eyes,species,Plantae,102
 438979,Gymnocalycium spegazzinii,,species,Plantae,102
-569876,Gomphrena celosioides,prostrate globe-amaranth,species,Plantae,102
+543868,Urera aurantiaca,,species,Plantae,102
+1031333,Portulaca cryptopetala,,species,Plantae,102
 430749,Brunfelsia australis,southern raintree,species,Plantae,101
+488444,Caiophora chuquitensis,,species,Plantae,101
 543081,Bougainvillea stipitata,,species,Plantae,101
-1031333,Portulaca cryptopetala,,species,Plantae,101
+984519,Urvillea uniloba,,species,Plantae,101
 179391,Bidens triplinervia,,species,Plantae,100
 602052,Euphorbia portulacoides,,species,Plantae,100
 823731,Calyptocarpus brasiliensis,,species,Plantae,100
 565008,Tripodanthus flagellaris,,species,Plantae,99
-984519,Urvillea uniloba,,species,Plantae,99
+983631,Vernonia incana,,species,Plantae,99
 1493119,Neltuma chilensis,Chilean Mesquite,species,Plantae,99
-488444,Caiophora chuquitensis,,species,Plantae,98
-543868,Urera aurantiaca,,species,Plantae,98
-983631,Vernonia incana,,species,Plantae,98
+1264638,Lessingianthus rubricaulis,,species,Plantae,98
 83009,Viola reichei,Patagonian yellow violet,species,Plantae,97
+165060,Macroptilium lathyroides,Phasey Bean,species,Plantae,97
+273870,Casearia sylvestris,crackopen,species,Plantae,97
 440878,Myrcianthes pungens,,species,Plantae,97
 891981,Sebastiania commersoniana,,species,Plantae,97
-1264638,Lessingianthus rubricaulis,,species,Plantae,97
 165389,Mikania micrantha,mile-a-minute,species,Plantae,96
-273870,Casearia sylvestris,crackopen,species,Plantae,96
 708807,Pacourina edulis,,species,Plantae,96
 1038195,Grindelia scorzonerifolia,,species,Plantae,96
 1051092,Aeschynomene montevidensis,,species,Plantae,96
-165060,Macroptilium lathyroides,Phasey Bean,species,Plantae,95
-732719,Geum magellanicum,,species,Plantae,95
+479632,Erythrina falcata,Brazilian coral tree,species,Plantae,95
+732719,Geum magellanicum,magellanic avens,species,Plantae,95
 870259,Acanthocalycium thionanthum,,species,Plantae,95
+126569,Stachytarpheta cayennensis,Rattail,species,Plantae,94
 276579,Cyclopogon elatus,Tall Spiral Orchid,species,Plantae,94
 380978,Senecio crassiflorus,lavender steps,species,Plantae,94
-479632,Erythrina falcata,Brazilian coral tree,species,Plantae,94
+570676,Callianthe picta,Redvein Abutilon,species,Plantae,94
 847649,Bromelia serra,Bayonet Bromeliad,species,Plantae,94
-126569,Stachytarpheta cayennensis,Rattail,species,Plantae,93
+1390397,Persicaria stelligera,,species,Plantae,94
 158231,Alternanthera pungens,creeping chaffweed,species,Plantae,93
 437335,Austrocactus bertinii,,species,Plantae,93
 554013,Verbena intermedia,,species,Plantae,93
 850573,Limnobium laevigatum,Amazon Frogbit,species,Plantae,93
 887393,Tillandsia australis,,species,Plantae,93
 962891,Plantago tomentosa,Dwarf Plantain,species,Plantae,93
+166188,Paspalum notatum,Bahia grass,species,Plantae,92
 281753,Chamissoa altissima,false chaff flower,species,Plantae,92
-1390397,Persicaria stelligera,,species,Plantae,92
 165865,Oplismenus hirtellus,Basket Grass,species,Plantae,91
-166188,Paspalum notatum,Bahia grass,species,Plantae,91
 282976,Stemodia verticillata,Whorled Twintip,species,Plantae,91
-570676,Callianthe picta,Redvein Abutilon,species,Plantae,91
+878622,Holocheilus hieracioides,,species,Plantae,91
 635480,Leptinella scariosa,Buttonweed,species,Plantae,90
-878622,Holocheilus hieracioides,,species,Plantae,90
+865025,Oxalis conorrhiza,,species,Plantae,90
 893164,Parasenegalia visco,Viscote Negro,species,Plantae,90
 170213,Vicia nigricans,Black Vetch,species,Plantae,89
+545073,Cynophalla retusa,,species,Plantae,89
 790503,Angelonia integerrima,,species,Plantae,89
 869329,Vasconcellea quercifolia,oak-leaf pawpaw,species,Plantae,89
+1079583,Lycium infaustum,,species,Plantae,89
 1108231,Berberis serratodentata,,species,Plantae,89
-545073,Cynophalla retusa,,species,Plantae,88
+1493165,Neltuma ruscifolia,,species,Plantae,89
 801354,Nassauvia lagascae,,species,Plantae,88
-1079583,Lycium infaustum,,species,Plantae,88
+61230,Acaena pinnatifida,Argentinian biddy biddy,species,Plantae,87
 135639,Podocarpus parlatorei,Pino Blanco,species,Plantae,87
+164076,Ipomoea amnicola,Redcenter Morning-glory,species,Plantae,87
 166292,Pellaea ternifolia,trans-Pecos cliffbrake,species,Plantae,87
 545074,Microgramma vacciniifolia,,species,Plantae,87
-865025,Oxalis conorrhiza,,species,Plantae,87
-1493165,Neltuma ruscifolia,,species,Plantae,87
+638995,Oxalis hispidula,fine bristle woodsorrel,species,Plantae,87
 53166,Osmorhiza berteroi,mountain sweet cicely,species,Plantae,86
 168847,Senna occidentalis,Coffee Senna,species,Plantae,86
 324502,Euploca procumbens,fourspike heliotrope,species,Plantae,86
 438225,Cereus stenogonus,,species,Plantae,86
+482064,Ehretia cortesia,,species,Plantae,86
 1526366,Lysimachia amoena,Pimpernel,species,Plantae,86
 1658603,Xiphodesma anthemoides,,species,Plantae,86
-61230,Acaena pinnatifida,Argentinian biddy biddy,species,Plantae,85
+55189,Aristolochia littoralis,Calico-flower,species,Plantae,85
 78156,Myriophyllum quitense,andean water-milfoil,species,Plantae,85
 155135,Euterpe edulis,,species,Plantae,85
 165300,Mentzelia albescens,Wavyleaf mentzelia,species,Plantae,85
 461593,Tristerix verticillatus,,species,Plantae,85
 702537,Solanum chacoense,Chaco potato,species,Plantae,85
+769364,Cordia americana,,species,Plantae,85
 801411,Junellia crithmifolia,,species,Plantae,85
 869974,Lobivia aurea,,species,Plantae,85
 1590558,Solanum tweedieanum,,species,Plantae,85
-482064,Ehretia cortesia,,species,Plantae,84
+156460,Pseudogynoxys benthamii,,species,Plantae,84
 527644,Desfontainia fulgens,Chilean Holly,species,Plantae,84
-769364,Cordia americana,,species,Plantae,84
-156460,Pseudogynoxys benthamii,,species,Plantae,83
-164076,Ipomoea amnicola,Redcenter Morning-glory,species,Plantae,83
+189148,Alnus acuminata,Andean Alder,species,Plantae,83
+361866,Talinum fruticosum,Philippine spinach,species,Plantae,83
 430868,Colletia paradoxa,Anchor plant,species,Plantae,83
-638995,Oxalis hispidula,fine bristle woodsorrel,species,Plantae,83
-55189,Aristolochia littoralis,Calico-flower,species,Plantae,82
 61210,Microsteris gracilis,slender phlox,species,Plantae,82
-361866,Talinum fruticosum,Philippine spinach,species,Plantae,82
+205050,Oreocereus celsianus,Old-man-of-the-Andes,species,Plantae,82
 431348,Myrceugenia glaucescens,,species,Plantae,82
 165207,Mecardonia procumbens,Yellow-flowered waterhyssop,species,Plantae,81
-189148,Alnus acuminata,Andean Alder,species,Plantae,81
-205050,Oreocereus celsianus,Old-man-of-the-Andes,species,Plantae,81
+442990,Rhipsalis floccosa,,species,Plantae,81
 1493107,Neltuma alpataco,,species,Plantae,81
 1043279,Cestrum lorentzianum,,species,Plantae,80
-442990,Rhipsalis floccosa,,species,Plantae,79
 490879,Maytenus disticha,,species,Plantae,79
 792848,Salicornia neei,South American Glasswort,species,Plantae,79
+950658,Justicia goudotii,,species,Plantae,79
+1006950,Annona emarginata,,species,Plantae,79
 1038342,Vachellia astringens,,species,Plantae,79
 1062905,Gonopterodendron sarmientoi,,species,Plantae,79
+130872,Schinus terebinthifolia,Brazilian pepper,species,Plantae,78
 135931,Fitzroya cupressoides,Patagonian cypress,species,Plantae,78
 162267,Elephantopus mollis,elephant's foot,species,Plantae,78
 631312,Erythranthe lutea,Blood-drop-emlets,species,Plantae,78
-950658,Justicia goudotii,,species,Plantae,78
-1006950,Annona emarginata,,species,Plantae,78
 50338,Ludwigia peruviana,Peruvian primrose-willow,species,Plantae,77
-130872,Schinus terebinthifolia,Brazilian pepper,species,Plantae,77
 161825,Dichondra sericea,silverleaf ponysfoot,species,Plantae,77
 166499,Peperomia tetraphylla,acorn peperomia,species,Plantae,77
 634492,Lycium gilliesianum,,species,Plantae,77
+937397,Erigeron primulifolius,Chilean Fleabane,species,Plantae,77
 1471063,Myrsine lorentziana,,species,Plantae,77
 127681,Centrosema virginianum,butterfly pea,species,Plantae,76
 543869,Stemodia lanceolata,,species,Plantae,76
 937379,Quechualia fulta,,species,Plantae,76
-937397,Erigeron primulifolius,Chilean Fleabane,species,Plantae,76
 1067849,Sisyrinchium pachyrhizum,,species,Plantae,76
 636176,Luzuriaga marginata,Almond Flower,species,Plantae,75
 76563,Cyclospermum leptophyllum,Marsh parsley,species,Plantae,74
@@ -743,147 +743,148 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1264599,Vernonanthura squamulosa,,species,Plantae,73
 367032,Manettia cordifolia,Firecracker Vine,species,Plantae,72
 564178,Aechmea recurvata,,species,Plantae,72
+764620,Ruprechtia laxiflora,,species,Plantae,72
 804880,Misodendrum quadriflorum,,species,Plantae,72
 1072166,Phyllanthus chacoensis,,species,Plantae,72
+825246,Ludwigia sericea,,species,Plantae,71
 871059,Tephrocactus verschaffeltii,,species,Plantae,71
 965729,Thalia multiflora,,species,Plantae,71
 126305,Hamelia patens,Firebush,species,Plantae,70
 290949,Ruellia erythropus,,species,Plantae,70
-764620,Ruprechtia laxiflora,,species,Plantae,70
 880906,Smallanthus connatus,,species,Plantae,70
 886724,Grindelia buphthalmoides,,species,Plantae,70
+533361,Calceolaria valdiviana,,species,Plantae,69
 804859,Sisyrinchium arenarium,,species,Plantae,69
 158023,Adiantum raddianum,Delta Maidenhair Fern,species,Plantae,68
 163526,Harrisia martinii,Moon Cactus,species,Plantae,68
 168612,Schkuhria pinnata,dwarf marigold,species,Plantae,68
-533361,Calceolaria valdiviana,,species,Plantae,68
+189511,Aspidosperma polyneuron,Red peroba,species,Plantae,68
+525871,Grahamia bracteata,,species,Plantae,68
+560872,Holocalyx balansae,,species,Plantae,68
+785754,Chrysophyllum marginatum,,species,Plantae,68
 977215,Pombalia parviflora,,species,Plantae,68
 131569,Crotalaria incana,shakeshake,species,Plantae,67
 143422,Ageratum conyzoides,billygoat weed,species,Plantae,67
-189511,Aspidosperma polyneuron,Red peroba,species,Plantae,67
-525871,Grahamia bracteata,,species,Plantae,67
-785754,Chrysophyllum marginatum,,species,Plantae,67
-825246,Ludwigia sericea,,species,Plantae,67
+779304,Plumbago caerulea,Chilean plumbago,species,Plantae,67
 871608,Salta triflora,,species,Plantae,67
-779304,Plumbago caerulea,Chilean plumbago,species,Plantae,66
+905137,Leptochloa crinita,false Rhodes grass,species,Plantae,66
 1010112,Myrcia selloi,,species,Plantae,66
 1043968,Mentzelia parvifolia,,species,Plantae,66
 58755,Cystopteris fragilis,brittle bladderfern,species,Plantae,65
 439250,Juglans australis,,species,Plantae,65
-560872,Holocalyx balansae,,species,Plantae,65
 855685,Polystichum plicatum,,species,Plantae,65
-952228,Sapindus saponaria,Wingleaf Soapberry,species,Plantae,65
 623234,Gavilea araucana,Araucana orchid,species,Plantae,64
-905137,Leptochloa crinita,false Rhodes grass,species,Plantae,64
 941891,Halerpestes cymbalaria,Alkali Buttercup,species,Plantae,64
+952228,Sapindus saponaria,Wingleaf Soapberry,species,Plantae,64
 1025362,Limonium brasiliense,,species,Plantae,64
 1264660,Zephyranthes jamesonii,,species,Plantae,64
 284610,Aristolochia trilobata,,species,Plantae,63
 741593,Myoschilos oblongus,,species,Plantae,63
 965424,Ochetophila trinervis,,species,Plantae,63
 166500,Pereskia aculeata,Barbados gooseberry,species,Plantae,62
+281611,Guarea macrophylla,,species,Plantae,62
 465369,Polystichum andinum,,species,Plantae,62
 523870,Pseudognaphalium gaudichaudianum,,species,Plantae,62
+1008052,Pleopeltis minima,,species,Plantae,62
 51447,Passiflora alata,Winged-Stem Passion Flower,species,Plantae,61
 626601,Schizanthus grahamii,bright pink Chilean butterfly flower,species,Plantae,61
 699074,Sambucus peruviana,Peruvian elder,species,Plantae,61
-1008052,Pleopeltis minima,,species,Plantae,61
+135399,Cedrela fissilis,Brazilian Cedarwood,species,Plantae,60
 162930,Facelis retusa,Annual Trampweed,species,Plantae,60
-281611,Guarea macrophylla,,species,Plantae,60
 795785,Commelina platyphylla,,species,Plantae,60
 801378,Caiophora lateritia,Brick-Red Caiophora,species,Plantae,60
 823389,Pseudabutilon virgatum,,species,Plantae,60
 984165,Peperomia aceroana,,species,Plantae,60
-135399,Cedrela fissilis,Brazilian Cedarwood,species,Plantae,59
 168255,Rumohra adiantiformis,leatherleaf fern,species,Plantae,59
 700618,Dioscorea dodecaneura,variegated monkey ball vine,species,Plantae,59
 790912,Ovidia andina,,species,Plantae,59
 884049,Lonchocarpus nitidus,,species,Plantae,59
+283226,Varronia curassavica,Tropical Black Sage,species,Plantae,58
+431083,Guettarda uruguensis,,species,Plantae,58
 563841,Acanthosyris spinescens,,species,Plantae,58
 765800,Sida poeppigiana,,species,Plantae,58
 829608,Bipinnula penicillata,,species,Plantae,58
 1112894,Carex bonariensis,,species,Plantae,58
+61374,Physalis angulata,cutleaf groundcherry,species,Plantae,57
 166946,Pityrogramma trifoliata,Goldenrod fern,species,Plantae,57
 527643,Gaultheria poeppigii,Chaura,species,Plantae,57
 809219,Trichilia elegans,,species,Plantae,57
 854676,Cayaponia bonariensis,melonleaf,species,Plantae,57
 856976,Mulguraea tridens,,species,Plantae,57
-61374,Physalis angulata,cutleaf groundcherry,species,Plantae,56
-283226,Varronia curassavica,Tropical Black Sage,species,Plantae,56
-431083,Guettarda uruguensis,,species,Plantae,56
+903770,Mimozyganthus carinatus,,species,Plantae,57
+56422,Ricciocarpos natans,fringed heartwort,species,Plantae,56
 431709,Tropaeolum polyphyllum,wreath nasturtium,species,Plantae,56
+450336,Nothofagus obliqua,Patagonian oak,species,Plantae,56
+563297,Parapiptadenia rigida,,species,Plantae,56
 777164,Arjona tuberosa,,species,Plantae,56
 841853,Escallonia cordobensis,,species,Plantae,56
-903770,Mimozyganthus carinatus,,species,Plantae,56
 1063080,Gutierrezia gilliesii,,species,Plantae,56
-56422,Ricciocarpos natans,fringed heartwort,species,Plantae,55
+1067762,Chromolaena christieana,,species,Plantae,56
 77222,Gamochaeta stachidifolia,,species,Plantae,55
-450336,Nothofagus obliqua,Patagonian oak,species,Plantae,55
 481728,Myriopteris myriophylla,,species,Plantae,55
 490876,Weinmannia trichosperma,Tineo,species,Plantae,55
-563297,Parapiptadenia rigida,,species,Plantae,55
 135478,Ephedra frustillata,Patagonian Ephedra,species,Plantae,54
-381098,Geranium sessiliflorum,,species,Plantae,54
 565001,Tripodanthus acutifolius,,species,Plantae,54
 860983,Trixis divaricata,,species,Plantae,54
+969060,Chloroleucon tenuiflorum,,species,Plantae,54
+51446,Passiflora edulis,common passionfruit,species,Plantae,53
 79340,Teucrium cubense,coastal germander,species,Plantae,53
 166997,Plantago australis,Swamp plantain,species,Plantae,53
 167547,Pterocaulon virgatum,wand blackroot,species,Plantae,53
 475490,Viola maculata,common violet,species,Plantae,53
 782627,Berberis trigona,Narrow-leaved Barberry,species,Plantae,53
-969060,Chloroleucon tenuiflorum,,species,Plantae,53
+790338,Tragia geraniifolia,,species,Plantae,53
 143515,Sphagnum magellanicum,Magellanic Peatmoss,species,Plantae,52
 181005,Acanthosyris falcata,,species,Plantae,52
 280785,Desmodium uncinatum,Silverleaf Desmodium,species,Plantae,52
+381098,Geranium sessiliflorum,,species,Plantae,52
 442819,Pterogyne nitens,,species,Plantae,52
-790338,Tragia geraniifolia,,species,Plantae,52
 796074,Diostea juncea,,species,Plantae,52
-51446,Passiflora edulis,common passionfruit,species,Plantae,51
 63198,Trifolium polymorphum,peanut clover,species,Plantae,51
 742130,Asplenium dareoides,,species,Plantae,51
 855433,Raukaua laetevirens,devil's elder,species,Plantae,51
 967426,Baccharis artemisioides,,species,Plantae,51
 982388,Daphnopsis racemosa,,species,Plantae,51
-1067762,Chromolaena christieana,,species,Plantae,51
 431153,Ipomoea platensis,,species,Plantae,50
 441985,Pfeiffera monacantha,,species,Plantae,50
 823367,Lathyrus magellanicus,Magellanic vetchling,species,Plantae,50
 925961,Cortaderia hieronymi,,species,Plantae,50
+1089995,Mitracarpus megapotamicus,,species,Plantae,50
 78356,Paspalum urvillei,Vasey Grass,species,Plantae,49
 161443,Cyperus giganteus,piripiri,species,Plantae,49
 291391,Galium hypocarpium,Orange-fruited bedstraw,species,Plantae,49
 527646,Mitraria coccinea,Chilean Mitre Flower,species,Plantae,49
 790126,Bouchetia anomala,,species,Plantae,49
 810829,Sisyrinchium patagonicum,Yellow pale maiden,species,Plantae,49
-1089995,Mitracarpus megapotamicus,,species,Plantae,49
 48597,Phytolacca bogotensis,Andean Pokeweed,species,Plantae,48
+69172,Pilea microphylla,Artillery Plant,species,Plantae,48
 162829,Euphorbia heterophylla,painted spurge,species,Plantae,48
+165894,Opuntia monacantha,Drooping Pricklypear,species,Plantae,48
 184692,Banara arguta,,species,Plantae,48
 326751,Eryngium pandanifolium,Giant Sea Holly,species,Plantae,48
 438972,Gymnocalycium reductum,,species,Plantae,48
+708801,Sphagneticola brachycarpa,,species,Plantae,48
 740785,Gavilea australis,,species,Plantae,48
 810583,Sarcotoxicum salicifolium,,species,Plantae,48
 56170,Galinsoga quadriradiata,shaggy soldier,species,Plantae,47
 68562,Cosmos bipinnatus,garden cosmos,species,Plantae,47
-69172,Pilea microphylla,Artillery Plant,species,Plantae,47
-165894,Opuntia monacantha,Drooping Pricklypear,species,Plantae,47
+129327,Passiflora suberosa,corkystem passionflower,species,Plantae,47
 168209,Ruellia brevifolia,Tropical Wild Petunia,species,Plantae,47
 325472,Tecoma fulva,,species,Plantae,47
 441039,Myrrhinium atropurpureum,,species,Plantae,47
-708801,Sphagneticola brachycarpa,,species,Plantae,47
 711077,Spermacoce dasycephala,,species,Plantae,47
 713015,Arachnitis uniflora,Spider-flower,species,Plantae,47
+1074357,Gaillardia cabrerae,,species,Plantae,47
 60248,Limosella australis,delta mudwort,species,Plantae,46
-129327,Passiflora suberosa,corkystem passionflower,species,Plantae,46
 135473,Ephedra chilensis,Andean Jointfir,species,Plantae,46
 157976,Acmella pusilla,Dwarf Spotflower,species,Plantae,46
 279563,Jarava ichu,peruvian feather grass,species,Plantae,46
 628732,Lupinus gibertianus,,species,Plantae,46
 1047012,Senecio pinnatus,,species,Plantae,46
-1074357,Gaillardia cabrerae,,species,Plantae,46
 1116794,Erythrina mulungu,,species,Plantae,46
 1229092,Maihueniopsis hickenii,,species,Plantae,46
 169016,Sisyrinchium chilense,swordleaf blue-eyed grass,species,Plantae,45
+182051,Sorocea bonplandii,,species,Plantae,45
 282706,Adiantum chilense,Chilean Maidenhair Fern,species,Plantae,45
 635960,Hypochaeris tenuifolia,,species,Plantae,45
 880802,Poikilacanthus glandulosus,,species,Plantae,45
@@ -894,7 +895,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 775412,Pterocaulon alopecuroides,,species,Plantae,44
 859862,Gentianella magellanica,Felwort,species,Plantae,44
 130888,Erechtites hieraciifolius,American burnweed,species,Plantae,43
-182051,Sorocea bonplandii,,species,Plantae,43
 418804,Salvinia biloba,Lobed Salvinia,species,Plantae,43
 571201,Escallonia alpina,,species,Plantae,43
 878631,Eclipta elliptica,,species,Plantae,43
@@ -908,43 +908,45 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 84779,Plinia cauliflora,Jaboticaba,species,Plantae,41
 160818,Commelina diffusa,climbing dayflower,species,Plantae,41
 200053,Euphorbia prostrata,prostrate sandmat,species,Plantae,41
+327479,Equisetum bogotense,Andean Horsetail,species,Plantae,41
 797142,Azorella nivalis,,species,Plantae,41
+1493692,Chloroluma gonocarpa,,species,Plantae,41
 126493,Junellia micrantha,,species,Plantae,40
 169171,Spermacoce verticillata,shrubby false buttonweed,species,Plantae,40
-327479,Equisetum bogotense,Andean Horsetail,species,Plantae,40
+286187,Geophila repens,,species,Plantae,40
 441296,Nothofagus alpina,Rauli,species,Plantae,40
 527543,Myrceugenia exsucca,,species,Plantae,40
 556969,Jacaratia spinosa,Wild Papaya,species,Plantae,40
-1493692,Chloroluma gonocarpa,,species,Plantae,40
 79187,Sporobolus indicus,smut grass,species,Plantae,39
 281274,Handroanthus impetiginosus,pink ipê,species,Plantae,39
-286187,Geophila repens,,species,Plantae,39
 533509,Habenaria gourlieana,,species,Plantae,39
 544345,Erythranthe glabrata,roundleaf monkeyflower,species,Plantae,39
 855369,Cheilanthes glauca,,species,Plantae,39
 1144013,Lupinus aureonitens,,species,Plantae,39
 133166,Bocconia frutescens,Parrotweed,species,Plantae,38
+184362,Cabralea canjerana,,species,Plantae,38
 638324,Asteranthera ovata,Estrellita,species,Plantae,38
 705611,Discaria articulata,,species,Plantae,38
 1113916,Parkinsonia andicola,,species,Plantae,38
-184362,Cabralea canjerana,,species,Plantae,37
+191896,Epiphyllum phyllanthus,,species,Plantae,37
 282313,Tragia volubilis,fireman,species,Plantae,37
 438061,Blossfeldia liliputana,,species,Plantae,37
 542011,Tillandsia loliacea,,species,Plantae,37
+563409,Zephyranthes minima,,species,Plantae,37
 784750,Tillandsia gilliesii,,species,Plantae,37
 801722,Perezia pedicularidifolia,,species,Plantae,37
 1079573,Mimosa rocae,,species,Plantae,37
 1081278,Schinus praecox,,species,Plantae,37
 164081,Ipomoea carnea,Bush Morning Glory,species,Plantae,36
-191896,Epiphyllum phyllanthus,,species,Plantae,36
+448195,Bidens andicola,,species,Plantae,36
 545792,Marsippospermum grandiflorum,Tall rush,species,Plantae,36
-563409,Zephyranthes minima,,species,Plantae,36
 578804,Cordia trichotoma,,species,Plantae,36
 708050,Atriplex undulata,Wavy-leaved Saltbush,species,Plantae,36
 805244,Frankenia triandra,,species,Plantae,36
 899454,Ipomoea indivisa,,species,Plantae,36
 1045256,Caltha appendiculata,Dwarf marigold,species,Plantae,36
 1078975,Ocotea porphyria,,species,Plantae,36
+1243517,Aldama tucumanensis,,species,Plantae,36
 1421299,Rockhausenia pygmaea,,species,Plantae,36
 184567,Brasiliopuntia brasiliensis,,species,Plantae,35
 209943,Maclura tinctoria,Fustic,species,Plantae,35
@@ -952,59 +954,57 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 283355,Bomarea edulis,salsilla,species,Plantae,35
 553050,Senecio candidans,Angel Wings,species,Plantae,35
 967110,Mimosa bonplandii,,species,Plantae,35
-1243517,Aldama tucumanensis,,species,Plantae,35
+161714,Desmanthus virgatus,Wild Tantan,species,Plantae,34
 278326,Piper amalago,jaborandi-manso,species,Plantae,34
-448195,Bidens andicola,,species,Plantae,34
 461591,Argylia bustillosii,,species,Plantae,34
 1062988,Solanum aloysiifolium,,species,Plantae,34
 1104204,Gonopterodendron bonariense,,species,Plantae,34
 1555600,Elodea densa,Brazilian elodea,species,Plantae,34
 60997,Ceratophyllum demersum,coontail,species,Plantae,33
-161714,Desmanthus virgatus,Wild Tantan,species,Plantae,33
 193722,Ilex paraguariensis,yerba mate,species,Plantae,33
 400851,Cissus striata,Miniature Grape Ivy,species,Plantae,33
 431572,Ruprechtia salicifolia,,species,Plantae,33
 1235292,Portulaca gilliesii,,species,Plantae,33
+62915,Senna obtusifolia,American Sicklepod,species,Plantae,32
 161824,Dichondra repens,kidney weed,species,Plantae,32
 285872,Peperomia rotundifolia,jade necklace,species,Plantae,32
+400277,Calliandra selloi,Pink Powderpuff,species,Plantae,32
 937129,Guadua chacoensis,,species,Plantae,32
 1524411,Celtis clausseniana,,species,Plantae,32
 135546,Saxegothaea conspicua,Prince Albert's yew,species,Plantae,31
 165806,Oenothera mollissima,,species,Plantae,31
 169780,Tithonia rotundifolia,Red Sunflower,species,Plantae,31
-400277,Calliandra selloi,Pink Powderpuff,species,Plantae,31
+274161,Doryopteris concolor,Geranium Fern,species,Plantae,31
+366110,Trithrinax schizophylla,,species,Plantae,31
 430996,Eugenia pyriformis,,species,Plantae,31
 607033,Oenothera odorata,,species,Plantae,31
+634375,Sommerfeltia spinulosa,,species,Plantae,31
 882109,Baccharis darwinii,,species,Plantae,31
 972904,Sphaeralcea australis,,species,Plantae,31
 1063994,Chuquiraga calchaquina,,species,Plantae,31
 58133,Cressa truxillensis,Alkali Weed,species,Plantae,30
-62915,Senna obtusifolia,American Sicklepod,species,Plantae,30
 208820,Nassella trichotoma,Nassella Tussock,species,Plantae,30
 327856,Justicia carnea,King's-crown,species,Plantae,30
 332785,Panicum racemosum,,species,Plantae,30
+538233,Psychotria leiocarpa,,species,Plantae,30
 543132,Xanthium cavanillesii,,species,Plantae,30
-634375,Sommerfeltia spinulosa,,species,Plantae,30
 795903,Scutellaria nummulariifolia,Skullcap,species,Plantae,30
 1007067,Terminalia triflora,,species,Plantae,30
 138202,Anemia tomentosa,,species,Plantae,29
 138572,Rhynchosia senna,Texas Snoutbean,species,Plantae,29
 157553,Heliocarpus americanus,white moho,species,Plantae,29
-366110,Trithrinax schizophylla,,species,Plantae,29
 1023208,Oxybasis macrosperma,,species,Plantae,29
 1062687,Poissonia hypoleuca,,species,Plantae,29
-274161,Doryopteris concolor,Geranium Fern,species,Plantae,28
 428806,Colobanthus quitensis,Antarctic Pearlwort,species,Plantae,28
-538233,Psychotria leiocarpa,,species,Plantae,28
 564674,Ephedra tweedieana,,species,Plantae,28
 565052,Pavonia argentina,,species,Plantae,28
 626824,Lomatia ferruginea,Fuinque,species,Plantae,28
+779729,Heterostachys ritteriana,,species,Plantae,28
 790306,Lobelia hederacea,,species,Plantae,28
 163875,Hydrolea spinosa,Spiny False Fiddleleaf,species,Plantae,27
 369393,Cyclosorus interruptus,Swamp Shield-fern,species,Plantae,27
 545679,Lantana fucata,,species,Plantae,27
 560900,Eugenia involucrata,Cherry of the Rio Grande,species,Plantae,27
-779729,Heterostachys ritteriana,,species,Plantae,27
 1043722,Xylosma pubescens,,species,Plantae,27
 1132038,Calliandra tweediei,Mexican flamebush,species,Plantae,27
 1318829,Notopappus prunelloides,,species,Plantae,27
@@ -1012,56 +1012,59 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 138982,Inga marginata,Guabilla,species,Plantae,26
 143534,Carex banksii,Bank's sedge,species,Plantae,26
 443392,Schinus gracilipes,,species,Plantae,26
+700283,Ramorinoa girolae,,species,Plantae,26
 868832,Passiflora tenuifila,,species,Plantae,26
 979492,Chiropetalum griseum,,species,Plantae,26
 1063254,Descurainia erodiifolia,,species,Plantae,26
 1078995,Diatenopteryx sorbifolia,,species,Plantae,26
+1156139,Schnella microstachya,,species,Plantae,26
 54520,Tanacetum parthenium,feverfew,species,Plantae,25
 67423,Ulva lactuca,Broadleaf Sea Lettuce,species,Plantae,25
 133740,Castilleja arvensis,Field Paintbrush,species,Plantae,25
+161419,Cyperus aggregatus,inflatedscale flatsedge,species,Plantae,25
 163902,Hygrophila costata,,species,Plantae,25
 169301,Sporobolus pyramidatus,whorled dropseed,species,Plantae,25
+183730,Diplokeleba floribunda,,species,Plantae,25
 447550,Schinus odonellii,,species,Plantae,25
 465342,Azorella lycopodioides,Clubmoss azorella,species,Plantae,25
 467000,Alsophila setosa,,species,Plantae,25
-700283,Ramorinoa girolae,,species,Plantae,25
+569643,Mentzelia scabra,,species,Plantae,25
 977763,Trimezia candida,white walking iris,species,Plantae,25
 1005304,Dendrophorbium peregrinum,,species,Plantae,25
 1031117,Chrysolaena flexuosa,,species,Plantae,25
 1080744,Glandularia flava,,species,Plantae,25
-1156139,Schnella microstachya,,species,Plantae,25
 77309,Guilleminea densa,small matweed,species,Plantae,24
 120167,Sapium glandulosum,,species,Plantae,24
 157911,Acanthospermum hispidum,Bindii,species,Plantae,24
-161419,Cyperus aggregatus,inflatedscale flatsedge,species,Plantae,24
-569643,Mentzelia scabra,,species,Plantae,24
 869965,Lobivia haematantha,,species,Plantae,24
 897971,Chevreulia sarmentosa,,species,Plantae,24
 934750,Parapiptadenia excelsa,,species,Plantae,24
+957954,Oxalis perdicaria,Chilean wood sorrel,species,Plantae,24
 1061455,Senecio jarae,,species,Plantae,24
+1198434,Lippia salsa,,species,Plantae,24
 84195,Chamaecrista rotundifolia,roundleaf sensitive pea,species,Plantae,23
 133307,Oldenlandia salzmannii,,species,Plantae,23
 154537,Psidium guineense,Brazilian Guava,species,Plantae,23
-183730,Diplokeleba floribunda,,species,Plantae,23
+431726,Vitex megapotamica,,species,Plantae,23
+486527,Cheilanthes buchtienii,,species,Plantae,23
 549236,Drosera uniflora,Chilean sundew,species,Plantae,23
 806669,Calceolaria elatior,,species,Plantae,23
-957954,Oxalis perdicaria,Chilean wood sorrel,species,Plantae,23
 984121,Glandularia scrobiculata,,species,Plantae,23
-1198434,Lippia salsa,,species,Plantae,23
+1051414,Hennecartia omphalandra,,species,Plantae,23
 1492411,Loasa mendocina,,species,Plantae,23
 75921,Cabomba caroliniana,Carolina Fanwort,species,Plantae,22
 76593,Cyperus rotundus,Purple nutsedge,species,Plantae,22
 138578,Senna spectabilis,whitebark senna,species,Plantae,22
+138796,Mimosa bimucronata,,species,Plantae,22
 189512,Aspidosperma triternatum,,species,Plantae,22
+276816,Juncus imbricatus,Andes Rush,species,Plantae,22
 279184,Phenax laevigatus,,species,Plantae,22
+291548,Passiflora capsularis,,species,Plantae,22
 327721,Geoffroea spinosa,,species,Plantae,22
 427608,Erechtites valerianifolius,fireweed,species,Plantae,22
-431726,Vitex megapotamica,,species,Plantae,22
 480303,Phacelia artemisioides,,species,Plantae,22
-486527,Cheilanthes buchtienii,,species,Plantae,22
 551062,Geophila macropoda,,species,Plantae,22
 966265,Eugenia uruguayensis,,species,Plantae,22
-1051414,Hennecartia omphalandra,,species,Plantae,22
 1065445,Senegalia tucumanensis,,species,Plantae,22
 1068162,Croton laureltyanus,,species,Plantae,22
 55971,Tanacetum vulgare,tansy,species,Plantae,21
@@ -1069,14 +1072,13 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 125462,Nothoscordum bivalve,crowpoison,species,Plantae,21
 138200,Anemia phyllitidis,,species,Plantae,21
 169163,Spermacoce densiflora,,species,Plantae,21
-276816,Juncus imbricatus,Andes Rush,species,Plantae,21
 279598,Elionurus muticus,Wire Grass,species,Plantae,21
 286503,Urera caracasana,flameberry,species,Plantae,21
 287292,Alchemilla pinnata,sillu sillu,species,Plantae,21
-291548,Passiflora capsularis,,species,Plantae,21
 334322,Microlobius foetidus,,species,Plantae,21
 364997,Butia paraguayensis,,species,Plantae,21
 431459,Pilocarpus pennatifolius,,species,Plantae,21
+545380,Guarea kunthiana,,species,Plantae,21
 702361,Gaultheria phillyreifolia,,species,Plantae,21
 810581,Justicia oranensis,,species,Plantae,21
 816205,Nanodea muscosa,Foxberry,species,Plantae,21
@@ -1085,12 +1087,14 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1117853,Schinus pilifera,,species,Plantae,21
 1493140,Neltuma humilis,,species,Plantae,21
 60317,Veronica peregrina,Purslane Speedwell,species,Plantae,20
-138796,Mimosa bimucronata,,species,Plantae,20
+202489,Inga laurina,sacky sac bean,species,Plantae,20
+287096,Trichilia pallida,,species,Plantae,20
 332455,Aloysia citrodora,lemon verbena,species,Plantae,20
 438977,Gymnocalycium schickendantzii,,species,Plantae,20
 465353,Drapetes muscosus,Drapetes,species,Plantae,20
-545380,Guarea kunthiana,,species,Plantae,20
 880800,Cleome titubans,,species,Plantae,20
+913288,Rhabdadenia ragonesei,,species,Plantae,20
+939163,Matayba elaeagnoides,,species,Plantae,20
 969070,Helietta apiculata,,species,Plantae,20
 984114,Stachys gilliesii,,species,Plantae,20
 1418343,Chaetogastra brachyphylla,,species,Plantae,20
@@ -1101,22 +1105,19 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 166623,Pharus lappulaceus,Creeping Leafstalk Grass,species,Plantae,19
 167316,Portulaca umbraticola,wingpod purslane,species,Plantae,19
 185028,Phyllostylon rhamnoides,,species,Plantae,19
-202489,Inga laurina,sacky sac bean,species,Plantae,19
 285224,Ocotea puberula,,species,Plantae,19
-287096,Trichilia pallida,,species,Plantae,19
 317963,Scoparia dulcis,Licorice Weed,species,Plantae,19
 346966,Viola magellanica,Fuegian violet,species,Plantae,19
 428978,Haplopappus glutinosus,,species,Plantae,19
 534316,Baccharis latifolia,Chilca,species,Plantae,19
 603356,Mutisia coccinea,,species,Plantae,19
 790122,Psidium kennedyanum,,species,Plantae,19
-913288,Rhabdadenia ragonesei,,species,Plantae,19
-939163,Matayba elaeagnoides,,species,Plantae,19
 945458,Aniseia argentina,,species,Plantae,19
 965521,Sorocea sprucei,,species,Plantae,19
 1023196,Carex decidua,Creek sedge,species,Plantae,19
 1064261,Sphaeralcea chenopodifolia,,species,Plantae,19
 1246846,Passiflora urnifolia,,species,Plantae,19
+137962,Cheilanthes micropteris,,species,Plantae,18
 138379,Mimosa xanthocentra,,species,Plantae,18
 165713,Nierembergia scoparia,broom cupflower,species,Plantae,18
 169081,Solanum robustum,shrubby nightshade,species,Plantae,18
@@ -1127,6 +1128,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 790302,Senecio heterotrichius,,species,Plantae,18
 987170,Prosopidastrum globosum,,species,Plantae,18
 994350,Cuscuta grandiflora,,species,Plantae,18
+76943,Erigeron sumatrensis,tropical horseweed,species,Plantae,17
 135497,Ephedra boelckei,,species,Plantae,17
 364200,Allagoptera campestris,,species,Plantae,17
 511277,Senecio subumbellatus,,species,Plantae,17
@@ -1139,20 +1141,19 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1085054,Pappostipa humilis,,species,Plantae,17
 1287122,Randia heteromera,,species,Plantae,17
 1368644,Abutilon densiflorum,,species,Plantae,17
-76943,Erigeron sumatrensis,tropical horseweed,species,Plantae,16
 119900,Rhipsalis baccifera,Mistletoe Cactus,species,Plantae,16
 137092,Pteris deflexa,,species,Plantae,16
-137962,Cheilanthes micropteris,,species,Plantae,16
 143532,Carex magellanica,Tall Bog-sedge,species,Plantae,16
 154538,Guazuma ulmifolia,West Indian Elm,species,Plantae,16
+154888,Pachystachys lutea,golden shrimp plant,species,Plantae,16
 165138,Manihot esculenta,Cassava,species,Plantae,16
 204753,Selaginella sellowii,,species,Plantae,16
 790532,Isostigma peucedanifolium,,species,Plantae,16
 797103,Azorella filamentosa,Wiry azorella,species,Plantae,16
 1198433,Leucheria eriocephala,,species,Plantae,16
 1352273,Euphrasia trifida,,species,Plantae,16
+1397467,Rhipsalis shaferi,,species,Plantae,16
 83920,Guarea guidonia,American muskwood,species,Plantae,15
-154888,Pachystachys lutea,golden shrimp plant,species,Plantae,15
 165694,Nertera granadensis,Beadplant,species,Plantae,15
 182373,Gibasis geniculata,,species,Plantae,15
 184051,Colignonia glomerata,,species,Plantae,15
@@ -1160,6 +1161,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 246102,Sphagneticola trilobata,Trailing Daisy,species,Plantae,15
 290955,Ruellia geminiflora,,species,Plantae,15
 490916,Gevuina avellana,Chilean Hazel,species,Plantae,15
+509342,Ageratina glechonophylla,,species,Plantae,15
 544561,Microgramma squamulosa,,species,Plantae,15
 636276,Draba magellanica,Fuegian whitlowgrass,species,Plantae,15
 746567,Amphilophium crucigerum,Monkey's comb,species,Plantae,15
@@ -1174,7 +1176,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1078969,Dahlstedtia muehlbergiana,,species,Plantae,15
 1230562,Maytenus chubutensis,,species,Plantae,15
 1361565,Miconia australis,,species,Plantae,15
-1397467,Rhipsalis shaferi,,species,Plantae,15
 139092,Indigofera asperifolia,,species,Plantae,14
 404243,Oenothera indecora,Small-flower evening-primrose,species,Plantae,14
 563903,Passiflora elegans,,species,Plantae,14
@@ -1202,6 +1203,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 447317,Schinus roigii,,species,Plantae,13
 481697,Myriopteris aurea,golden lipfern,species,Plantae,13
 560913,Campomanesia xanthocarpa,,species,Plantae,13
+622777,Draba gilliesii,,species,Plantae,13
+630052,Achyrocline alata,,species,Plantae,13
 635473,Carex fuscula,Dusky sedge,species,Plantae,13
 704688,Perezia pungens,,species,Plantae,13
 705036,Solanum fiebrigii,,species,Plantae,13
@@ -1221,10 +1224,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 135479,Ephedra americana,American Ephedra,species,Plantae,12
 285150,Hyptis brevipes,lesser roundweed,species,Plantae,12
 286053,Clematis haenkeana,,species,Plantae,12
-509342,Ageratina glechonophylla,,species,Plantae,12
+340558,Alchornea glandulosa,,species,Plantae,12
 624349,Euphrasia antarctica,antarctic eyebright,species,Plantae,12
-630052,Achyrocline alata,,species,Plantae,12
-772903,Sporobolus alterniflorus,Saltmarsh Cordgrass,species,Plantae,12
 776842,Austrolycopodium magellanicum,Magellanic clubmoss,species,Plantae,12
 852376,Picramnia sellowii,,species,Plantae,12
 866821,Louisiella elephantipes,,species,Plantae,12
@@ -1232,11 +1233,12 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 913909,Monnina cuneata,,species,Plantae,12
 936408,Calliandra foliolosa,,species,Plantae,12
 1277025,Glandularia tomophylla,,species,Plantae,12
+1577856,Pseudalbizzia niopoides,,species,Plantae,12
 75832,Boehmeria cylindrica,false nettle,species,Plantae,11
+132451,Tithonia diversifolia,Mexican sunflower,species,Plantae,11
 135741,Pilgerodendron uviferum,Guaitecas cypress,species,Plantae,11
 163710,Heteranthera reniformis,Kidneyleaf mud plantain,species,Plantae,11
 169520,Tabebuia aurea,Yellow Trumpet-tree,species,Plantae,11
-340558,Alchornea glandulosa,,species,Plantae,11
 366402,Butia noblickii,,species,Plantae,11
 441409,Opuntia arechavaletae,,species,Plantae,11
 499544,Larrea ameghinoi,,species,Plantae,11
@@ -1245,7 +1247,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 969071,Condylocarpon isthmicum,,species,Plantae,11
 1131747,Nothoscordum montevidense,,species,Plantae,11
 1413563,Mimosa tandilensis,,species,Plantae,11
-1577856,Pseudalbizzia niopoides,,species,Plantae,11
 58347,Juncus balticus,Baltic Rush,species,Plantae,10
 75385,Alternanthera caracasana,mat chaff-flower,species,Plantae,10
 153994,Tinantia erecta,Upright tinantia,species,Plantae,10
@@ -1255,6 +1256,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 794092,Mutisia hamata,,species,Plantae,10
 808359,Billbergia zebrina,,species,Plantae,10
 824715,Sinningia tubiflora,,species,Plantae,10
+910621,Jacaranda micrantha,,species,Plantae,10
 993586,Distimake cissoides,,species,Plantae,10
 1002056,Botrychium dusenii,Dusen's moonwort,species,Plantae,10
 1044928,Baccharis phyteumoides,,species,Plantae,10
@@ -1268,7 +1270,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 118965,Genipa americana,Genipap Tree,species,Plantae,9
 127676,Bixa orellana,Lipsticktree,species,Plantae,9
 130002,Acmella oppositifolia,Oppositeleaf Spotflower,species,Plantae,9
-132451,Tithonia diversifolia,Mexican sunflower,species,Plantae,9
 170045,Triumfetta semitriloba,Sacramento bur,species,Plantae,9
 277808,Coriaria ruscifolia,,species,Plantae,9
 338223,Hypochaeris taraxacoides,,species,Plantae,9
@@ -1276,9 +1277,10 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 494379,Carex phleoides,,species,Plantae,9
 553244,Pleopeltis pinnatifida,,species,Plantae,9
 578598,Randia ferox,,species,Plantae,9
+630561,Baccharis linearis,Chilean little rosemary,species,Plantae,9
 636152,Plantago barbata,,species,Plantae,9
+747134,Apuleia leiocarpa,,species,Plantae,9
 855993,Hydrangea serratifolia,,species,Plantae,9
-910621,Jacaranda micrantha,,species,Plantae,9
 1065815,Trichocline auriculata,,species,Plantae,9
 1066572,Atriplex crenatifolia,,species,Plantae,9
 1072718,Schinus marchandii,,species,Plantae,9
@@ -1291,15 +1293,15 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 286151,Coccocypselum lanceolatum,,species,Plantae,8
 286154,Coutarea hexandra,,species,Plantae,8
 327909,Turnera subulata,Cuban Buttercup,species,Plantae,8
+427340,Passiflora amethystina,,species,Plantae,8
 486655,Palicourea croceoides,Yellow Cedar,species,Plantae,8
 490926,Adesmia emarginata,,species,Plantae,8
 525575,Tillandsia stricta,upright airplant,species,Plantae,8
 551015,Doryopteris pentagona,,species,Plantae,8
 626652,Mutisia sinuata,,species,Plantae,8
-630561,Baccharis linearis,Chilean little rosemary,species,Plantae,8
 634529,Berroa gnaphalioides,,species,Plantae,8
 636173,Astelia pumila,soft-camp-bog,species,Plantae,8
-747134,Apuleia leiocarpa,,species,Plantae,8
+772903,Sporobolus alterniflorus,Saltmarsh Cordgrass,species,Plantae,8
 779803,Aristolochia stuckertii,,species,Plantae,8
 785419,Viola tridentata,Mountain violet,species,Plantae,8
 790997,Plantago sempervivoides,,species,Plantae,8
@@ -1307,6 +1309,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 867920,Tetroncium magellanicum,Arrowgrass,species,Plantae,8
 889623,Symplocos uniflora,,species,Plantae,8
 898488,Vachellia albicorticata,,species,Plantae,8
+958622,Geranium parodii,,species,Plantae,8
 1021631,Zygia morongii,,species,Plantae,8
 1031109,Xylosma tweediana,,species,Plantae,8
 1038929,Selenicereus setaceus,,species,Plantae,8
@@ -1320,7 +1323,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 164414,Lagascea mollis,Silkleaf,species,Plantae,7
 192600,Gaultheria nubigena,,species,Plantae,7
 199400,Chromolaena odorata,Siam weed,species,Plantae,7
-427340,Passiflora amethystina,,species,Plantae,7
 547414,Noticastrum marginatum,,species,Plantae,7
 557783,Salpichroa tristis,,species,Plantae,7
 592193,Plantago myosuros,Mouse Plantain,species,Plantae,7
@@ -1328,6 +1330,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 635564,Carex sagei,Sage's Sedge,species,Plantae,7
 712820,Azorella biloba,,species,Plantae,7
 792817,Schlechtendalia luzulifolia,,species,Plantae,7
+867186,Cyathea atrovirens,,species,Plantae,7
+895696,Stevia minor,,species,Plantae,7
 910438,Plectocephalus tweediei,,species,Plantae,7
 936421,Distimake aegyptius,Egyptian woodrose,species,Plantae,7
 980569,Aldama helianthoides,,species,Plantae,7
@@ -1356,11 +1360,11 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 506950,Ipomoea setifera,,species,Plantae,6
 548692,Laureliopsis philippiana,,species,Plantae,6
 701433,Schizanthus hookeri,Mariposita,species,Plantae,6
+750869,Dendropanax cuneatus,,species,Plantae,6
 765107,Gaultheria caespitosa,,species,Plantae,6
 772024,Brunfelsia plowmaniana,,species,Plantae,6
 782971,Myrteola nummularia,Teaberry,species,Plantae,6
 829619,Gavilea litoralis,Yellow Orchid,species,Plantae,6
-867186,Cyathea atrovirens,,species,Plantae,6
 887379,Rubus boliviensis,,species,Plantae,6
 972932,Mandevilla grata,,species,Plantae,6
 1003953,Mikania hemisphaerica,,species,Plantae,6
@@ -1395,7 +1399,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 635479,Lobelia pratiana,Berry-lobelia,species,Plantae,5
 772046,Calibrachoa calycina,,species,Plantae,5
 791080,Plantago tehuelcha,,species,Plantae,5
-895696,Stevia minor,,species,Plantae,5
 896266,Suaeda argentinensis,Argentine Seepweed,species,Plantae,5
 897977,Olsynium acaule,,species,Plantae,5
 905030,Baccharis rhomboidalis,,species,Plantae,5
@@ -1418,6 +1421,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 71036,Aristolochia gigantea,Brazilian Dutchman's Pipe,species,Plantae,4
 76650,Dichondra micrantha,Asian ponysfoot,species,Plantae,4
 76907,Erigeron canadensis,horseweed,species,Plantae,4
+77254,Geranium core-core,Alderney Crane's-bill,species,Plantae,4
+128652,Salvia coccinea,Tropical sage,species,Plantae,4
 155129,Sigesbeckia jorullensis,,species,Plantae,4
 161574,Cyrtopodium punctatum,Cowhorn Orchid,species,Plantae,4
 166894,Piper aduncum,spiked pepper,species,Plantae,4
@@ -1440,7 +1445,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 704574,Distichia muscoides,,species,Plantae,4
 737189,Pyropia columbina,,species,Plantae,4
 738777,Veronica elliptica,Shore Hebe,species,Plantae,4
-750869,Dendropanax cuneatus,,species,Plantae,4
 788007,Zygopetalum maxillare,,species,Plantae,4
 874161,Baccharis racemosa,,species,Plantae,4
 883948,Maxillaria picta,,species,Plantae,4
@@ -1455,6 +1459,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1031112,Baccharis oxyodonta,,species,Plantae,4
 1045552,Lupinus austrorientalis,,species,Plantae,4
 1068724,Stemodia stricta,,species,Plantae,4
+1072124,Nectandra lanceolata,,species,Plantae,4
 1078993,Prunus subcoriacea,,species,Plantae,4
 1099061,Prosopidastrum striatum,,species,Plantae,4
 1117884,Schinus sinuata,,species,Plantae,4
@@ -1471,8 +1476,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 60173,Spergularia villosa,hairy sandspurry,species,Plantae,3
 62833,Cedrela odorata,West Indies Cedrela,species,Plantae,3
 75395,Amaranthus hybridus,Smooth Pigweed,species,Plantae,3
+122965,Ananas comosus,pineapple,species,Plantae,3
 122976,Lactuca sativa,lettuce,species,Plantae,3
-128652,Salvia coccinea,Tropical sage,species,Plantae,3
 133667,Myrsine coriacea,Leathery Colicwood,species,Plantae,3
 135486,Ephedra multiflora,,species,Plantae,3
 143203,Salvia splendens,Scarlet Sage,species,Plantae,3
@@ -1514,7 +1519,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 974081,Muellera fluvialis,,species,Plantae,3
 1006949,Cienfuegosia ulmifolia,,species,Plantae,3
 1023182,Agoseris coronopifolia,Fuegian hawk's-beard,species,Plantae,3
-1072124,Nectandra lanceolata,,species,Plantae,3
 1099425,Condylostylis candida,,species,Plantae,3
 1099801,Aldama revoluta,,species,Plantae,3
 1145476,Hypochaeris variegata,,species,Plantae,3
@@ -1525,6 +1529,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1617135,Anatherum bicorne,bicornis grass,species,Plantae,3
 47602,Taraxacum officinale,common dandelion,species,Plantae,2
 48888,Miconia calvescens,velvet tree,species,Plantae,2
+53143,Madia sativa,coast tarweed,species,Plantae,2
 53184,Digitaria insularis,Sourgrass,species,Plantae,2
 60350,Artemisia absinthium,absinthe wormwood,species,Plantae,2
 60957,Gamochaeta purpurea,Purple Cudweed,species,Plantae,2
@@ -1589,6 +1594,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 543078,Glandularia dissecta,,species,Plantae,2
 549251,Justicia axillaris,,species,Plantae,2
 635472,Ranunculus trullifolius,ladle-leaved buttercup,species,Plantae,2
+712411,Calceolaria tenella,,species,Plantae,2
+718894,Tourrettia lappacea,,species,Plantae,2
 793977,Gloxinia erinoides,,species,Plantae,2
 803699,Hippeastrum glaucescens,,species,Plantae,2
 806753,Calceolaria pinifolia,,species,Plantae,2
@@ -1624,6 +1631,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1418314,Gamocarpha graminea,,species,Plantae,2
 1425326,Ruehssia altissima,,species,Plantae,2
 1429277,Krapovickasia urticifolia,,species,Plantae,2
+1430547,Myrciaria delicatula,,species,Plantae,2
 1432914,Senecio belenensis,,species,Plantae,2
 1433105,Senecio diemii,,species,Plantae,2
 1436805,Funastrum flavum,,species,Plantae,2
@@ -1632,7 +1640,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 48070,Sagittaria latifolia,broadleaf arrowhead,species,Plantae,1
 51832,Hippeastrum reginae,Mexican Lily,species,Plantae,1
 52328,Amaranthus cruentus,Red amaranth,species,Plantae,1
-53143,Madia sativa,coast tarweed,species,Plantae,1
 53778,Santolina chamaecyparissus,Lavender-cotton,species,Plantae,1
 61839,Oxalis latifolia,Garden pink-sorrel,species,Plantae,1
 62811,Carica papaya,Papaya,species,Plantae,1
@@ -1648,7 +1655,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 83908,Cordia superba,,species,Plantae,1
 118916,Marsypianthes chamaedrys,,species,Plantae,1
 119099,Jatropha gossypiifolia,Bellyache Bush,species,Plantae,1
-122965,Ananas comosus,pineapple,species,Plantae,1
 135480,Ephedra breana,Pingo-pingo,species,Plantae,1
 137239,Pleopeltis macrocarpa,Bigfruit Scaly Polypody,species,Plantae,1
 138576,Senna macranthera,,species,Plantae,1
@@ -1707,10 +1713,8 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 571198,Escallonia hypoglauca,,species,Plantae,1
 636260,Rumex magellanicus,Southern dock,species,Plantae,1
 707583,Colobanthus subulatus,Emerald-bog,species,Plantae,1
-712411,Calceolaria tenella,,species,Plantae,1
 716759,Lycianthes repens,,species,Plantae,1
 717918,Urtica echinata,,species,Plantae,1
-718894,Tourrettia lappacea,,species,Plantae,1
 746906,Mutisia subulata,,species,Plantae,1
 765217,Gaultheria tenuifolia,,species,Plantae,1
 774126,Erodium geoides,Argentine Stork's-bill,species,Plantae,1
@@ -1750,6 +1754,7 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1051364,Bidens tenera,,species,Plantae,1
 1091121,Sisyrinchium hasslerianum,,species,Plantae,1
 1097462,Piptocarpha sellovii,,species,Plantae,1
+1097993,Ipomoea heptaphylla,Wright's Morning-glory,species,Plantae,1
 1099065,Prosopidastrum dehiscens,,species,Plantae,1
 1099250,Vriesea philippocoburgi,,species,Plantae,1
 1117840,Schinus ferox,,species,Plantae,1
@@ -1770,7 +1775,6 @@ taxon_id,name,preferred_common_name,rank,iconic_taxon_name,observations_count
 1363873,Alchemilla parodii,,species,Plantae,1
 1409178,Hypolepis poeppigii,Bramble-fern,species,Plantae,1
 1429280,Holocheilus schulzii,,species,Plantae,1
-1430547,Myrciaria delicatula,,species,Plantae,1
 1430607,Solanum olympicum,,species,Plantae,1
 1432225,Eryngium juncifolium,,species,Plantae,1
 1432778,Zephyranthes elwesii,,species,Plantae,1
