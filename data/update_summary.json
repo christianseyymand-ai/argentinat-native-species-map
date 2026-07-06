@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-06-29T14:40:08Z",
+  "updated_at_utc": "2026-07-06T13:55:25Z",
   "place_id": "7190",
   "place_name": "Argentina",
   "scope": "Native/endemic Plantae taxa observed in Argentina on iNaturalist / ArgentiNat",
@@ -7,7 +7,7 @@
   "quality_grade": "research",
   "species_available_from_api": 1823,
   "species_written": 1823,
-  "observations_written": 240006,
+  "observations_written": 240379,
   "taxa_processed_this_run": 1823,
   "taxa_with_observations": 1823,
   "taxa_remaining_without_observations": 0,
