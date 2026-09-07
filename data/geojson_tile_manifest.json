@@ -1,7 +1,7 @@
 {
-  "updated_at_utc": "2026-08-31T18:12:57Z",
+  "updated_at_utc": "2026-09-07T16:21:21Z",
   "tile_degrees": 1.0,
-  "total_observations": 245850,
+  "total_observations": 246504,
   "tiles_count": 332,
   "tiles": {
     "-22,-67": {
@@ -128,7 +128,7 @@
       "path": "geojson_tiles/tile_lat_m24_lon_m65.geojson",
       "lat": -24,
       "lon": -65,
-      "count": 1607,
+      "count": 1608,
       "bounds": {
         "south": -24,
         "west": -65,
@@ -140,7 +140,7 @@
       "path": "geojson_tiles/tile_lat_m24_lon_m66.geojson",
       "lat": -24,
       "lon": -66,
-      "count": 1414,
+      "count": 1417,
       "bounds": {
         "south": -24,
         "west": -66,
@@ -188,7 +188,7 @@
       "path": "geojson_tiles/tile_lat_m25_lon_m60.geojson",
       "lat": -25,
       "lon": -60,
-      "count": 19,
+      "count": 20,
       "bounds": {
         "south": -25,
         "west": -60,
@@ -212,7 +212,7 @@
       "path": "geojson_tiles/tile_lat_m25_lon_m62.geojson",
       "lat": -25,
       "lon": -62,
-      "count": 521,
+      "count": 526,
       "bounds": {
         "south": -25,
         "west": -62,
@@ -236,7 +236,7 @@
       "path": "geojson_tiles/tile_lat_m25_lon_m64.geojson",
       "lat": -25,
       "lon": -64,
-      "count": 54,
+      "count": 55,
       "bounds": {
         "south": -25,
         "west": -64,
@@ -248,7 +248,7 @@
       "path": "geojson_tiles/tile_lat_m25_lon_m65.geojson",
       "lat": -25,
       "lon": -65,
-      "count": 564,
+      "count": 566,
       "bounds": {
         "south": -25,
         "west": -65,
@@ -260,7 +260,7 @@
       "path": "geojson_tiles/tile_lat_m25_lon_m66.geojson",
       "lat": -25,
       "lon": -66,
-      "count": 3097,
+      "count": 3104,
       "bounds": {
         "south": -25,
         "west": -66,
@@ -296,7 +296,7 @@
       "path": "geojson_tiles/tile_lat_m26_lon_m54.geojson",
       "lat": -26,
       "lon": -54,
-      "count": 599,
+      "count": 605,
       "bounds": {
         "south": -26,
         "west": -54,
@@ -308,7 +308,7 @@
       "path": "geojson_tiles/tile_lat_m26_lon_m55.geojson",
       "lat": -26,
       "lon": -55,
-      "count": 3255,
+      "count": 3286,
       "bounds": {
         "south": -26,
         "west": -55,
@@ -368,7 +368,7 @@
       "path": "geojson_tiles/tile_lat_m26_lon_m62.geojson",
       "lat": -26,
       "lon": -62,
-      "count": 780,
+      "count": 781,
       "bounds": {
         "south": -26,
         "west": -62,
@@ -416,7 +416,7 @@
       "path": "geojson_tiles/tile_lat_m26_lon_m66.geojson",
       "lat": -26,
       "lon": -66,
-      "count": 1098,
+      "count": 1101,
       "bounds": {
         "south": -26,
         "west": -66,
@@ -428,7 +428,7 @@
       "path": "geojson_tiles/tile_lat_m26_lon_m67.geojson",
       "lat": -26,
       "lon": -67,
-      "count": 278,
+      "count": 277,
       "bounds": {
         "south": -26,
         "west": -67,
@@ -452,7 +452,7 @@
       "path": "geojson_tiles/tile_lat_m27_lon_m54.geojson",
       "lat": -27,
       "lon": -54,
-      "count": 351,
+      "count": 352,
       "bounds": {
         "south": -27,
         "west": -54,
@@ -476,7 +476,7 @@
       "path": "geojson_tiles/tile_lat_m27_lon_m56.geojson",
       "lat": -27,
       "lon": -56,
-      "count": 85,
+      "count": 88,
       "bounds": {
         "south": -27,
         "west": -56,
@@ -500,7 +500,7 @@
       "path": "geojson_tiles/tile_lat_m27_lon_m59.geojson",
       "lat": -27,
       "lon": -59,
-      "count": 1278,
+      "count": 1290,
       "bounds": {
         "south": -27,
         "west": -59,
@@ -572,7 +572,7 @@
       "path": "geojson_tiles/tile_lat_m27_lon_m65.geojson",
       "lat": -27,
       "lon": -65,
-      "count": 112,
+      "count": 113,
       "bounds": {
         "south": -27,
         "west": -65,
@@ -584,7 +584,7 @@
       "path": "geojson_tiles/tile_lat_m27_lon_m66.geojson",
       "lat": -27,
       "lon": -66,
-      "count": 3470,
+      "count": 3481,
       "bounds": {
         "south": -27,
         "west": -66,
@@ -596,7 +596,7 @@
       "path": "geojson_tiles/tile_lat_m27_lon_m67.geojson",
       "lat": -27,
       "lon": -67,
-      "count": 395,
+      "count": 397,
       "bounds": {
         "south": -27,
         "west": -67,
@@ -632,7 +632,7 @@
       "path": "geojson_tiles/tile_lat_m28_lon_m55.geojson",
       "lat": -28,
       "lon": -55,
-      "count": 507,
+      "count": 510,
       "bounds": {
         "south": -28,
         "west": -55,
@@ -644,7 +644,7 @@
       "path": "geojson_tiles/tile_lat_m28_lon_m56.geojson",
       "lat": -28,
       "lon": -56,
-      "count": 2617,
+      "count": 2647,
       "bounds": {
         "south": -28,
         "west": -56,
@@ -668,7 +668,7 @@
       "path": "geojson_tiles/tile_lat_m28_lon_m58.geojson",
       "lat": -28,
       "lon": -58,
-      "count": 590,
+      "count": 591,
       "bounds": {
         "south": -28,
         "west": -58,
@@ -680,7 +680,7 @@
       "path": "geojson_tiles/tile_lat_m28_lon_m59.geojson",
       "lat": -28,
       "lon": -59,
-      "count": 3926,
+      "count": 3935,
       "bounds": {
         "south": -28,
         "west": -59,
@@ -752,7 +752,7 @@
       "path": "geojson_tiles/tile_lat_m28_lon_m65.geojson",
       "lat": -28,
       "lon": -65,
-      "count": 785,
+      "count": 788,
       "bounds": {
         "south": -28,
         "west": -65,
@@ -812,7 +812,7 @@
       "path": "geojson_tiles/tile_lat_m29_lon_m56.geojson",
       "lat": -29,
       "lon": -56,
-      "count": 106,
+      "count": 109,
       "bounds": {
         "south": -29,
         "west": -56,
@@ -836,7 +836,7 @@
       "path": "geojson_tiles/tile_lat_m29_lon_m58.geojson",
       "lat": -29,
       "lon": -58,
-      "count": 2472,
+      "count": 2473,
       "bounds": {
         "south": -29,
         "west": -58,
@@ -848,7 +848,7 @@
       "path": "geojson_tiles/tile_lat_m29_lon_m59.geojson",
       "lat": -29,
       "lon": -59,
-      "count": 595,
+      "count": 597,
       "bounds": {
         "south": -29,
         "west": -59,
@@ -860,7 +860,7 @@
       "path": "geojson_tiles/tile_lat_m29_lon_m60.geojson",
       "lat": -29,
       "lon": -60,
-      "count": 2734,
+      "count": 2735,
       "bounds": {
         "south": -29,
         "west": -60,
@@ -932,7 +932,7 @@
       "path": "geojson_tiles/tile_lat_m29_lon_m66.geojson",
       "lat": -29,
       "lon": -66,
-      "count": 2495,
+      "count": 2500,
       "bounds": {
         "south": -29,
         "west": -66,
@@ -1040,7 +1040,7 @@
       "path": "geojson_tiles/tile_lat_m30_lon_m61.geojson",
       "lat": -30,
       "lon": -61,
-      "count": 793,
+      "count": 794,
       "bounds": {
         "south": -30,
         "west": -61,
@@ -1088,7 +1088,7 @@
       "path": "geojson_tiles/tile_lat_m30_lon_m65.geojson",
       "lat": -30,
       "lon": -65,
-      "count": 271,
+      "count": 272,
       "bounds": {
         "south": -30,
         "west": -65,
@@ -1112,7 +1112,7 @@
       "path": "geojson_tiles/tile_lat_m30_lon_m67.geojson",
       "lat": -30,
       "lon": -67,
-      "count": 601,
+      "count": 600,
       "bounds": {
         "south": -30,
         "west": -67,
@@ -1124,7 +1124,7 @@
       "path": "geojson_tiles/tile_lat_m30_lon_m68.geojson",
       "lat": -30,
       "lon": -68,
-      "count": 779,
+      "count": 778,
       "bounds": {
         "south": -30,
         "west": -68,
@@ -1184,7 +1184,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m60.geojson",
       "lat": -31,
       "lon": -60,
-      "count": 558,
+      "count": 559,
       "bounds": {
         "south": -31,
         "west": -60,
@@ -1196,7 +1196,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m61.geojson",
       "lat": -31,
       "lon": -61,
-      "count": 977,
+      "count": 979,
       "bounds": {
         "south": -31,
         "west": -61,
@@ -1208,7 +1208,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m62.geojson",
       "lat": -31,
       "lon": -62,
-      "count": 567,
+      "count": 583,
       "bounds": {
         "south": -31,
         "west": -62,
@@ -1220,7 +1220,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m63.geojson",
       "lat": -31,
       "lon": -63,
-      "count": 710,
+      "count": 709,
       "bounds": {
         "south": -31,
         "west": -63,
@@ -1244,7 +1244,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m65.geojson",
       "lat": -31,
       "lon": -65,
-      "count": 2653,
+      "count": 2661,
       "bounds": {
         "south": -31,
         "west": -65,
@@ -1256,7 +1256,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m66.geojson",
       "lat": -31,
       "lon": -66,
-      "count": 110,
+      "count": 109,
       "bounds": {
         "south": -31,
         "west": -66,
@@ -1268,7 +1268,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m67.geojson",
       "lat": -31,
       "lon": -67,
-      "count": 907,
+      "count": 906,
       "bounds": {
         "south": -31,
         "west": -67,
@@ -1280,7 +1280,7 @@
       "path": "geojson_tiles/tile_lat_m31_lon_m68.geojson",
       "lat": -31,
       "lon": -68,
-      "count": 388,
+      "count": 387,
       "bounds": {
         "south": -31,
         "west": -68,
@@ -1328,7 +1328,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m59.geojson",
       "lat": -32,
       "lon": -59,
-      "count": 2599,
+      "count": 2603,
       "bounds": {
         "south": -32,
         "west": -59,
@@ -1340,7 +1340,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m60.geojson",
       "lat": -32,
       "lon": -60,
-      "count": 560,
+      "count": 562,
       "bounds": {
         "south": -32,
         "west": -60,
@@ -1352,7 +1352,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m61.geojson",
       "lat": -32,
       "lon": -61,
-      "count": 14923,
+      "count": 14943,
       "bounds": {
         "south": -32,
         "west": -61,
@@ -1364,7 +1364,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m62.geojson",
       "lat": -32,
       "lon": -62,
-      "count": 2032,
+      "count": 2033,
       "bounds": {
         "south": -32,
         "west": -62,
@@ -1376,7 +1376,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m63.geojson",
       "lat": -32,
       "lon": -63,
-      "count": 185,
+      "count": 186,
       "bounds": {
         "south": -32,
         "west": -63,
@@ -1400,7 +1400,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m65.geojson",
       "lat": -32,
       "lon": -65,
-      "count": 13267,
+      "count": 13284,
       "bounds": {
         "south": -32,
         "west": -65,
@@ -1412,7 +1412,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m66.geojson",
       "lat": -32,
       "lon": -66,
-      "count": 1364,
+      "count": 1366,
       "bounds": {
         "south": -32,
         "west": -66,
@@ -1448,7 +1448,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m69.geojson",
       "lat": -32,
       "lon": -69,
-      "count": 658,
+      "count": 663,
       "bounds": {
         "south": -32,
         "west": -69,
@@ -1460,7 +1460,7 @@
       "path": "geojson_tiles/tile_lat_m32_lon_m70.geojson",
       "lat": -32,
       "lon": -70,
-      "count": 356,
+      "count": 357,
       "bounds": {
         "south": -32,
         "west": -70,
@@ -1484,7 +1484,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m59.geojson",
       "lat": -33,
       "lon": -59,
-      "count": 1616,
+      "count": 1624,
       "bounds": {
         "south": -33,
         "west": -59,
@@ -1496,7 +1496,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m60.geojson",
       "lat": -33,
       "lon": -60,
-      "count": 281,
+      "count": 285,
       "bounds": {
         "south": -33,
         "west": -60,
@@ -1508,7 +1508,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m61.geojson",
       "lat": -33,
       "lon": -61,
-      "count": 5987,
+      "count": 6013,
       "bounds": {
         "south": -33,
         "west": -61,
@@ -1520,7 +1520,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m62.geojson",
       "lat": -33,
       "lon": -62,
-      "count": 430,
+      "count": 432,
       "bounds": {
         "south": -33,
         "west": -62,
@@ -1556,7 +1556,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m65.geojson",
       "lat": -33,
       "lon": -65,
-      "count": 3311,
+      "count": 3323,
       "bounds": {
         "south": -33,
         "west": -65,
@@ -1568,7 +1568,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m66.geojson",
       "lat": -33,
       "lon": -66,
-      "count": 1136,
+      "count": 1151,
       "bounds": {
         "south": -33,
         "west": -66,
@@ -1580,7 +1580,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m67.geojson",
       "lat": -33,
       "lon": -67,
-      "count": 580,
+      "count": 587,
       "bounds": {
         "south": -33,
         "west": -67,
@@ -1592,7 +1592,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m68.geojson",
       "lat": -33,
       "lon": -68,
-      "count": 348,
+      "count": 349,
       "bounds": {
         "south": -33,
         "west": -68,
@@ -1604,7 +1604,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m69.geojson",
       "lat": -33,
       "lon": -69,
-      "count": 3254,
+      "count": 3256,
       "bounds": {
         "south": -33,
         "west": -69,
@@ -1616,7 +1616,7 @@
       "path": "geojson_tiles/tile_lat_m33_lon_m70.geojson",
       "lat": -33,
       "lon": -70,
-      "count": 1700,
+      "count": 1703,
       "bounds": {
         "south": -33,
         "west": -70,
@@ -1640,7 +1640,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m59.geojson",
       "lat": -34,
       "lon": -59,
-      "count": 2420,
+      "count": 2422,
       "bounds": {
         "south": -34,
         "west": -59,
@@ -1652,7 +1652,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m60.geojson",
       "lat": -34,
       "lon": -60,
-      "count": 1415,
+      "count": 1428,
       "bounds": {
         "south": -34,
         "west": -60,
@@ -1664,7 +1664,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m61.geojson",
       "lat": -34,
       "lon": -61,
-      "count": 2852,
+      "count": 2855,
       "bounds": {
         "south": -34,
         "west": -61,
@@ -1676,7 +1676,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m62.geojson",
       "lat": -34,
       "lon": -62,
-      "count": 637,
+      "count": 638,
       "bounds": {
         "south": -34,
         "west": -62,
@@ -1712,7 +1712,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m65.geojson",
       "lat": -34,
       "lon": -65,
-      "count": 205,
+      "count": 206,
       "bounds": {
         "south": -34,
         "west": -65,
@@ -1724,7 +1724,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m66.geojson",
       "lat": -34,
       "lon": -66,
-      "count": 292,
+      "count": 294,
       "bounds": {
         "south": -34,
         "west": -66,
@@ -1736,7 +1736,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m67.geojson",
       "lat": -34,
       "lon": -67,
-      "count": 565,
+      "count": 566,
       "bounds": {
         "south": -34,
         "west": -67,
@@ -1748,7 +1748,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m68.geojson",
       "lat": -34,
       "lon": -68,
-      "count": 153,
+      "count": 154,
       "bounds": {
         "south": -34,
         "west": -68,
@@ -1760,7 +1760,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m69.geojson",
       "lat": -34,
       "lon": -69,
-      "count": 2538,
+      "count": 2539,
       "bounds": {
         "south": -34,
         "west": -69,
@@ -1772,7 +1772,7 @@
       "path": "geojson_tiles/tile_lat_m34_lon_m70.geojson",
       "lat": -34,
       "lon": -70,
-      "count": 2963,
+      "count": 2969,
       "bounds": {
         "south": -34,
         "west": -70,
@@ -1796,7 +1796,7 @@
       "path": "geojson_tiles/tile_lat_m35_lon_m58.geojson",
       "lat": -35,
       "lon": -58,
-      "count": 3997,
+      "count": 4002,
       "bounds": {
         "south": -35,
         "west": -58,
@@ -1808,7 +1808,7 @@
       "path": "geojson_tiles/tile_lat_m35_lon_m59.geojson",
       "lat": -35,
       "lon": -59,
-      "count": 42285,
+      "count": 42448,
       "bounds": {
         "south": -35,
         "west": -59,
@@ -1892,7 +1892,7 @@
       "path": "geojson_tiles/tile_lat_m35_lon_m66.geojson",
       "lat": -35,
       "lon": -66,
-      "count": 24,
+      "count": 25,
       "bounds": {
         "south": -35,
         "west": -66,
@@ -1928,7 +1928,7 @@
       "path": "geojson_tiles/tile_lat_m35_lon_m69.geojson",
       "lat": -35,
       "lon": -69,
-      "count": 464,
+      "count": 465,
       "bounds": {
         "south": -35,
         "west": -69,
@@ -1964,7 +1964,7 @@
       "path": "geojson_tiles/tile_lat_m36_lon_m58.geojson",
       "lat": -36,
       "lon": -58,
-      "count": 2358,
+      "count": 2362,
       "bounds": {
         "south": -36,
         "west": -58,
@@ -1976,7 +1976,7 @@
       "path": "geojson_tiles/tile_lat_m36_lon_m59.geojson",
       "lat": -36,
       "lon": -59,
-      "count": 1393,
+      "count": 1397,
       "bounds": {
         "south": -36,
         "west": -59,
@@ -1988,7 +1988,7 @@
       "path": "geojson_tiles/tile_lat_m36_lon_m60.geojson",
       "lat": -36,
       "lon": -60,
-      "count": 683,
+      "count": 684,
       "bounds": {
         "south": -36,
         "west": -60,
@@ -2120,7 +2120,7 @@
       "path": "geojson_tiles/tile_lat_m36_lon_m71.geojson",
       "lat": -36,
       "lon": -71,
-      "count": 397,
+      "count": 398,
       "bounds": {
         "south": -36,
         "west": -71,
@@ -2216,7 +2216,7 @@
       "path": "geojson_tiles/tile_lat_m37_lon_m64.geojson",
       "lat": -37,
       "lon": -64,
-      "count": 58,
+      "count": 60,
       "bounds": {
         "south": -37,
         "west": -64,
@@ -2228,7 +2228,7 @@
       "path": "geojson_tiles/tile_lat_m37_lon_m65.geojson",
       "lat": -37,
       "lon": -65,
-      "count": 1049,
+      "count": 1051,
       "bounds": {
         "south": -37,
         "west": -65,
@@ -2312,7 +2312,7 @@
       "path": "geojson_tiles/tile_lat_m37_lon_m72.geojson",
       "lat": -37,
       "lon": -72,
-      "count": 135,
+      "count": 136,
       "bounds": {
         "south": -37,
         "west": -72,
@@ -2324,7 +2324,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m57.geojson",
       "lat": -38,
       "lon": -57,
-      "count": 229,
+      "count": 230,
       "bounds": {
         "south": -38,
         "west": -57,
@@ -2336,7 +2336,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m58.geojson",
       "lat": -38,
       "lon": -58,
-      "count": 1139,
+      "count": 1140,
       "bounds": {
         "south": -38,
         "west": -58,
@@ -2360,7 +2360,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m60.geojson",
       "lat": -38,
       "lon": -60,
-      "count": 612,
+      "count": 614,
       "bounds": {
         "south": -38,
         "west": -60,
@@ -2396,7 +2396,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m63.geojson",
       "lat": -38,
       "lon": -63,
-      "count": 506,
+      "count": 508,
       "bounds": {
         "south": -38,
         "west": -63,
@@ -2420,7 +2420,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m65.geojson",
       "lat": -38,
       "lon": -65,
-      "count": 2060,
+      "count": 2064,
       "bounds": {
         "south": -38,
         "west": -65,
@@ -2444,7 +2444,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m67.geojson",
       "lat": -38,
       "lon": -67,
-      "count": 89,
+      "count": 93,
       "bounds": {
         "south": -38,
         "west": -67,
@@ -2480,7 +2480,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m70.geojson",
       "lat": -38,
       "lon": -70,
-      "count": 273,
+      "count": 276,
       "bounds": {
         "south": -38,
         "west": -70,
@@ -2492,7 +2492,7 @@
       "path": "geojson_tiles/tile_lat_m38_lon_m71.geojson",
       "lat": -38,
       "lon": -71,
-      "count": 240,
+      "count": 243,
       "bounds": {
         "south": -38,
         "west": -71,
@@ -2516,7 +2516,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m58.geojson",
       "lat": -39,
       "lon": -58,
-      "count": 473,
+      "count": 476,
       "bounds": {
         "south": -39,
         "west": -58,
@@ -2540,7 +2540,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m60.geojson",
       "lat": -39,
       "lon": -60,
-      "count": 89,
+      "count": 90,
       "bounds": {
         "south": -39,
         "west": -60,
@@ -2552,7 +2552,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m61.geojson",
       "lat": -39,
       "lon": -61,
-      "count": 159,
+      "count": 160,
       "bounds": {
         "south": -39,
         "west": -61,
@@ -2564,7 +2564,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m62.geojson",
       "lat": -39,
       "lon": -62,
-      "count": 1529,
+      "count": 1530,
       "bounds": {
         "south": -39,
         "west": -62,
@@ -2576,7 +2576,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m63.geojson",
       "lat": -39,
       "lon": -63,
-      "count": 2373,
+      "count": 2393,
       "bounds": {
         "south": -39,
         "west": -63,
@@ -2600,7 +2600,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m65.geojson",
       "lat": -39,
       "lon": -65,
-      "count": 193,
+      "count": 205,
       "bounds": {
         "south": -39,
         "west": -65,
@@ -2648,7 +2648,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m69.geojson",
       "lat": -39,
       "lon": -69,
-      "count": 574,
+      "count": 575,
       "bounds": {
         "south": -39,
         "west": -69,
@@ -2684,7 +2684,7 @@
       "path": "geojson_tiles/tile_lat_m39_lon_m72.geojson",
       "lat": -39,
       "lon": -72,
-      "count": 520,
+      "count": 521,
       "bounds": {
         "south": -39,
         "west": -72,
@@ -2924,7 +2924,7 @@
       "path": "geojson_tiles/tile_lat_m41_lon_m71.geojson",
       "lat": -41,
       "lon": -71,
-      "count": 159,
+      "count": 160,
       "bounds": {
         "south": -41,
         "west": -71,
@@ -2936,7 +2936,7 @@
       "path": "geojson_tiles/tile_lat_m41_lon_m72.geojson",
       "lat": -41,
       "lon": -72,
-      "count": 3270,
+      "count": 3279,
       "bounds": {
         "south": -41,
         "west": -72,
@@ -3020,7 +3020,7 @@
       "path": "geojson_tiles/tile_lat_m42_lon_m69.geojson",
       "lat": -42,
       "lon": -69,
-      "count": 18,
+      "count": 19,
       "bounds": {
         "south": -42,
         "west": -69,
@@ -3056,7 +3056,7 @@
       "path": "geojson_tiles/tile_lat_m42_lon_m72.geojson",
       "lat": -42,
       "lon": -72,
-      "count": 7115,
+      "count": 7149,
       "bounds": {
         "south": -42,
         "west": -72,
@@ -3080,7 +3080,7 @@
       "path": "geojson_tiles/tile_lat_m43_lon_m65.geojson",
       "lat": -43,
       "lon": -65,
-      "count": 407,
+      "count": 408,
       "bounds": {
         "south": -43,
         "west": -65,
@@ -3092,7 +3092,7 @@
       "path": "geojson_tiles/tile_lat_m43_lon_m66.geojson",
       "lat": -43,
       "lon": -66,
-      "count": 162,
+      "count": 161,
       "bounds": {
         "south": -43,
         "west": -66,
@@ -3116,7 +3116,7 @@
       "path": "geojson_tiles/tile_lat_m43_lon_m68.geojson",
       "lat": -43,
       "lon": -68,
-      "count": 10,
+      "count": 12,
       "bounds": {
         "south": -43,
         "west": -68,
@@ -3164,7 +3164,7 @@
       "path": "geojson_tiles/tile_lat_m43_lon_m72.geojson",
       "lat": -43,
       "lon": -72,
-      "count": 1397,
+      "count": 1399,
       "bounds": {
         "south": -43,
         "west": -72,
@@ -3200,7 +3200,7 @@
       "path": "geojson_tiles/tile_lat_m44_lon_m67.geojson",
       "lat": -44,
       "lon": -67,
-      "count": 30,
+      "count": 31,
       "bounds": {
         "south": -44,
         "west": -67,
@@ -3476,7 +3476,7 @@
       "path": "geojson_tiles/tile_lat_m47_lon_m72.geojson",
       "lat": -47,
       "lon": -72,
-      "count": 223,
+      "count": 224,
       "bounds": {
         "south": -47,
         "west": -72,
@@ -3572,7 +3572,7 @@
       "path": "geojson_tiles/tile_lat_m49_lon_m67.geojson",
       "lat": -49,
       "lon": -67,
-      "count": 4,
+      "count": 6,
       "bounds": {
         "south": -49,
         "west": -67,
@@ -3716,7 +3716,7 @@
       "path": "geojson_tiles/tile_lat_m50_lon_m73.geojson",
       "lat": -50,
       "lon": -73,
-      "count": 2659,
+      "count": 2675,
       "bounds": {
         "south": -50,
         "west": -73,
@@ -3800,7 +3800,7 @@
       "path": "geojson_tiles/tile_lat_m51_lon_m74.geojson",
       "lat": -51,
       "lon": -74,
-      "count": 1000,
+      "count": 1001,
       "bounds": {
         "south": -51,
         "west": -74,
@@ -3980,7 +3980,7 @@
       "path": "geojson_tiles/tile_lat_m55_lon_m69.geojson",
       "lat": -55,
       "lon": -69,
-      "count": 8405,
+      "count": 8409,
       "bounds": {
         "south": -55,
         "west": -69,
